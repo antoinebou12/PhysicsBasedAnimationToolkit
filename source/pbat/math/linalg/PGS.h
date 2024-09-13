@@ -17,7 +17,7 @@ class PGSSolver
     /**
      * @brief Default constructor for PGSSolver.
      */
-    PBAT_API PGSSolver();
+    PBAT_API PGS();
 
     /**
      * @brief Solves the system using the PGS method.
@@ -38,7 +38,6 @@ class PGSSolver
         double tolerance = 1e-5);
 
   private:
-    // Additional private helper functions for PGS can go here.
 };
 
 } // namespace linalg
