@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  pbat_service:
+    build: .
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - /path/to/your/local/workspace:/workspace
+    command: python3 your_script.py
