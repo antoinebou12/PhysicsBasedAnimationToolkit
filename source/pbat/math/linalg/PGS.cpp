@@ -1,13 +1,13 @@
-#include "PGSSolver.h"
+#include "PGS.h"
 #include <Eigen/Sparse>
 
 namespace pbat {
 namespace math {
 namespace linalg {
 
-PGSSolver::PGSSolver() = default;
+PGSSolver::PGS() = default;
 
-bool PGSSolver::Solve(
+bool PGS::Solve(
     const Eigen::SparseMatrix<double>& A,
     const Eigen::VectorXd& b,
     Eigen::VectorXd& x,
