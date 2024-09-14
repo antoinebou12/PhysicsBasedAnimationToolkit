@@ -1,11 +1,14 @@
-#include <pybind11/pybind11.h>
-#include <pybind11/eigen.h> // For Eigen types
-
 #include "Kernel.h"
+#include <pybind11/eigen.h> // For Eigen types
+#include <pybind11/pybind11.h>
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(sph_kernel, m)
+namespace pbat {
+namespace py {
+namespace fluid {
+
+void Bind(pybind11::module& m)
 {
     py::class_<SPH::Kernel>(m, "Kernel")
         .def(py::init<float>(), py::arg("h") = 0.0f, "Constructs a Kernel object with smoothing length h.")
@@ -13,5 +16,11 @@ PYBIND11_MODULE(sph_kernel, m)
              py::arg("pi"), py::arg("pj"))
         .def("spiky", &SPH::Kernel::spiky, "The spiky kernel gradient function.",
              py::arg("pi"), py::arg("pj"))
-        .def("scorr", &SPH::Kernel::scorr, "Computes the correction factor for density fluctuation.");
+        .def("scorr", &SPH::Kernel::scorr, "Computes the correction factor for density fluctuation.")
+        .def("__repr__", [](const SPH::Kernel& k) {
+            return "<SPH.Kernel with smoothing length>";
+        });
 }
+} // namespace fluid
+} // namespace py
+} // namespace pbat
