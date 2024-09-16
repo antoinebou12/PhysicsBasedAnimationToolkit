@@ -1,0 +1,58 @@
+name: CUDA Local pip install
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Wheels on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            build_tool_args: -j4
+          - os: windows-2022
+            build_tool_args: /p:CL_MPCount=4
+          - os: macos-13
+            build_tool_args: -j4
+          - os: macos-14
+            build_tool_args: -j4
+      max-parallel: 4
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: "3.26.0"
+
+      - name: Setup vcpkg
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgDirectory: ${{ github.workspace }}/vcpkg
+          vcpkgGitCommitId: 055721089e8037d4d617250814d11f881e557549
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - uses: Jimver/cuda-toolkit@v0.2.16
+        id: cuda-toolkit
+        with:
+          cuda: '12.5.0'
+  
+      - name: 'Check CUDA installation'
+        run: |
+            echo "CUDA Toolkit installed at ${{ steps.cuda-toolkit.outputs.cuda-path }}"
+            echo "CUDA Version: ${{ steps.cuda-toolkit.outputs.cuda-version }}"
+            nvcc --version
+
+      - name: Build and install PBAT Python bindings with CUDA
+        run: |
+          pip install . --config-settings=cmake.args="--preset=pip-local-cuda" --config-settings=build.tool-args="${{ matrix.build_tool_args }}" -v
