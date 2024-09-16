@@ -140,3 +140,61 @@ def ldlt(A, ordering: Ordering = Ordering.AMD, solver: SolverBackend = SolverBac
         if class_ is None:
             raise ValueError("pbatoolkit was not built with MKL support")
         return class_()
+
+# PGS Solver
+def pgs(A, b, lower_bounds=None, upper_bounds=None, max_iter=100):
+    """Solves the system Ax = b using the Projected Gauss-Seidel (PGS) method.
+    
+    Args:
+        A (np.ndarray or scipy.sparse.csc_matrix or scipy.sparse.csr_matrix): System matrix.
+        b (np.ndarray): Right-hand side vector.
+        lower_bounds (np.ndarray, optional): Lower bounds for the solution. Defaults to zero vector.
+        upper_bounds (np.ndarray, optional): Upper bounds for the solution. Defaults to vector of 5.
+        max_iter (int, optional): Maximum number of iterations. Defaults to 100.
+        
+    Returns:
+        np.ndarray: Solution vector x.
+    """
+    if isinstance(A, sp.sparse.spmatrix):
+        A = A.toarray()  # Convert sparse matrix to dense for PGS solver.
+    
+    if lower_bounds is None:
+        lower_bounds = np.zeros_like(b)
+    if upper_bounds is None:
+        upper_bounds = np.ones_like(b) * 5.0  # Example upper bound
+    
+    solver = _linalg.PGS(max_iter)
+    x = np.zeros_like(b)
+    solver.solve(A, b, x, lower_bounds, upper_bounds)
+    
+    return x
+
+
+# PGSSM Solver
+def pgssm(A, b, lower_bounds=None, upper_bounds=None, max_iter=100, sub_iter=10):
+    """Solves the system Ax = b using the Projected Gauss-Seidel Subspace Minimization (PGSSM) method.
+    
+    Args:
+        A (np.ndarray or scipy.sparse.csc_matrix or scipy.sparse.csr_matrix): System matrix.
+        b (np.ndarray): Right-hand side vector.
+        lower_bounds (np.ndarray, optional): Lower bounds for the solution. Defaults to zero vector.
+        upper_bounds (np.ndarray, optional): Upper bounds for the solution. Defaults to vector of 5.
+        max_iter (int, optional): Maximum number of iterations. Defaults to 100.
+        sub_iter (int, optional): Number of subspace iterations. Defaults to 10.
+        
+    Returns:
+        np.ndarray: Solution vector x.
+    """
+    if isinstance(A, sp.sparse.spmatrix):
+        A = A.toarray()  # Convert sparse matrix to dense for PGSSM solver.
+    
+    if lower_bounds is None:
+        lower_bounds = np.zeros_like(b)
+    if upper_bounds is None:
+        upper_bounds = np.ones_like(b) * 5.0  # Example upper bound
+    
+    solver = _linalg.PGSSM(max_iter, sub_iter)
+    x = np.zeros_like(b)
+    solver.solve(A, b, x, lower_bounds, upper_bounds)
+    
+    return x
