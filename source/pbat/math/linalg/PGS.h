@@ -19,8 +19,8 @@ public:
                Eigen::VectorXf const& lowerBounds,
                Eigen::VectorXf const& upperBounds) const;
 
-    void SetMaxIterations(int maxIter) { m_maxIter = maxIter; }
-    int GetMaxIterations() const { return m_maxIter; }
+    void SetMaxIterations(int maxIter);
+    int GetMaxIterations() const;
 
 private:
     int m_maxIter;
