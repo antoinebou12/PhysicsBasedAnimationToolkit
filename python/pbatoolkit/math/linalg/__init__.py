@@ -141,7 +141,6 @@ def ldlt(A, ordering: Ordering = Ordering.AMD, solver: SolverBackend = SolverBac
             raise ValueError("pbatoolkit was not built with MKL support")
         return class_()
 
-# PGS Solver
 def pgs(A, b, lower_bounds=None, upper_bounds=None, max_iter=100):
     """Solves the system Ax = b using the Projected Gauss-Seidel (PGS) method.
     
@@ -170,7 +169,6 @@ def pgs(A, b, lower_bounds=None, upper_bounds=None, max_iter=100):
     return x
 
 
-# PGSSM Solver
 def pgssm(A, b, lower_bounds=None, upper_bounds=None, max_iter=100, sub_iter=10):
     """Solves the system Ax = b using the Projected Gauss-Seidel Subspace Minimization (PGSSM) method.
     
