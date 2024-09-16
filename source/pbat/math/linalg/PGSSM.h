@@ -28,11 +28,11 @@ public:
                         std::vector<int>& U,
                         std::vector<int>& A) const;
                         
-    void SetMaxIterations(int maxIter) { m_maxIter = maxIter; }
-    int GetMaxIterations() const { return m_maxIter; }
-    
-    void SetSubIterations(int subIter) { m_subIter = subIter; }
-    int GetSubIterations() const { return m_subIter; }
+    void SetMaxIterations(int maxIter);
+    int GetMaxIterations() const;
+
+    void SetSubIterations(int subIter);
+    int GetSubIterations() const;
 
 private:
     int m_maxIter;
