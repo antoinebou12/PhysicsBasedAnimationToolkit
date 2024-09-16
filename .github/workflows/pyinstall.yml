@@ -45,3 +45,11 @@ jobs:
       - name: Build and install PBAT Python bindings
         run: |
           pip install . --config-settings=cmake.args="--preset=pip" --config-settings=build.tool-args="${{ matrix.build_tool_args }}" -v
+
+      - name: Run PBAT Python toolkit and inspect modules
+        run: |
+          python -c "import pbatoolkit as pbat; \
+                     help(pbat.fem); \
+                     help(pbat.geometry); \
+                     help(pbat.profiling); \
+                     help(pbat.math.linalg)"
