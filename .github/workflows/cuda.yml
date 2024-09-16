@@ -47,6 +47,11 @@ jobs:
             echo "CUDA Version: ${{ steps.cuda-toolkit.outputs.cuda-version }}"
             nvcc --version
 
+      - name: Add CUDA to CUDA_PATH environment variable
+        run: |
+          echo "CUDA_PATH=${{ steps.cuda-toolkit.outputs.cuda-path }}" >> $GITHUB_ENV
+          echo "CUDA_PATH environment variable set to ${{ steps.cuda-toolkit.outputs.cuda-path }}"
+
       - name: Copy CUDA MSBuildExtensions files to Visual Studio BuildCustomizations (Windows only)
         if: runner.os == 'Windows'
         run: |
@@ -57,7 +62,7 @@ jobs:
 
           echo "Copying CUDA MSBuildExtensions files from $src to $dst"
           Copy-Item "$src\\*" -Destination $dst -Recurse -Force
-          
+
       - name: Build and install PBAT Python bindings with CUDA
         run: |
           pip install . --config-settings=cmake.args="--preset=pip-local-cuda" --config-settings=build.tool-args="${{ matrix.build_tool_args }}" -v
