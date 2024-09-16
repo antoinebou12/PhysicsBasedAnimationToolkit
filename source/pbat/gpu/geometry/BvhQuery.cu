@@ -10,8 +10,8 @@ namespace pbat {
 namespace gpu {
 namespace geometry {
 
-BvhQuery::BvhQuery(std::size_t nPrimitives, std::size_t nOverlaps)
-    : mImpl(new BvhQueryImpl(nPrimitives, nOverlaps))
+BvhQuery::BvhQuery(std::size_t nPrimitives, std::size_t nOverlaps, std::size_t nNearestNeighbours)
+    : mImpl(new BvhQueryImpl(nPrimitives, nOverlaps, nNearestNeighbours))
 {
 }
 
@@ -51,6 +51,35 @@ BvhQuery::DetectOverlaps(Points const& P, Simplices const& S1, Simplices const& 
         O(1, o) = overlaps[o].second;
     }
     return O;
+}
+
+GpuIndexMatrixX BvhQuery::DetectContactPairsFromOverlaps(
+    Points const& P,
+    Simplices const& S1,
+    Simplices const& S2,
+    Bodies const& B1,
+    Bodies const& B2,
+    Bvh const& bvh,
+    GpuScalar dhat,
+    GpuScalar dzero)
+{
+    mImpl->DetectContactPairsFromOverlaps(
+        *P.Impl(),
+        *S1.Impl(),
+        *S2.Impl(),
+        *B1.Impl(),
+        *B2.Impl(),
+        *bvh.Impl(),
+        dhat,
+        dzero);
+    auto neighbours = mImpl->neighbours.Get();
+    GpuIndexMatrixX N(2, neighbours.size());
+    for (auto n = 0; n < neighbours.size(); ++n)
+    {
+        N(0, n) = neighbours[n].first;
+        N(1, n) = neighbours[n].second;
+    }
+    return N;
 }
 
 BvhQuery::~BvhQuery()

@@ -22,6 +22,7 @@ target_compile_definitions(PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToo
     $<$<BOOL:${PBAT_USE_INTEL_MKL}>:PBAT_USE_INTEL_MKL>
     $<$<BOOL:${PBAT_USE_SUITESPARSE}>:PBAT_USE_SUITESPARSE>
     $<$<BOOL:${PBAT_USE_CUDA}>:PBAT_USE_CUDA>
+    $<$<BOOL:${PBAT_USE_CUDA}>:EIGEN_NO_CUDA>
     PBAT_ROOT="${PROJECT_SOURCE_DIR}"
 )
 
@@ -50,8 +51,14 @@ target_link_libraries(PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit
     range-v3::meta
     range-v3::range-v3
     TBB::tbb
-    Tracy::TracyClient
 )
+
+if(PBAT_ENABLE_PROFILER)
+    target_link_libraries(PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit
+        PUBLIC
+        Tracy::TracyClient
+    )
+endif()
 
 if(PBAT_USE_INTEL_MKL)
     target_link_libraries(PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit

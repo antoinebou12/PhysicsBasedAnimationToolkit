@@ -6,6 +6,8 @@
 #include "pbat/gpu/Aliases.h"
 
 #include <cuda/atomic>
+#include <exception>
+#include <string>
 #include <vector>
 
 namespace pbat {
@@ -34,6 +36,20 @@ class DeviceSynchronizedList
         return true;
     }
 
+    __device__ T& operator[](auto i)
+    {
+        assert(i >= 0);
+        assert(i < (*mSize));
+        return mBuffer[i];
+    }
+
+    __device__ T const& operator[](auto i) const
+    {
+        assert(i >= 0);
+        assert(i < (*mSize));
+        return mBuffer[i];
+    }
+
   private:
     T* mBuffer;
     GpuIndex* mSize;
@@ -52,6 +68,17 @@ class SynchronizedList
     Buffer<T>& Memory() { return mBuffer; }
     Buffer<T> const& Memory() const { return mBuffer; }
     GpuIndex Size() const { return mSize.Get(); }
+    void Resize(GpuIndex size)
+    {
+        if ((size < 0) or (size > mBuffer.Size()))
+        {
+            std::string const what = "Resize called with size outside of range [0,buffer capacity]";
+            throw std::invalid_argument(what);
+        }
+        mSize = size;
+    }
+    auto Begin() { return mBuffer.Data(); }
+    auto End() { return mBuffer.Data() + mSize.Get(); }
 
   private:
     Buffer<T> mBuffer;
