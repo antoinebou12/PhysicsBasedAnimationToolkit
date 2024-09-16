@@ -6,6 +6,8 @@ target_sources(PhysicsBasedAnimationToolkit_Python
     "LinAlg.h"
     "Pardiso.h"
     "SimplicialLDLT.h"
+    "PGS.h"
+    "PGSSM.h"
 )
 
 target_sources(PhysicsBasedAnimationToolkit_Python
@@ -14,4 +16,6 @@ target_sources(PhysicsBasedAnimationToolkit_Python
     "LinAlg.cpp"
     "Pardiso.cpp"
     "SimplicialLDLT.cpp"
+    "PGS.cpp"
+    "PGSSM.cpp"
 )
