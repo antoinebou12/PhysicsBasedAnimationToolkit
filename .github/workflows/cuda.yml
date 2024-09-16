@@ -39,7 +39,7 @@ jobs:
       - uses: Jimver/cuda-toolkit@v0.2.16
         id: cuda-toolkit
         with:
-          cuda: '12.6.0'
+          cuda: '12.5.0'
   
       - name: 'Check CUDA installation'
         run: |
@@ -50,7 +50,7 @@ jobs:
       - name: Copy CUDA MSBuildExtensions files to Visual Studio BuildCustomizations (Windows only)
         if: runner.os == 'Windows'
         run: |
-          $cudaVersion = "v12.6.0" # Set this to your CUDA version
+          $cudaVersion = "v12.5.0" # Set this to your CUDA version
           $cudaPath = "${{ steps.cuda-toolkit.outputs.cuda-path }}"
           $src = "$cudaPath\\extras\\visual_studio_integration\\MSBuildExtensions"
           $dst = "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\MSBuild\\Microsoft\\VC\\v160\\BuildCustomizations"
