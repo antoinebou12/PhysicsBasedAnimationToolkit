@@ -7,6 +7,16 @@ namespace pbat {
 namespace math {
 namespace linalg {
 
+void PGS::SetMaxIterations(int maxIter)
+{
+    m_maxIter = maxIter;
+}
+
+int PGS::GetMaxIterations() const
+{
+    return m_maxIter;
+}
+
 PGS::PGS(int maxIter) : m_maxIter(maxIter)
 {
 }
