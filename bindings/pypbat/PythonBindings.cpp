@@ -2,6 +2,7 @@
 #include "geometry/Geometry.h"
 #include "gpu/Gpu.h"
 #include "math/Math.h"
+#include "pbf/Pbf.h"
 #include "profiling/Profiling.h"
 
 #include <pybind11/pybind11.h>
@@ -20,4 +21,6 @@ PYBIND11_MODULE(_pbat, m)
     pbat::py::gpu::Bind(mgpu);
     auto mmath = m.def_submodule("math");
     pbat::py::math::Bind(mmath);
+    auto mpbf = m.def_submodule("pbf");
+    pbat::py::pbf::Bind(mpbf);
 }

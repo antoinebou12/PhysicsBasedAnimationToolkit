@@ -8,6 +8,7 @@ add_subdirectory(geometry)
 add_subdirectory(gpu)
 add_subdirectory(math)
 add_subdirectory(profiling)
+add_subdirectory(pbf)
 
 target_link_libraries(PhysicsBasedAnimationToolkit_Python
     PRIVATE
