@@ -28,18 +28,20 @@ void PGS::Solve(const Eigen::MatrixXf& A,
                 Eigen::VectorXf& x,
                 const Eigen::VectorXf& lowerBounds,
                 const Eigen::VectorXf& upperBounds,
-                const Eigen::VectorXf& preconditioner) const
+                const Eigen::MatrixXf& preconditioner) const
 {
-    Eigen::VectorXf M_inv_diag;
+    Eigen::MatrixXf M;
     if (preconditioner.size() == 0)
     {
-        // No preconditioner provided; use inverse of the diagonal of A
-        M_inv_diag = A.diagonal().cwiseInverse();
+        // No preconditioner provided; use the identity matrix
+        M = Eigen::MatrixXf::Identity(A.rows(), A.cols());
     }
     else
     {
-        M_inv_diag = preconditioner;
+        M = preconditioner;
     }
+
+    Eigen::MatrixXf M_inv = M.inverse();
 
     for (int iter = 0; iter < m_maxIter; ++iter)
     {
@@ -54,7 +56,7 @@ void PGS::Solve(const Eigen::MatrixXf& A,
                 }
             }
 
-            float xi = M_inv_diag(i) * (b(i) - sigma);
+            float xi = M_inv.row(i).dot(b - sigma * Eigen::VectorXf::Unit(A.rows(), i));
 
             // Apply the projection onto the box constraints
             x(i) = std::max(lowerBounds(i), std::min(upperBounds(i), xi));
