@@ -13,14 +13,15 @@ public:
     PGS(int maxIter = 100);
     ~PGS();
 
-    void Solve(Eigen::MatrixXf const& A,
-               Eigen::VectorXf const& b,
-               Eigen::VectorXf& x,
-               Eigen::VectorXf const& lowerBounds,
-               Eigen::VectorXf const& upperBounds) const;
-
     void SetMaxIterations(int maxIter);
     int GetMaxIterations() const;
+
+    void Solve(const Eigen::MatrixXf& A,
+               const Eigen::VectorXf& b,
+               Eigen::VectorXf& x,
+               const Eigen::VectorXf& lowerBounds,
+               const Eigen::VectorXf& upperBounds,
+               const Eigen::VectorXf& preconditioner = Eigen::VectorXf()) const;
 
 private:
     int m_maxIter;
