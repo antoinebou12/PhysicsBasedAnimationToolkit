@@ -1,0 +1,1065 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="_static/favicon.ico">
+    
+    
+      
+        <title>Physics Based Animation Toolkit</title>
+      
+    
+    
+      
+        
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="_static/sphinx_immaterial_theme.3394d25b557047e78.min.css" />
+        <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+        <link rel="stylesheet" type="text/css" href="_static/autoclasstoc.css" />
+        <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="#" title="Physics Based Animation Toolkit" class="md-header__button md-logo" aria-label="Physics Based Animation Toolkit" data-md-component="logo">
+      <img src="_static/pbat.svg" alt="logo">
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Physics Based Animation Toolkit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Q-Minh/PhysicsBasedAnimationToolkit" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Q-Minh/PhysicsBasedAnimationToolkit
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="#" class="md-tabs__link md-tabs__link--active">
+      <span class="md-ellipsis">General</span>
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="tutorial/getting_started.html" class="md-tabs__link">
+      <span class="md-ellipsis">Tutorial</span>
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="contributing.html" class="md-tabs__link">
+      <span class="md-ellipsis">Developers</span>
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="#" title="Physics Based Animation Toolkit" class="md-nav__button md-logo" aria-label="Physics Based Animation Toolkit" data-md-component="logo">
+      <img src="_static/pbat.svg" alt="logo">
+    </a>
+    Physics Based Animation Toolkit
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Q-Minh/PhysicsBasedAnimationToolkit" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Q-Minh/PhysicsBasedAnimationToolkit
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          <span class="md-ellipsis">General</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="General" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">General</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        <span title="/index.rst (reference label)" class="md-ellipsis">Home</span>
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="changelog.html" class="md-nav__link">
+        <span title="/changelog.rst (reference label)" class="md-ellipsis">Changelog</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="license.html" class="md-nav__link">
+        <span title="/license.rst (reference label)" class="md-ellipsis">License</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          <span class="md-ellipsis">Tutorial</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorial" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Tutorial</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tutorial/getting_started.html" class="md-nav__link">
+        <span title="/tutorial/getting_started.rst (reference label)" class="md-ellipsis">Tutorial</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tutorial/fem.html" class="md-nav__link">
+        <span title="/tutorial/fem.rst (reference label)" class="md-ellipsis">The Finite Element Method</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          <span class="md-ellipsis">Developers</span>
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          <span class="md-ellipsis">Developers</span>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing.html" class="md-nav__link">
+        <span title="/contributing.rst (reference label)" class="md-ellipsis">Contributing</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="style_guide.html" class="md-nav__link">
+        <span title="/style_guide.rst (reference label)" class="md-ellipsis">Style Guide</span>
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="code_of_conduct.html" class="md-nav__link">
+        <span title="/code_of_conduct.rst (reference label)" class="md-ellipsis">Code of Conduct</span>
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span title="/index.rst#overview (reference label)" class="md-ellipsis">Overview</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span title="/index.rst#features (reference label)" class="md-ellipsis">Features</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span title="/index.rst#dependencies (reference label)" class="md-ellipsis">Dependencies</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span title="/index.rst#configuration (reference label)" class="md-ellipsis">Configuration</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span title="/index.rst#build (reference label)" class="md-ellipsis">Build</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span title="/index.rst#install (reference label)" class="md-ellipsis">Install</span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span title="/index.rst#quick-start (reference label)" class="md-ellipsis">Quick start</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span title="/index.rst#c (reference label)" class="md-ellipsis">C++</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span title="/index.rst#python (reference label)" class="md-ellipsis">Python</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tutorial" class="md-nav__link">
+    <span title="/index.rst#tutorial (reference label)" class="md-ellipsis">Tutorial</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gallery" class="md-nav__link">
+    <span title="/index.rst#gallery (reference label)" class="md-ellipsis">Gallery</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gallery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#harmonic-interpolation" class="md-nav__link">
+    <span title="/index.rst#harmonic-interpolation (reference label)" class="md-ellipsis">Harmonic interpolation</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heat-method-for-geodesic-distance-computation" class="md-nav__link">
+    <span title="/index.rst#heat-method-for-geodesic-distance-computation (reference label)" class="md-ellipsis">Heat method for geodesic distance computation</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh-smoothing-via-diffusion" class="md-nav__link">
+    <span title="/index.rst#mesh-smoothing-via-diffusion (reference label)" class="md-ellipsis">Mesh smoothing via diffusion</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hyper-elastic-simulation" class="md-nav__link">
+    <span title="/index.rst#hyper-elastic-simulation (reference label)" class="md-ellipsis">Hyper elastic simulation</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inter-penetration-free-elastodynamic-contact" class="md-nav__link">
+    <span title="/index.rst#inter-penetration-free-elastodynamic-contact (reference label)" class="md-ellipsis">Inter-<wbr>penetration free elastodynamic contact</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-time-elastodynamics" class="md-nav__link">
+    <span title="/index.rst#real-time-elastodynamics (reference label)" class="md-ellipsis">Real-<wbr>time elastodynamics</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modal-analysis" class="md-nav__link">
+    <span title="/index.rst#modal-analysis (reference label)" class="md-ellipsis">Modal analysis</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu-broad-phase-collision-detection" class="md-nav__link">
+    <span title="/index.rst#gpu-broad-phase-collision-detection (reference label)" class="md-ellipsis">GPU broad phase collision detection</span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiling-statistics" class="md-nav__link">
+    <span title="/index.rst#profiling-statistics (reference label)" class="md-ellipsis">Profiling statistics</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span title="/index.rst#contributing (reference label)" class="md-ellipsis">Contributing</span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contributing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#coding-style" class="md-nav__link">
+    <span title="/index.rst#coding-style (reference label)" class="md-ellipsis">Coding style</span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                  
+
+
+  <a href="https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/blob/main/docs/source/index.rst" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<h1 id="home">Home<a class="headerlink" href="#home" title="Permalink to this heading">¶</a></h1>
+<img alt="PhysicsBasedAnimationToolkit" src="_images/pbat.png" />
+<blockquote>
+<div><p><em>We recommend exploring the official <a class="reference external" href="https://cmake.org/cmake/help/latest/">CMake documentation</a> to beginner CMake users</em>.</p>
+</div></blockquote>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
+<p>The Physics Based Animation Toolkit (PBAT) is a (mostly templated) cross-platform C++20 library of algorithms and data structures commonly used in computer graphics research on physically-based simulation in dimensions <code class="docutils literal notranslate"><span class="pre">1,2,3</span></code>. For most use cases, we recommend using our library via its Python interface, enabling seamless integration into Python’s ecosystem of powerful scientific computing packages.</p>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Finite Element Method (FEM) meshes and operators</p>
+<ul>
+<li><p>Dimensions <code class="docutils literal notranslate"><span class="pre">1,2,3</span></code></p></li>
+<li><p>Lagrange shape functions of order <code class="docutils literal notranslate"><span class="pre">1,2,3</span></code></p></li>
+<li><p>Line, triangle, quadrilateral, tetrahedron and hexahedron elements</p></li>
+</ul>
+</li>
+<li><p>Hyper elastic material models</p>
+<ul>
+<li><p>Saint-Venant Kirchhoff</p></li>
+<li><p>Stable Neo-Hookean</p></li>
+</ul>
+</li>
+<li><p>Polynomial quadrature rules</p>
+<ul>
+<li><p>Simplices in dimensions <code class="docutils literal notranslate"><span class="pre">1,2,3</span></code></p></li>
+<li><p>Gauss-Legendre quadrature</p></li>
+</ul>
+</li>
+<li><p>Spatial query acceleration data structures</p>
+<ul>
+<li><p>Bounding volume hierarchy for triangles (2D+3D) and tetrahedra (3D)</p>
+<ul>
+<li><p>Nearest neighbours</p></li>
+<li><p>Overlapping primitive pairs</p></li>
+<li><p>Point containment</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>GPU algorithms</p>
+<ul>
+<li><p>eXtended Position Based Dynamics (XPBD)</p></li>
+<li><p>Broad phase collision detection</p>
+<ul>
+<li><p>Sweep and Prune</p></li>
+<li><p>Linear Bounding Volume Hierarchy</p></li>
+</ul>
+</li>
+<li><p>Fixed-size matrix operations in kernel code</p></li>
+</ul>
+</li>
+<li><p>Seamless profiling integration via <a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a></p></li>
+</ul>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="#./vcpkg.json"><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">vcpkg.json</span></code></span></a> for a versioned list of our dependencies, available via <a class="reference external" href="https://github.com/microsoft/vcpkg">vcpkg</a> (use of <a class="reference external" href="https://github.com/microsoft/vcpkg">vcpkg</a> is not mandatory, as long as dependencies have compatible versions and are discoverable by CMake’s <a class="reference external" href="https://cmake.org/cmake/help/latest/command/find_package.html"><code class="docutils literal notranslate"><span class="pre">find_package</span></code></a> mechanism).</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">¶</a></h2>
+<table class="docutils data align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Values</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PBAT_BUILD_PYTHON_BINDINGS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ON,OFF</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+<td><p>Enable <code class="docutils literal notranslate"><span class="pre">PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit</span></code> Python bindings. Generates the CMake target <code class="docutils literal notranslate"><span class="pre">PhysicsBasedAnimationToolkit_Python</span></code>, an extension module for Python, built by this project.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PBAT_BUILD_TESTS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ON,OFF</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+<td><p>Enable <code class="docutils literal notranslate"><span class="pre">PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit</span></code> unit tests. Generates the CMake target executable <code class="docutils literal notranslate"><span class="pre">PhysicsBasedAnimationToolkit_Tests</span></code>, built by this project.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PBAT_ENABLE_PROFILER</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ON,OFF</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+<td><p>Enable <a class="reference external" href="https://github.com/wolfpld/tracy"><code class="docutils literal notranslate"><span class="pre">Tracy</span></code></a> instrumentation profiling in built <code class="docutils literal notranslate"><span class="pre">PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PBAT_PROFILE_ON_DEMAND</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ON,OFF</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+<td><p>Activate Tracy’s on-demand profiling when <code class="docutils literal notranslate"><span class="pre">PBAT_ENABLE_PROFILER</span></code> is <code class="docutils literal notranslate"><span class="pre">ON</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PBAT_USE_INTEL_MKL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ON,OFF</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+<td><p>Link to user-provided <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html">Intel MKL</a> installation via CMake’s <a class="reference external" href="https://cmake.org/cmake/help/latest/command/find_package.html"><code class="docutils literal notranslate"><span class="pre">find_package</span></code></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PBAT_USE_SUITESPARSE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ON,OFF</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+<td><p>Link to user-provided <a class="reference external" href="https://github.com/DrTimothyAldenDavis/SuiteSparse">SuiteSparse</a> installation via CMake’s <a class="reference external" href="https://cmake.org/cmake/help/latest/command/find_package.html"><code class="docutils literal notranslate"><span class="pre">find_package</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PBAT_BUILD_SHARED_LIBS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ON,OFF</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+<td><p>Build project’s library targets as shared/dynamic.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Our project provides <a class="reference internal" href="#./CMakePresets.json"><span class="xref myst">configuration presets</span></a> that capture typical use configurations. Refer to the <a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html">CMake presets documentation</a> for more information.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code>cmake<span class="w"> </span>-S<span class="w"> </span>&lt;path/to/PhysicsBasedAnimationToolkit&gt;<span class="w"> </span>-B<span class="w"> </span>&lt;path/to/build&gt;<span class="w"> </span><span class="c1">#-D&lt;option&gt;=&lt;value&gt;</span>
+<span class="c1"># or, alternatively</span>
+cmake<span class="w"> </span>--preset<span class="o">=</span>&lt;my-favorite-user-preset&gt;
+</code></pre></div>
+</div>
+<h2 id="build">Build<a class="headerlink" href="#build" title="Permalink to this heading">¶</a></h2>
+<p>Build transparently across platforms using the <a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake.1.html#build-a-project">cmake build CLI</a>.</p>
+<p>CMake build targets:</p>
+<table class="docutils data align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Target</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit</span></code></p></td>
+<td><p>The PBA Toolkit library.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PhysicsBasedAnimationToolkit_Tests</span></code></p></td>
+<td><p>The test executable, using <a class="reference external" href="https://github.com/doctest/doctest">doctest</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">PhysicsBasedAnimationToolkit_Python</span></code></p></td>
+<td><p>PBAT’s Python extension module, using <a class="reference external" href="https://github.com/pybind/pybind11">pybind11</a>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>For example, to build tests, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code>cmake<span class="w"> </span>--build<span class="w"> </span>&lt;path/to/build/folder&gt;<span class="w"> </span>--target<span class="w"> </span>PhysicsBasedAnimationToolkit_Tests<span class="w"> </span>--config<span class="w"> </span>Release
+</code></pre></div>
+</div>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permalink to this heading">¶</a></h2>
+<p>From command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>path/to/PhysicsBasedAnimationToolkit
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span><span class="c1"># -D&lt;option&gt;=&lt;value&gt; ...</span>
+cmake<span class="w"> </span>--install<span class="w"> </span>build<span class="w"> </span>--config<span class="w"> </span>Release
+</code></pre></div>
+</div>
+<p>Alternatively, if <a class="reference external" href="https://github.com/microsoft/vcpkg"><code class="docutils literal notranslate"><span class="pre">vcpkg</span></code></a> is installed and <code class="docutils literal notranslate"><span class="pre">VCPKG_ROOT=path/to/vcpkg</span></code> is set as an environment variable, you can select one of our available presets, for example <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--preset=default</span></code> and then install.</p>
+<h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p><em>We recommend downloading the <a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a> profiler server to analyze execution of PBAT algorithms, available as <a class="reference external" href="https://github.com/wolfpld/tracy/releases">precompiled executable</a>. PBAT currently supports <a class="reference external" href="https://github.com/wolfpld/tracy/releases/tag/v0.10">Tracy 0.10</a>.</em></p>
+</div></blockquote>
+<h3 id="c">C++<a class="headerlink" href="#c" title="Permalink to this heading">¶</a></h3>
+<p>Take a look at the unit tests, found in the library’s source (<code class="docutils literal notranslate"><span class="pre">.cpp</span></code> or <code class="docutils literal notranslate"><span class="pre">.cu</span></code>) files.</p>
+<h3 id="python">Python<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h3>
+<p>To download and install from PyPI, run in command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pbatoolkit
+</code></pre></div>
+</div>
+<blockquote>
+<div><p><em>To use <a class="reference external" href="https://pypi.org/project/pbatoolkit/"><code class="docutils literal notranslate"><span class="pre">pbatoolkit</span></code></a>’s GPU algorithms, you must build from source, i.e. the prebuilt <a class="reference external" href="https://pypi.org/project/pbatoolkit/"><code class="docutils literal notranslate"><span class="pre">pbatoolkit</span></code></a> package hosted from PyPI does not include GPU code.</em></p>
+</div></blockquote>
+<p>For a local installation, which builds from source, our Python bindings build relies on <a class="reference external" href="https://scikit-build-core.readthedocs.io/en/latest/index.html">Scikit-build-core</a>, which relies on CMake’s <a class="reference external" href="https://cmake.org/cmake/help/latest/command/install.html"><code class="docutils literal notranslate"><span class="pre">install</span></code></a> mechanism. As such, you can configure the installation as you typically would when using the CMake CLI directly, by now passing the corresponding CMake arguments in <code class="docutils literal notranslate"><span class="pre">pip</span></code>’s <code class="docutils literal notranslate"><span class="pre">config-settings</span></code> parameter (refer to the <a class="reference external" href="https://scikit-build-core.readthedocs.io/en/latest/index.html">Scikit-build-core</a> documentation for the relevant parameters). See our <a class="reference internal" href="#.github/workflows/pyinstall.yml"><span class="xref myst">pyinstall workflow</span></a> for working examples of building from source on Linux, MacOS and Windows. Then, assuming that external dependencies are found via CMake’s <a class="reference external" href="https://cmake.org/cmake/help/latest/command/find_package.html"><code class="docutils literal notranslate"><span class="pre">find_package</span></code></a>, you can build and install our Python package <a class="reference external" href="https://pypi.org/project/pbatoolkit/"><code class="docutils literal notranslate"><span class="pre">pbatoolkit</span></code></a> locally and get the most up to date features. Consider using a <a class="reference external" href="https://docs.python.org/3/library/venv.html">Python virtual environment</a> for this step.</p>
+<p>As an example, assuming use of <a class="reference external" href="https://github.com/microsoft/vcpkg"><code class="docutils literal notranslate"><span class="pre">vcpkg</span></code></a> for external dependency management, with <code class="docutils literal notranslate"><span class="pre">VCPKG_ROOT</span></code> set as an environment variable, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>--config-settings<span class="o">=</span>cmake.args<span class="o">=</span><span class="s2">&quot;--preset=pip-local&quot;</span><span class="w"> </span>-v
+</code></pre></div>
+</div>
+<p>on the command line to build <a class="reference external" href="https://pypi.org/project/pbatoolkit/"><code class="docutils literal notranslate"><span class="pre">pbatoolkit</span></code></a> from source. To build with GPU algorithms included, refer to the Configuration section. Additional CMake variables (i.e. <a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_CUDA_ARCHITECTURES.html#variable:CMAKE_CUDA_ARCHITECTURES">CMAKE_CUDA_ARCHITECTURES</a>, <a class="reference external" href="https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_COMPILER.html#variable:CMAKE_%3CLANG%3E_COMPILER">CMAKE_CUDA_COMPILER</a>) may be required to be set in order for CMake to discover your local CUDA installation.</p>
+<p>Verify <a class="reference external" href="https://pypi.org/project/pbatoolkit/"><code class="docutils literal notranslate"><span class="pre">pbatoolkit</span></code></a>’s contents in Python shell:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pbatoolkit</span> <span class="k">as</span> <span class="nn">pbat</span>
+<span class="n">help</span><span class="p">(</span><span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="n">pbat</span><span class="o">.</span><span class="n">geometry</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="n">pbat</span><span class="o">.</span><span class="n">profiling</span><span class="p">)</span>
+<span class="n">help</span><span class="p">(</span><span class="n">pbat</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">linalg</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>To profile relevant calls to <a class="reference external" href="https://pypi.org/project/pbatoolkit/"><code class="docutils literal notranslate"><span class="pre">pbatoolkit</span></code></a> functions/methods, connect to <code class="docutils literal notranslate"><span class="pre">python.exe</span></code> in the <code class="docutils literal notranslate"><span class="pre">Tracy</span></code> profiler server GUI.
+All calls to pbat will be profiled on a per-frame basis in the Tracy profiler server GUI.</p>
+<blockquote>
+<div><p><em>Use method <code class="docutils literal notranslate"><span class="pre">profile</span></code> of <code class="docutils literal notranslate"><span class="pre">pbatoolkit.profiling.Profiler</span></code> to profile code external to PBAT, allowing for an integrated profiling experience while using various scientific computing packages</em>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">expensive_external_computation</span><span class="p">():</span>
+    <span class="c1"># Some expensive computation</span>
+<span class="n">profiler</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span><span class="s2">&quot;My expensive external computation&quot;</span><span class="p">,</span> <span class="n">expensive_external_computation</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div></blockquote>
+<h3 id="tutorial">Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading">¶</a></h3>
+<p>Head over to our hands-on <a class="reference internal" href="#./doc/tutorial/"><span class="xref myst">tutorials section</span></a> to learn more about physics based animation in both theory and practice!</p>
+<h2 id="gallery">Gallery<a class="headerlink" href="#gallery" title="Permalink to this heading">¶</a></h2>
+<p>Below, we show a few examples of what can be done in just a few lines of code using <a class="reference external" href="https://pypi.org/project/pbatoolkit/"><code class="docutils literal notranslate"><span class="pre">pbatoolkit</span></code></a> and Python. Code can be found <a class="reference internal" href="#./python/examples/"><span class="xref myst">here</span></a>.</p>
+<h3 id="harmonic-interpolation">Harmonic interpolation<a class="headerlink" href="#harmonic-interpolation" title="Permalink to this heading">¶</a></h3>
+<p>A smooth (harmonic) function is constructed on <a class="reference external" href="https://bulbapedia.bulbagarden.net/wiki/Entei_(Pok%C3%A9mon)">Entei</a>, required to evaluate to <code class="docutils literal notranslate"><span class="pre">1</span></code> on its paws, and <code class="docutils literal notranslate"><span class="pre">0</span></code> at the top of its tail, using piece-wise linear (left) and quadratic (right) shape functions. Its isolines are displayed as black curves.</p>
+<p float="left">
+  <img src="doc/imgs/entei.harmonic.interpolation.order.1.png" width="250" alt="Harmonic interpolation on Entei model using linear shape functions" />
+  <img src="doc/imgs/entei.harmonic.interpolation.order.2.png" width="250" alt="Harmonic interpolation on Entei model using quadratic shape functions" />
+</p>
+<h3 id="heat-method-for-geodesic-distance-computation">Heat method for geodesic distance computation<a class="headerlink" href="#heat-method-for-geodesic-distance-computation" title="Permalink to this heading">¶</a></h3>
+<p>Approximate geodesic distances are computed from the top center vertex of <a class="reference external" href="https://bulbapedia.bulbagarden.net/wiki/Metagross_(Pok%C3%A9mon)">Metagross</a> by diffusing heat from it (left), and recovering a function whose gradient matches the normalized heat’s negative gradient. Its isolines are displayed as black curves.</p>
+<p float="left">
+  <img src="doc/imgs/metagross.heat.source.png" width="250" alt="Heat source on top center of metagross model" />
+  <img src="doc/imgs/metagross.heat.geodesics.png" width="250" alt="Reconstructed single source geodesic distance" />
+</p>
+<h3 id="mesh-smoothing-via-diffusion">Mesh smoothing via diffusion<a class="headerlink" href="#mesh-smoothing-via-diffusion" title="Permalink to this heading">¶</a></h3>
+<p>Fine details of Godzilla’s skin are smoothed out by diffusing <code class="docutils literal notranslate"><span class="pre">x,y,z</span></code> coordinates in time.</p>
+<p float="left">
+    <img src="doc/imgs/godzilla.diffusion.smoothing.gif" width="250" alt="Godzilla model with fine details being smoothed out via diffusion" />
+</p>
+<h3 id="hyper-elastic-simulation">Hyper elastic simulation<a class="headerlink" href="#hyper-elastic-simulation" title="Permalink to this heading">¶</a></h3>
+<p>Linear (left) and quadratic (right) shape functions are compared on a hyper elastic simulation of the beam model, whose left side is fixed. Quadratic shape functions result in visually smoother and softer bending.</p>
+<p float="left">
+  <img src="doc/imgs/beam.bending.order.1.png" width="250" alt="Bending beam FEM elastic simulation using linear shape functions" />
+  <img src="doc/imgs/beam.bending.order.2.png" width="250" alt="Bending beam FEM elastic simulation using quadratic shape functions" />
+</p>
+<h3 id="inter-penetration-free-elastodynamic-contact">Inter-penetration free elastodynamic contact<a class="headerlink" href="#inter-penetration-free-elastodynamic-contact" title="Permalink to this heading">¶</a></h3>
+<p>Combining <a class="reference external" href="https://pypi.org/project/pbatoolkit/"><code class="docutils literal notranslate"><span class="pre">pbatoolkit</span></code></a>’s FEM+elasticity features and the <a class="reference external" href="https://ipctk.xyz/"><code class="docutils literal notranslate"><span class="pre">IPC</span> <span class="pre">Toolkit</span></code></a> results in guaranteed inter-penetration free contact dynamics between deformable bodies.</p>
+<p float="left">
+    <img src="doc/imgs/ipc.bar.stacks.gif" width="250" alt="A stack of bending beams fall on top of each other, simulated via Incremental Potential Contact (IPC)." />
+</p>
+<h3 id="real-time-elastodynamics">Real-time elastodynamics<a class="headerlink" href="#real-time-elastodynamics" title="Permalink to this heading">¶</a></h3>
+<p>Our GPU implementation of the eXtended Position Based Dynamics (XPBD) algorithm simulates a ~324k element FEM elastic mesh interactively with contact.</p>
+<p float="left">
+    <img src="doc/imgs/gpu.xpbd.bvh.gif" width="250" alt="A 162k element armadillo mesh is dropped on top of another duplicate, but fixed, armadillo mesh on the bottom." />
+</p>
+<h3 id="modal-analysis">Modal analysis<a class="headerlink" href="#modal-analysis" title="Permalink to this heading">¶</a></h3>
+<p>The hyper elastic beam’s representative deformation modes, i.e. its low frequency eigen vectors,
+are animated as time continuous signals.</p>
+<p float="left">
+    <img src="doc/imgs/beam.modes.gif" width="250" alt="Unconstrained hyper elastic beam's eigen frequencies" />
+</p>
+<h3 id="gpu-broad-phase-collision-detection">GPU broad phase collision detection<a class="headerlink" href="#gpu-broad-phase-collision-detection" title="Permalink to this heading">¶</a></h3>
+<p>Real-time collision detection between 2 large scale meshes (~324k tetrahedra) is accelerated by highly parallel implementations of the <a class="reference external" href="https://en.wikipedia.org/wiki/Sweep_and_prune">sweep and prune</a> algorithm, or <a class="reference external" href="https://research.nvidia.com/sites/default/files/pubs/2012-06_Maximizing-Parallelism-in/karras2012hpg_paper.pdf">linear bounding volume hierarchies</a>.</p>
+<p float="left">
+    <img src="doc/imgs/gpu.broadphase.gif" width="250" alt="Broad phase collision detection on the GPU between 2 moving tetrahedral meshes" />
+</p>
+<h3 id="profiling-statistics">Profiling statistics<a class="headerlink" href="#profiling-statistics" title="Permalink to this heading">¶</a></h3>
+<p>Computation details are gathered when using <a class="reference external" href="https://pypi.org/project/pbatoolkit/"><code class="docutils literal notranslate"><span class="pre">pbatoolkit</span></code></a> and consulted in the <a class="reference external" href="https://github.com/wolfpld/tracy">Tracy</a> profiling server GUI.</p>
+<p float="left">
+    <img src="doc/imgs/profiling.statistics.png" alt="Profiling statistics widget in Tracy server" />
+</p>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading">¶</a></h2>
+<h3 id="coding-style">Coding style<a class="headerlink" href="#coding-style" title="Permalink to this heading">¶</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">.clang-format</span></code> description file is provided in the repository root which should be used to enforce a uniform coding style throughout the code base using the <a class="reference external" href="https://releases.llvm.org/12.0.0/tools/clang/docs/ClangFormatStyleOptions.html">clang-format tool</a>. Recent versions of Visual Studio Code and Visual Studio should come bundled with a <code class="docutils literal notranslate"><span class="pre">clang-format</span></code> installation. On Unix-like systems, <code class="docutils literal notranslate"><span class="pre">clang-format</span></code> can be installed using your favorite package manager.</p>
+
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      Sep 24, 2024
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+      
+        
+        <a href="changelog.html" class="md-footer__link md-footer__link--next" aria-label="Next: Changelog" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Changelog
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2024-2024, Quoc-Minh Ton-That; MIT License.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    6.2.1.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "toc.follow", "content.tabs.link"], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike", "staticVersions": null, "versionPath": ""}}</script>
+    
+      
+        <script src="_static/sphinx_immaterial_theme.f9d9eeeb247ace16c.min.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+  </body>
+</html>
