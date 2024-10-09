@@ -217,6 +217,17 @@
                 "python",
                 "pic"
             ]
+        },
+        {
+            "name": "pip-local-cuda",
+            "inherits": [
+                "default",
+                "profile",
+                "vcpkg-all-features",
+                "python",
+                "cuda",
+                "pic"
+            ]
         }
     ]
 }
