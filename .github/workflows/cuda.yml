@@ -69,7 +69,7 @@ jobs:
         run: |
           git clone https://github.com/eyalroz/cuda-api-wrappers.git ${{ github.workspace }}/cuda-api-wrappers
           cd ${{ github.workspace }}/cuda-api-wrappers
-          git checkout main # Or a specific commit/branch if needed
+          git checkout master
 
       - name: Build and install PBAT Python bindings with CUDA
         run: |
