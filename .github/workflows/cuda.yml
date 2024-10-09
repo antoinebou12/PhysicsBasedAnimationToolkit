@@ -17,6 +17,8 @@ jobs:
         include:
           - os: windows-2022
             build_tool_args: /p:CL_MPCount=4
+          - os: ubuntu-22.04
+            build_tool_args: "-j$(nproc)"
       max-parallel: 1
 
     steps:
@@ -43,9 +45,9 @@ jobs:
 
       - name: 'Check CUDA installation'
         run: |
-            echo "CUDA Toolkit installed at ${{ steps.cuda-toolkit.outputs.cuda-path }}"
-            echo "CUDA Version: ${{ steps.cuda-toolkit.outputs.cuda-version }}"
-            nvcc --version
+          echo "CUDA Toolkit installed at ${{ steps.cuda-toolkit.outputs.cuda-path }}"
+          echo "CUDA Version: ${{ steps.cuda-toolkit.outputs.cuda-version }}"
+          nvcc --version
 
       - name: Add CUDA to CUDA_PATH environment variable
         run: |
@@ -63,9 +65,15 @@ jobs:
           echo "Copying CUDA MSBuildExtensions files from $src to $dst"
           Copy-Item "$src\\*" -Destination $dst -Recurse -Force
 
+      - name: Clone cuda-api-wrappers
+        run: |
+          git clone https://github.com/eyalroz/cuda-api-wrappers.git ${{ github.workspace }}/cuda-api-wrappers
+          cd ${{ github.workspace }}/cuda-api-wrappers
+          git checkout main # Or a specific commit/branch if needed
+
       - name: Build and install PBAT Python bindings with CUDA
         run: |
-          pip install . --config-settings=cmake.args="--preset=pip-local-cuda" --config-settings=build.tool-args="${{ matrix.build_tool_args }}" -v
+          pip install . --config-settings=cmake.args="-Dcuda-api-wrappers_DIR=${{ github.workspace }}/cuda-api-wrappers --preset=pip-local-cuda" --config-settings=build.tool-args="${{ matrix.build_tool_args }}" -v
 
       - name: Run PBAT Python toolkit and inspect modules
         run: |
