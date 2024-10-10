@@ -1,4 +1,4 @@
-name: CUDA Local pip install
+name: CUDA pip install
 
 on:
   workflow_dispatch:
