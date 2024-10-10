@@ -73,7 +73,7 @@ jobs:
 
       - name: Build and install PBAT Python bindings with CUDA
         run: |
-          pip install . --config-settings=cmake.args="-Dcuda-api-wrappers_DIR=${{ github.workspace }}/cuda-api-wrappers --preset=pip-local-cuda" --config-settings=build.tool-args="${{ matrix.build_tool_args }}" -v
+          pip install . --config-settings=cmake.args="-Dcuda-api-wrappers_DIR=${{ github.workspace }}/cuda-api-wrappers --preset=cuda-ci" --config-settings=build.tool-args="${{ matrix.build_tool_args }}" -v
 
       - name: Run PBAT Python toolkit and inspect modules
         run: |
