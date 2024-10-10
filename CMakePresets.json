@@ -172,6 +172,32 @@
             }
         },
         {
+            "name": "cuda",
+            "hidden": true,
+            "cacheVariables": {
+                "VCPKG_MANIFEST_FEATURES": "cuda",
+                "PBAT_USE_CUDA": {
+                    "type": "BOOL",
+                    "value": "ON"
+                }
+            }
+        },
+        {
+            "name": "cuda-ci",
+            "inherits": ["pic"],
+            "cacheVariables": {
+                "VCPKG_MANIFEST_FEATURES": "python;cuda",
+                "PBAT_BUILD_PYTHON_BINDINGS": {
+                    "type": "BOOL",
+                    "value": "ON"
+                },
+                "PBAT_USE_CUDA": {
+                    "type": "BOOL",
+                    "value": "ON"
+                }
+            }
+        },
+        {
             "name": "pip",
             "inherits": [
                 "default",
@@ -215,17 +241,6 @@
                 "default",
                 "profile",
                 "python",
-                "pic"
-            ]
-        },
-        {
-            "name": "pip-local-cuda",
-            "inherits": [
-                "default",
-                "profile",
-                "vcpkg-all-features",
-                "python",
-                "cuda",
                 "pic"
             ]
         }
