@@ -56,8 +56,8 @@ jobs:
 
       - name: Build and install PBAT Python bindings
         run: |
-          if [[ "${{ runner.os }}" != "Windows" ]]; then
-            pip install . --config-settings=cmake.args="--preset=pip" --config-settings=build.tool-args="-j${{ steps.cpu-cores.outputs.cores || 4 }}" -v
+          if [ "${{ runner.os }}" != "Windows" ]; then
+            pip install . --config-settings=cmake.args="--preset=pip" --config-settings=build.tool-args="${{ env.build_tool_args }}" -v
           else
             pip install . --config-settings=cmake.args="--preset=pip" --config-settings=build.tool-args="${{ matrix.build_tool_args }}" -v
 
