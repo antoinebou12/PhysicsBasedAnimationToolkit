@@ -40,13 +40,13 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'  # Downgrade to Python 3.10 for better compatibility
+          python-version: '3.12'
 
       - uses: Jimver/cuda-toolkit@v0.2.17
         id: cuda-toolkit
         with:
           cuda: '12.4.0'
-          sub-packages: '["nvcc", "cublas", "cudart"]'  # Add cublas and cudart for full CUDA support
+          sub-packages: '["nvcc"]'
           method: 'network'
 
       - name: Set CI Environment Variable
