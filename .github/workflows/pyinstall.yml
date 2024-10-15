@@ -45,12 +45,12 @@ jobs:
 
       - name: Set build tool arguments for Unix systems
         if: runner.os != 'Windows'
-        run: echo "::set-output name=build_tool_args:: -j${{ steps.cpu-cores.outputs.cores }}"
+        run: echo "build_tool_args=-j${{ steps.cpu-cores.outputs.cores }}" >> $GITHUB_ENV
         id: set-build-args
 
       - name: Build and install PBAT Python bindings
         run: |
-          pip install . --config-settings=cmake.args="--preset=pip" --config-settings=build.tool-args="${{ steps.set-build-args.outputs.build_tool_args || matrix.build_tool_args }}" -v
+          pip install . --config-settings=cmake.args="--preset=pip" --config-settings=build.tool-args="${{ env.build_tool_args || matrix.build_tool_args }}" -v
 
       - name: Run PBAT Python toolkit and inspect modules
         run: |
