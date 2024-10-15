@@ -187,7 +187,7 @@
                 "PBAT_USE_CUDA": {
                     "type": "BOOL",
                     "value": "ON"
-                }.
+                },
                 "PBAT_ENABLE_PROFILER": {
                     "type": "BOOL",
                     "value": "OFF"
