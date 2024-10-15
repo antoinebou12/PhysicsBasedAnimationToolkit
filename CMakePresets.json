@@ -173,14 +173,30 @@
         },
         {
             "name": "cuda-ci",
-            "inherits": ["pic"],
+            "binaryDir": "${sourceDir}/build",
             "cacheVariables": {
                 "VCPKG_MANIFEST_FEATURES": "python;cuda",
+                "CMAKE_TOOLCHAIN_FILE": {
+                    "type": "FILEPATH",
+                    "value": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+                }
                 "PBAT_BUILD_PYTHON_BINDINGS": {
                     "type": "BOOL",
                     "value": "ON"
                 },
                 "PBAT_USE_CUDA": {
+                    "type": "BOOL",
+                    "value": "ON"
+                }
+                "PBAT_ENABLE_PROFILER": {
+                    "type": "BOOL",
+                    "value": "OFF"
+                },
+                "PBAT_PROFILE_ON_DEMAND": {
+                    "type": "BOOL",
+                    "value": "OFF"
+                },
+                "CMAKE_POSITION_INDEPENDENT_CODE": {
                     "type": "BOOL",
                     "value": "ON"
                 }
