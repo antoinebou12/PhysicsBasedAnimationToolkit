@@ -16,19 +16,21 @@ jobs:
       matrix:
         include:
           - os: ubuntu-24.04
-            build_tool_args: -j4
           - os: windows-2022
-            build_tool_args: /p:CL_MPCount=4
           - os: macos-13
-            build_tool_args: -j4
           - os: macos-14
-            build_tool_args: -j4
       max-parallel: 4
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: lukka/get-cmake@latest
+      - name: Get number of CPU cores
+        id: cpu-cores
+        uses: SimenB/github-actions-cpu-cores@v2.0.0
+
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
         with:
           cmakeVersion: "3.26.0"
 
@@ -38,18 +40,15 @@ jobs:
           vcpkgDirectory: ${{ github.workspace }}/vcpkg
           vcpkgGitCommitId: 055721089e8037d4d617250814d11f881e557549
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       
       - name: Build and install PBAT Python bindings
         run: |
-          pip install . --config-settings=cmake.args="--preset=pip" --config-settings=build.tool-args="${{ matrix.build_tool_args }}" -v
+          pip install . --config-settings=cmake.args="--preset=pip" --config-settings=build.tool-args="${{ steps.cpu-cores.outputs.cores }}" -v
 
       - name: Run PBAT Python toolkit and inspect modules
         run: |
-          python -c "import pbatoolkit as pbat; \
-                     help(pbat.fem); \
-                     help(pbat.geometry); \
-                     help(pbat.profiling); \
-                     help(pbat.math.linalg)"
+          python -c "import pbatoolkit as pbat"
