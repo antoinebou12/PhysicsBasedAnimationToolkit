@@ -46,7 +46,7 @@ jobs:
         id: cuda-toolkit
         with:
           cuda: '12.4.0'
-          sub-packages: '["nvcc"]'
+          sub-packages: '["nvcc", "cublas", "cudart"]'
           method: 'network'
 
       - name: Set CI Environment Variable
