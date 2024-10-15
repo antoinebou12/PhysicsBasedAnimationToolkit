@@ -15,9 +15,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - os: ubuntu-22.04  # Added older Ubuntu version
           - os: ubuntu-24.04
           - os: windows-2022
             build_tool_args: /p:CL_MPCount=4
+          - os: macos-12  # Added older macOS version
           - os: macos-13
           - os: macos-14
       max-parallel: 4
@@ -53,6 +55,16 @@ jobs:
             echo "build_tool_args=-j${{ steps.cpu-cores.outputs.cores }}" >> $GITHUB_ENV
           fi
         id: set-build-args
+
+      - name: Set Tracy Profiler environment variables (Unix)
+        if: ${{ runner.os != 'Windows' }}
+        run: |
+          echo "CXXFLAGS=-DTRACY_NO_INVARIANT_CHECK=1 -DTRACY_TIMER_FALLBACK" >> $GITHUB_ENV
+
+      - name: Set Tracy Profiler environment variables (Windows)
+        if: ${{ runner.os == 'Windows' }}
+        run: |
+          setx CXXFLAGS "-DTRACY_NO_INVARIANT_CHECK=1 -DTRACY_TIMER_FALLBACK"
 
       - name: Build and install PBAT Python bindings (Unix)
         if: ${{ runner.os != 'Windows' }}
