@@ -17,13 +17,7 @@ jobs:
         include:
           - os: ubuntu-24.04
             needs_cuda: true
-          - os: windows-2022
-            needs_cuda: false
-          - os: macos-13
-            needs_cuda: false
-          - os: macos-14
-            needs_cuda: false
-      max-parallel: 4
+      max-parallel: 1
 
     steps:
       - name: Checkout code
@@ -47,25 +41,14 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'  # Use a compatible version
+          python-version: '3.12'
 
-      - name: Install CUDA (Linux Only)
-        if: matrix.needs_cuda == 'true' && runner.os == 'Linux'
-        uses: Jimver/cuda-toolkit@v0.2.17
+      - uses: Jimver/cuda-toolkit@v0.2.17
         id: cuda-toolkit
         with:
           cuda: '12.4.0'
           sub-packages: '["nvcc"]'
           method: 'network'
-
-      - name: Add CUDA to CUDA_PATH environment variable (Linux Only)
-        if: matrix.needs_cuda == 'true' && runner.os == 'Linux'
-        run: |
-          echo "CUDA_PATH=${{ steps.cuda-toolkit.outputs.cuda-path }}" >> $GITHUB_ENV
-          echo "CUDA_PATH environment variable set to ${{ steps.cuda-toolkit.outputs.cuda-path }}"
-
-      - name: Install doctest
-        run: sudo apt-get install doctest-dev || true  # To avoid CMake error
 
       - name: Build and install PBAT Python bindings
         run: |
