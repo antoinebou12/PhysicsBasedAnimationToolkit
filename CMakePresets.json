@@ -179,7 +179,7 @@
                 "CMAKE_TOOLCHAIN_FILE": {
                     "type": "FILEPATH",
                     "value": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
-                }
+                },
                 "PBAT_BUILD_PYTHON_BINDINGS": {
                     "type": "BOOL",
                     "value": "ON"
@@ -187,7 +187,7 @@
                 "PBAT_USE_CUDA": {
                     "type": "BOOL",
                     "value": "ON"
-                }
+                }.
                 "PBAT_ENABLE_PROFILER": {
                     "type": "BOOL",
                     "value": "OFF"
