@@ -17,20 +17,15 @@ jobs:
         include:
           - os: ubuntu-24.04
           - os: windows-2022
+            build_tool_args: /p:CL_MPCount=4
           - os: macos-13
           - os: macos-14
       max-parallel: 4
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Get number of CPU cores
-        id: cpu-cores
-        uses: SimenB/github-actions-cpu-cores@v2.0.0
-
-      - name: Setup CMake
-        uses: lukka/get-cmake@latest
+      - uses: lukka/get-cmake@latest
         with:
           cmakeVersion: "3.26.0"
 
@@ -40,14 +35,22 @@ jobs:
           vcpkgDirectory: ${{ github.workspace }}/vcpkg
           vcpkgGitCommitId: 055721089e8037d4d617250814d11f881e557549
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      
+
+      - name: Get number of CPU cores
+        uses: SimenB/github-actions-cpu-cores@v2.0.0
+        id: cpu-cores
+
+      - name: Set build tool arguments for Unix systems
+        if: runner.os != 'Windows'
+        run: echo "::set-output name=build_tool_args:: -j${{ steps.cpu-cores.outputs.cores }}"
+        id: set-build-args
+
       - name: Build and install PBAT Python bindings
         run: |
-          pip install . --config-settings=cmake.args="--preset=pip" --config-settings=build.tool-args="${{ matrix.build_tool_args }} ${{ steps.cpu-cores.outputs.cores }}" -v
+          pip install . --config-settings=cmake.args="--preset=pip" --config-settings=build.tool-args="${{ steps.set-build-args.outputs.build_tool_args || matrix.build_tool_args }}" -v
 
       - name: Run PBAT Python toolkit and inspect modules
         run: |
