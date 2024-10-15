@@ -83,23 +83,35 @@ if(PBAT_USE_SUITESPARSE)
 endif()
 
 if(PBAT_USE_CUDA)
+    # Determine whether we are running in CI
+    if(DEFINED ENV{CI} AND "$ENV{CI}" STREQUAL "true")
+        message(STATUS "Building in CI environment, using generic CUDA architectures")
+        set(CUDA_ARCHITECTURES 77)
+    else()
+        message(STATUS "Building in a non-CI environment, using native CUDA architectures")
+        set(CUDA_ARCHITECTURES native)
+    endif()
+
+    # Link CUDA libraries
     target_link_libraries(PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit
         PRIVATE
         CUDA::toolkit
         CUDA::cudart
         cuda-api-wrappers::runtime-and-driver
     )
+
+    # Set CUDA-related properties
     set_target_properties(PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit
         PROPERTIES
-        CUDA_ARCHITECTURES native
+        CUDA_ARCHITECTURES ${CUDA_ARCHITECTURES} # Use the architecture decided above
         CUDA_SEPARABLE_COMPILATION ON
         CUDA_RESOLVE_DEVICE_SYMBOLS ON
     )
-    get_target_property(_pbat_sources PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit SOURCES)
 
+    # Set properties for CUDA source files
+    get_target_property(_pbat_sources PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit SOURCES)
     foreach(_source IN ITEMS ${_pbat_sources})
         get_filename_component(_extension ${_source} LAST_EXT)
-
         if(_extension STREQUAL ".cu")
             set_source_files_properties(${_source}
                 PROPERTIES
@@ -108,6 +120,7 @@ if(PBAT_USE_CUDA)
         endif()
     endforeach()
 endif()
+
 
 # Make source tree appear as on file system in IDEs
 get_target_property(_pbat_sources PhysicsBasedAnimationToolkit_PhysicsBasedAnimationToolkit SOURCES)
