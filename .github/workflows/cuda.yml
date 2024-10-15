@@ -15,8 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-24.04
-            needs_cuda: true
+          - os: ubuntu-22.04
       max-parallel: 1
 
     steps:
