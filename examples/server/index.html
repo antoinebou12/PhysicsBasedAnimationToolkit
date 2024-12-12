@@ -81,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#simplified-setup-using-dragonflydb-with-redis-connectors-for-nodejs-and-python" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -313,6 +318,24 @@
           
   
   FEM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../course/math/" class="md-tabs__link">
+          
+  
+  Math
 
         </a>
       </li>
@@ -1278,6 +1301,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Server
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1288,6 +1324,400 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-installation-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Installation Links
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-dragonflydb-with-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up DragonflyDB with Docker Compose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Dependencies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodejs-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node.js Libraries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-simulation-server-simulation_serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Simulation Server (simulation_server.py)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Simulation Server (simulation_server.py)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simulation_serverpy-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      simulation_server.py Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-webrtc-server-webrtcjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. WebRTC Server (webrtc.js)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. WebRTC Server (webrtc.js)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webrtcjs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      webrtc.js Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-client-application-client_applicationjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Client Application (client_application.js)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Client Application (client_application.js)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client_applicationjs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      client_application.js Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-transfer-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Transfer Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialization-and-deserialization-of-mesh-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialization and Deserialization of Mesh Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serialization and Deserialization of Mesh Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serialization-server-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialization (Server-Side)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deserialization-client-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deserialization (Client-Side)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-start-dragonflydb" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Start DragonflyDB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-the-simulation-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Run the Simulation Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-the-webrtc-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Run the WebRTC Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-run-the-client-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Run the Client Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-connection-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Connection Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-serializationdeserialization-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Serialization/Deserialization Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-performance-bottlenecks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Performance Bottlenecks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-visualization-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Visualization Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-logging-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Logging and Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1516,6 +1946,116 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/linear_algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1533,6 +2073,391 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#software-installation-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Installation Links
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-dragonflydb-with-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up DragonflyDB with Docker Compose
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Dependencies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nodejs-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node.js Libraries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-simulation-server-simulation_serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Simulation Server (simulation_server.py)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Simulation Server (simulation_server.py)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simulation_serverpy-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      simulation_server.py Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-webrtc-server-webrtcjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. WebRTC Server (webrtc.js)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. WebRTC Server (webrtc.js)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webrtcjs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      webrtc.js Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-client-application-client_applicationjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Client Application (client_application.js)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Client Application (client_application.js)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client_applicationjs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      client_application.js Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connecting Components
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-transfer-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Transfer Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mermaid Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialization-and-deserialization-of-mesh-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialization and Deserialization of Mesh Data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serialization and Deserialization of Mesh Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serialization-server-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialization (Server-Side)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deserialization-client-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deserialization (Client-Side)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the System
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-start-dragonflydb" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Start DragonflyDB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-the-simulation-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Run the Simulation Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-the-webrtc-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Run the WebRTC Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-run-the-client-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Run the Client Application
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-connection-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Connection Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-serializationdeserialization-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Serialization/Deserialization Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-performance-bottlenecks" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Performance Bottlenecks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-visualization-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Visualization Issues
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-logging-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Logging and Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1550,9 +2475,555 @@
   
 
 
-  <h1>Server</h1>
+<h1 id="simplified-setup-using-dragonflydb-with-redis-connectors-for-nodejs-and-python">Simplified Setup Using DragonflyDB with Redis Connectors for Node.js and Python<a class="headerlink" href="#simplified-setup-using-dragonflydb-with-redis-connectors-for-nodejs-and-python" title="Permanent link">&para;</a></h1>
+<p>This guide provides a streamlined overview of setting up a <strong>3D Elastic Simulation System</strong> that utilizes <strong>DragonflyDB</strong> as the server while leveraging <strong>Redis connectors</strong> for both <strong>Node.js</strong> and <strong>Python</strong> clients. DragonflyDB, a high-performance, Redis-compatible in-memory database, serves as the message broker, enabling efficient real-time data exchange. The system integrates <strong>Incremental Potential Contact (IPC)</strong> for handling collisions and friction constraints, and <strong>Three.js</strong> for dynamic visualization.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The system comprises the following key components:</p>
+<ul>
+<li><strong>DragonflyDB Server</strong>: Acts as a high-performance, Redis-compatible in-memory database for message brokering.</li>
+<li><strong>Simulation Server</strong>: Executes the physics simulation, processes commands, and publishes simulation updates to DragonflyDB.</li>
+<li><strong>WebRTC Server (<code>webrtc.js</code>)</strong>: Manages WebRTC connections with clients, relaying simulation data received from DragonflyDB.</li>
+<li><strong>Client Application</strong>: Connects to the WebRTC server, receives simulation data, and visualizes it using Three.js.</li>
+</ul>
+<p><strong>DragonflyDB</strong> serves as the intermediary, enabling real-time data exchange between the simulation server and the WebRTC server, which in turn communicates with client applications via WebRTC.</p>
+<hr />
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Ensure the following software and libraries are installed on your system:</p>
+<ul>
+<li><strong>Docker &amp; Docker Compose</strong>: For containerizing DragonflyDB.</li>
+<li><strong>Node.js</strong>: For running the WebRTC server and client application.</li>
+<li><strong>Python 3.7+</strong>: For running the simulation server.</li>
+<li><strong>npm</strong>: For managing Node.js packages.</li>
+</ul>
+<h3 id="software-installation-links">Software Installation Links<a class="headerlink" href="#software-installation-links" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://docs.docker.com/get-docker/">Docker Installation Guide</a></li>
+<li><a href="https://docs.docker.com/compose/install/">Docker Compose Installation Guide</a></li>
+<li><a href="https://nodejs.org/">Node.js Download</a></li>
+<li><a href="https://www.python.org/downloads/">Python Download</a></li>
+</ul>
+<hr />
+<h2 id="setting-up-dragonflydb-with-docker-compose">Setting Up DragonflyDB with Docker Compose<a class="headerlink" href="#setting-up-dragonflydb-with-docker-compose" title="Permanent link">&para;</a></h2>
+<p>DragonflyDB is a high-performance, Redis-compatible in-memory database designed for scalability and speed. We'll deploy DragonflyDB using Docker Compose for simplicity.</p>
+<ol>
+<li><strong>Create a Project Directory</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>elastic-simulation-system
+<span class="nb">cd</span><span class="w"> </span>elastic-simulation-system
+</code></pre></div>
+<ol>
+<li><strong>Create a <code>docker-compose.yml</code> File</strong></li>
+</ol>
+<p>Create a file named <code>docker-compose.yml</code> with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
 
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dragonfly</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker.dragonflydb.io/dragonflydb/dragonfly:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dragonfly</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;6379:6379&quot;</span><span class="w">  </span><span class="c1"># DragonflyDB listens on port 6379 by default</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dragonfly-data:/data</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;--maxmemory&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;2gb&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># Adjust memory as needed</span>
 
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dragonfly-data</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">local</span>
+</code></pre></div>
+<ol>
+<li><strong>Start DragonflyDB</strong></li>
+</ol>
+<p>Navigate to the directory containing the <code>docker-compose.yml</code> file and run:</p>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<ul>
+<li>
+<p><strong>DragonflyDB</strong> will be accessible on port <code>6379</code>.</p>
+</li>
+<li>
+<p><strong>Verify Deployment</strong></p>
+</li>
+</ul>
+<p>Ensure that DragonflyDB is running correctly:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps
+</code></pre></div>
+<p>You should see the <code>dragonfly</code> container listed and running.</p>
+<hr />
+<h2 id="installing-dependencies">Installing Dependencies<a class="headerlink" href="#installing-dependencies" title="Permanent link">&para;</a></h2>
+<h3 id="python-libraries">Python Libraries<a class="headerlink" href="#python-libraries" title="Permanent link">&para;</a></h3>
+<p>Use <code>pip</code> to install the required Python libraries:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pbatoolkit<span class="w"> </span>ipctk<span class="w"> </span>meshio<span class="w"> </span>polyscope<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>argparse<span class="w"> </span>redis<span class="w"> </span>bson
+</code></pre></div>
+<p><em>Note</em>: If <code>pbatoolkit</code> or <code>ipctk</code> are not available via <code>pip</code>, refer to their official documentation for installation instructions.</p>
+<h3 id="nodejs-libraries">Node.js Libraries<a class="headerlink" href="#nodejs-libraries" title="Permanent link">&para;</a></h3>
+<p>Navigate to your project directory and initialize a new Node.js project:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>init<span class="w"> </span>-y
+</code></pre></div>
+<p>Install the necessary Node.js packages:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>wrtc<span class="w"> </span>winston<span class="w"> </span>socket.io<span class="w"> </span>redis<span class="w"> </span>express
+</code></pre></div>
+<ul>
+<li><strong>wrtc</strong>: WebRTC implementation for Node.js.</li>
+<li><strong>winston</strong>: Logging library.</li>
+<li><strong>socket.io</strong>: Real-time bidirectional event-based communication.</li>
+<li><strong>redis</strong>: Redis client for Node.js.</li>
+<li><strong>express</strong>: Web framework for Node.js.</li>
+</ul>
+<hr />
+<h2 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h2>
+<h3 id="1-simulation-server-simulation_serverpy">1. Simulation Server (<code>simulation_server.py</code>)<a class="headerlink" href="#1-simulation-server-simulation_serverpy" title="Permanent link">&para;</a></h3>
+<p>The simulation server performs the physics simulation and publishes simulation updates to DragonflyDB. It communicates with the WebRTC server to relay data to connected clients.</p>
+<h4 id="simulation_serverpy-code"><code>simulation_server.py</code> Code<a class="headerlink" href="#simulation_serverpy-code" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># simulation_server.py</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span> <span class="nn">redis</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">zlib</span>
+<span class="kn">import</span> <span class="nn">bson</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">serialize_mesh_data</span><span class="p">(</span><span class="n">mesh_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">mesh_data_bson</span> <span class="o">=</span> <span class="n">bson</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">mesh_data</span><span class="p">)</span>
+    <span class="n">mesh_data_compressed</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">mesh_data_bson</span><span class="p">)</span>
+    <span class="n">mesh_data_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">mesh_data_compressed</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mesh_data_b64</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">input_mesh</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="c1"># Initialize Redis client (compatible with DragonflyDB)</span>
+    <span class="n">redis_client</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">Redis</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">max_steps</span> <span class="o">=</span> <span class="mi">1000</span>
+
+    <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_steps</span><span class="p">):</span>
+        <span class="c1"># ... perform simulation step ...</span>
+        <span class="c1"># Placeholder for simulation data</span>
+        <span class="n">positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Replace with actual simulation data</span>
+        <span class="n">faces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="n">materials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;0x00ff00&quot;</span><span class="p">}</span>
+
+        <span class="n">mesh_data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+            <span class="s2">&quot;step&quot;</span><span class="p">:</span> <span class="n">step</span><span class="p">,</span>
+            <span class="s2">&quot;positions&quot;</span><span class="p">:</span> <span class="n">positions</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(),</span>
+            <span class="s2">&quot;faces&quot;</span><span class="p">:</span> <span class="n">faces</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(),</span>
+            <span class="s2">&quot;materials&quot;</span><span class="p">:</span> <span class="n">materials</span><span class="p">,</span>
+            <span class="c1"># Add other relevant data</span>
+        <span class="p">}</span>
+
+        <span class="n">mesh_data_b64</span> <span class="o">=</span> <span class="n">serialize_mesh_data</span><span class="p">(</span><span class="n">mesh_data</span><span class="p">)</span>
+        <span class="n">redis_client</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="s1">&#39;simulation_updates&#39;</span><span class="p">,</span> <span class="n">mesh_data_b64</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># Adjust based on simulation speed</span>
+</code></pre></div>
+<h4 id="explanation">Explanation<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Redis Client</strong>: Connects to DragonflyDB using the Redis client library.</li>
+<li><strong>Simulation Loop</strong>: Performs simulation steps (placeholder data used in this example) and publishes serialized mesh data to the <code>simulation_updates</code> channel.</li>
+<li><strong>Serialization</strong>: Mesh data is serialized using BSON, compressed with zlib, and encoded in Base64 to ensure efficient transmission.</li>
+</ul>
+<hr />
+<h3 id="2-webrtc-server-webrtcjs">2. WebRTC Server (<code>webrtc.js</code>)<a class="headerlink" href="#2-webrtc-server-webrtcjs" title="Permanent link">&para;</a></h3>
+<p>The WebRTC server facilitates real-time, peer-to-peer communication between the simulation server and client applications. It leverages <strong>Socket.IO</strong> for signaling and <strong>WebRTC Data Channels</strong> for data transmission.</p>
+<h4 id="webrtcjs-code"><code>webrtc.js</code> Code<a class="headerlink" href="#webrtcjs-code" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// webrtc.js</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">RTCPeerConnection</span><span class="p">,</span><span class="w"> </span><span class="nx">RTCSessionDescription</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;wrtc&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">winston</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;winston&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">io</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io&#39;</span><span class="p">)(</span><span class="mf">3001</span><span class="p">);</span><span class="w"> </span><span class="c1">// WebRTC Server listens on port 3001</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">redis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;redis&#39;</span><span class="p">);</span>
+
+<span class="c1">// Initialize Logger</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">createLogger</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;info&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">combine</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+<span class="w">  </span><span class="p">),</span>
+<span class="w">  </span><span class="nx">transports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">transports</span><span class="p">.</span><span class="nx">Console</span><span class="p">(),</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">transports</span><span class="p">.</span><span class="nx">File</span><span class="p">({</span><span class="w"> </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;webrtc.log&#39;</span><span class="w"> </span><span class="p">}),</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="p">});</span>
+
+<span class="c1">// Initialize Redis Subscriber</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">redisClient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">redis</span><span class="p">.</span><span class="nx">createClient</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">host</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">port</span><span class="o">:</span><span class="w"> </span><span class="mf">6379</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="nx">redisClient</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;simulation_updates&#39;</span><span class="p">);</span>
+
+<span class="nx">redisClient</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">channel</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">channel</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;simulation_updates&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">broadcastToClients</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">broadcastToClients</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// Broadcast the simulation update to all connected clients via Socket.IO</span>
+<span class="w">  </span><span class="nx">io</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;simulation-data&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Broadcasted simulation data to clients&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">io</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;connection&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">socket</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Client connected&#39;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">peerConnection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCPeerConnection</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">iceServers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">urls</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;stun:stun.l.google.com:19302&#39;</span><span class="w"> </span><span class="p">}]</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">onicecandidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">candidate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;ice-candidate&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">candidate</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">ondatachannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dataChannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">channel</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">dataChannel</span><span class="p">.</span><span class="nx">onopen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Data channel opened&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">socket</span><span class="p">.</span><span class="nx">dataChannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dataChannel</span><span class="p">;</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="nx">dataChannel</span><span class="p">.</span><span class="nx">onmessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Received message on data channel&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="c1">// Handle incoming data if needed</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;offer&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">offer</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">setRemoteDescription</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCSessionDescription</span><span class="p">(</span><span class="nx">offer</span><span class="p">));</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">createAnswer</span><span class="p">();</span>
+<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">setLocalDescription</span><span class="p">(</span><span class="nx">answer</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;answer&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">localDescription</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Sent answer to client&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">logger</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error handling offer:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ice-candidate&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">candidate</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">addIceCandidate</span><span class="p">(</span><span class="nx">candidate</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Added ICE candidate from client&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">logger</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error adding ICE candidate:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;disconnect&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Client disconnected&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="c1">// Listen for &#39;simulation-data&#39; events and send data via Data Channel</span>
+<span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;simulation-data&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">socket</span><span class="p">.</span><span class="nx">dataChannel</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">socket</span><span class="p">.</span><span class="nx">dataChannel</span><span class="p">.</span><span class="nx">readyState</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;open&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">socket</span><span class="p">.</span><span class="nx">dataChannel</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Sent simulation data to client&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<h4 id="explanation_1">Explanation<a class="headerlink" href="#explanation_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Logger</strong>: Uses Winston for logging events and errors.</li>
+<li><strong>Redis Subscriber</strong>: Subscribes to the <code>simulation_updates</code> channel to receive simulation data.</li>
+<li><strong>Broadcasting</strong>: Upon receiving data from Redis, it broadcasts the data to all connected clients via Socket.IO.</li>
+<li><strong>WebRTC Connection Handling</strong>: Manages client connections, ICE candidates, and peer connections. It establishes Data Channels for data transmission.</li>
+</ul>
+<hr />
+<h3 id="3-client-application-client_applicationjs">3. Client Application (<code>client_application.js</code>)<a class="headerlink" href="#3-client-application-client_applicationjs" title="Permanent link">&para;</a></h3>
+<p>The client application connects to the WebRTC server, receives simulation data via WebRTC Data Channels, and visualizes it using <strong>Three.js</strong>.</p>
+<h4 id="client_applicationjs-code"><code>client_application.js</code> Code<a class="headerlink" href="#client_applicationjs-code" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// client_application.js</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">io</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;socket.io-client&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">RTCPeerConnection</span><span class="p">,</span><span class="w"> </span><span class="nx">RTCSessionDescription</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;wrtc&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">THREE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;three&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">winston</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;winston&#39;</span><span class="p">);</span>
+
+<span class="c1">// Initialize Logger</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">createLogger</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;info&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">combine</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">simple</span><span class="p">()</span>
+<span class="w">  </span><span class="p">),</span>
+<span class="w">  </span><span class="nx">transports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="ow">new</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">transports</span><span class="p">.</span><span class="nx">Console</span><span class="p">(),</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="p">});</span>
+
+<span class="c1">// Initialize Three.js (Assuming a browser environment)</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">JSDOM</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;jsdom&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">dom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">JSDOM</span><span class="p">(</span><span class="sb">`&lt;!DOCTYPE html&gt;&lt;body&gt;&lt;/body&gt;`</span><span class="p">);</span>
+<span class="nb">global</span><span class="p">.</span><span class="nb">window</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dom</span><span class="p">.</span><span class="nb">window</span><span class="p">;</span>
+<span class="nb">global</span><span class="p">.</span><span class="nb">document</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">dom</span><span class="p">.</span><span class="nb">window</span><span class="p">.</span><span class="nb">document</span><span class="p">;</span>
+
+<span class="c1">// Initialize Three.js Scene</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">Scene</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">camera</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">PerspectiveCamera</span><span class="p">(</span>
+<span class="w">  </span><span class="mf">75</span><span class="p">,</span><span class="w"> </span><span class="mf">800</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">600</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span>
+<span class="p">);</span>
+<span class="nx">camera</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">renderer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">WebGLRenderer</span><span class="p">();</span>
+<span class="nx">renderer</span><span class="p">.</span><span class="nx">setSize</span><span class="p">(</span><span class="mf">800</span><span class="p">,</span><span class="w"> </span><span class="mf">600</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">renderer</span><span class="p">.</span><span class="nx">domElement</span><span class="p">);</span>
+
+<span class="c1">// Add lights</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">light</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">DirectionalLight</span><span class="p">(</span><span class="mh">0xffffff</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<span class="nx">light</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">).</span><span class="nx">normalize</span><span class="p">();</span>
+<span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">light</span><span class="p">);</span>
+
+<span class="c1">// Initialize Socket.IO client</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">socket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">io</span><span class="p">(</span><span class="s1">&#39;http://localhost:3001&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Replace with your WebRTC server address</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">peerConnection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCPeerConnection</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">iceServers</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nx">urls</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;stun:stun.l.google.com:19302&#39;</span><span class="w"> </span><span class="p">}]</span>
+<span class="p">});</span>
+
+<span class="c1">// Create Data Channel</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">dataChannel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">createDataChannel</span><span class="p">(</span><span class="s1">&#39;simulationData&#39;</span><span class="p">);</span>
+
+<span class="nx">dataChannel</span><span class="p">.</span><span class="nx">onopen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Data channel opened&#39;</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">dataChannel</span><span class="p">.</span><span class="nx">onmessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">meshData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">positions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Float32Array</span><span class="p">(</span><span class="nx">meshData</span><span class="p">.</span><span class="nx">positions</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">indices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Uint32Array</span><span class="p">(</span><span class="nx">meshData</span><span class="p">.</span><span class="nx">faces</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Create or update geometry</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">geometry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">scene</span><span class="p">.</span><span class="nx">getObjectByName</span><span class="p">(</span><span class="s1">&#39;SimulationMesh&#39;</span><span class="p">)</span><span class="o">?</span><span class="p">.</span><span class="nx">geometry</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">geometry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">geometry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">BufferGeometry</span><span class="p">();</span>
+<span class="w">      </span><span class="nx">geometry</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">,</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">BufferAttribute</span><span class="p">(</span><span class="nx">positions</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">));</span>
+<span class="w">      </span><span class="nx">geometry</span><span class="p">.</span><span class="nx">setIndex</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">BufferAttribute</span><span class="p">(</span><span class="nx">indices</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">));</span>
+<span class="w">      </span><span class="nx">geometry</span><span class="p">.</span><span class="nx">computeVertexNormals</span><span class="p">();</span>
+
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">material</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">MeshStandardMaterial</span><span class="p">({</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="mh">0x00ff00</span><span class="p">,</span><span class="w"> </span><span class="nx">wireframe</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">mesh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">Mesh</span><span class="p">(</span><span class="nx">geometry</span><span class="p">,</span><span class="w"> </span><span class="nx">material</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">mesh</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;SimulationMesh&#39;</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">scene</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">mesh</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">geometry</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">positions</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">geometry</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">needsUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">geometry</span><span class="p">.</span><span class="nx">setIndex</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">THREE</span><span class="p">.</span><span class="nx">BufferAttribute</span><span class="p">(</span><span class="nx">indices</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">));</span>
+<span class="w">      </span><span class="nx">geometry</span><span class="p">.</span><span class="nx">computeVertexNormals</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span><span class="w"> </span><span class="nx">camera</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">logger</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error processing simulation data:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Handle incoming offers from the server</span>
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;offer&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">offer</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">setRemoteDescription</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCSessionDescription</span><span class="p">(</span><span class="nx">offer</span><span class="p">));</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">createAnswer</span><span class="p">();</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">setLocalDescription</span><span class="p">(</span><span class="nx">answer</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;answer&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">localDescription</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Sent answer to server&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">logger</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error handling offer:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Handle incoming ICE candidates from the server</span>
+<span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;ice-candidate&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">candidate</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">addIceCandidate</span><span class="p">(</span><span class="nx">candidate</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Added ICE candidate from server&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">logger</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error adding ICE candidate:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// Send ICE candidates to the server</span>
+<span class="nx">peerConnection</span><span class="p">.</span><span class="nx">onicecandidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">candidate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;ice-candidate&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">event</span><span class="p">.</span><span class="nx">candidate</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Initiate connection by sending an offer</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">initiateConnection</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">offer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">createOffer</span><span class="p">();</span>
+<span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">setLocalDescription</span><span class="p">(</span><span class="nx">offer</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">socket</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">&#39;offer&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">peerConnection</span><span class="p">.</span><span class="nx">localDescription</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">logger</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;Sent offer to server&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">initiateConnection</span><span class="p">();</span>
+
+<span class="c1">// Render loop</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">animate</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">requestAnimationFrame</span><span class="p">(</span><span class="nx">animate</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">renderer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">scene</span><span class="p">,</span><span class="w"> </span><span class="nx">camera</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">animate</span><span class="p">();</span>
+</code></pre></div>
+<h4 id="explanation_2">Explanation<a class="headerlink" href="#explanation_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Logger</strong>: Uses Winston for logging events and errors.</li>
+<li><strong>Three.js Setup</strong>: Initializes a Three.js scene with a camera, renderer, and lighting.</li>
+<li><strong>Socket.IO Client</strong>: Connects to the WebRTC server using Socket.IO for signaling.</li>
+<li><strong>Peer Connection</strong>: Establishes a WebRTC peer connection and creates a Data Channel named <code>'simulationData'</code>.</li>
+<li><strong>Data Reception</strong>: Listens for incoming simulation data on the Data Channel, deserializes it, and updates the Three.js mesh accordingly.</li>
+<li><strong>Visualization</strong>: Renders the received mesh data in real-time.</li>
+</ul>
+<p><em>Note</em>: This example uses <code>jsdom</code> to simulate a browser environment for Three.js within Node.js. If deploying to a browser, adjust the code accordingly.</p>
+<hr />
+<h2 id="connecting-components">Connecting Components<a class="headerlink" href="#connecting-components" title="Permanent link">&para;</a></h2>
+<h3 id="data-transfer-flow">Data Transfer Flow<a class="headerlink" href="#data-transfer-flow" title="Permanent link">&para;</a></h3>
+<p>The data transfer between the components follows this sequence:</p>
+<ol>
+<li><strong>Simulation Server</strong> performs simulation steps and publishes simulation data to <strong>DragonflyDB</strong>.</li>
+<li><strong>WebRTC Server (<code>webrtc.js</code>)</strong> subscribes to DragonflyDB channels to receive simulation updates.</li>
+<li>Upon receiving data from DragonflyDB, the WebRTC server broadcasts it to connected <strong>Client Applications</strong> via WebRTC Data Channels.</li>
+<li><strong>Client Applications</strong> receive the data and use <strong>Three.js</strong> to visualize the simulation in real-time.</li>
+</ol>
+<h3 id="mermaid-diagram">Mermaid Diagram<a class="headerlink" href="#mermaid-diagram" title="Permanent link">&para;</a></h3>
+<p>Below is a <strong>Mermaid</strong> diagram illustrating the data flow within the system.</p>
+<div class="highlight"><pre><span></span><code>graph LR
+    A[Simulation Server] --&gt;|Publish Simulation Data| B(DragonflyDB)
+    C[WebRTC Server (webrtc.js)] --&gt;|Subscribe to DragonflyDB| B
+    C --&gt;|Broadcast via WebRTC| D[Client Application]
+    D --&gt;|Visualize with Three.js| E[Visualization Window]
+</code></pre></div>
+<p><strong>Explanation</strong>:</p>
+<ol>
+<li><strong>Simulation Server</strong> publishes simulation data to <strong>DragonflyDB</strong>.</li>
+<li><strong>WebRTC Server (<code>webrtc.js</code>)</strong> subscribes to DragonflyDB and listens for simulation updates.</li>
+<li>Upon receiving data, the WebRTC server broadcasts it to connected <strong>Client Applications</strong> via WebRTC Data Channels.</li>
+<li><strong>Client Applications</strong> receive the data and use <strong>Three.js</strong> to visualize the simulation in real-time.</li>
+</ol>
+<hr />
+<h2 id="serialization-and-deserialization-of-mesh-data">Serialization and Deserialization of Mesh Data<a class="headerlink" href="#serialization-and-deserialization-of-mesh-data" title="Permanent link">&para;</a></h2>
+<p>To efficiently transmit mesh data between the simulation server and clients, the data is serialized before publishing and deserialized upon reception.</p>
+<h3 id="serialization-server-side">Serialization (Server-Side)<a class="headerlink" href="#serialization-server-side" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Convert Mesh Data to BSON</strong>: Serialize the mesh data dictionary using BSON.</li>
+<li><strong>Compress the Data</strong>: Compress the BSON data using zlib to reduce size.</li>
+<li><strong>Encode in Base64</strong>: Encode the compressed data in Base64 for safe transmission.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span><span class="o">,</span> <span class="nn">zlib</span><span class="o">,</span> <span class="nn">bson</span>
+
+<span class="k">def</span> <span class="nf">serialize_mesh_data</span><span class="p">(</span><span class="n">mesh_data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">mesh_data_bson</span> <span class="o">=</span> <span class="n">bson</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">mesh_data</span><span class="p">)</span>
+    <span class="n">mesh_data_compressed</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">mesh_data_bson</span><span class="p">)</span>
+    <span class="n">mesh_data_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">mesh_data_compressed</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mesh_data_b64</span>
+</code></pre></div>
+<h3 id="deserialization-client-side">Deserialization (Client-Side)<a class="headerlink" href="#deserialization-client-side" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Decode Base64</strong>: Decode the received Base64 string to obtain compressed data.</li>
+<li><strong>Decompress Data</strong>: Decompress the zlib-compressed data to retrieve BSON.</li>
+<li><strong>Deserialize BSON</strong>: Convert BSON back into a Python dictionary.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span><span class="o">,</span> <span class="nn">zlib</span><span class="o">,</span> <span class="nn">bson</span>
+
+<span class="k">def</span> <span class="nf">deserialize_mesh_data</span><span class="p">(</span><span class="n">data_b64</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="n">data_compressed</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">data_b64</span><span class="p">)</span>
+    <span class="n">data_bson</span> <span class="o">=</span> <span class="n">zlib</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">data_compressed</span><span class="p">)</span>
+    <span class="n">mesh_data</span> <span class="o">=</span> <span class="n">bson</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data_bson</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mesh_data</span>
+</code></pre></div>
+<p><em>Ensure that both serialization and deserialization processes are consistent to prevent data corruption.</em></p>
+<hr />
+<h2 id="running-the-system">Running the System<a class="headerlink" href="#running-the-system" title="Permanent link">&para;</a></h2>
+<p>Follow these steps to launch and operate the 3D Elastic Simulation System.</p>
+<h3 id="1-start-dragonflydb">1. Start DragonflyDB<a class="headerlink" href="#1-start-dragonflydb" title="Permanent link">&para;</a></h3>
+<p>Ensure that DragonflyDB is running via Docker Compose:</p>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<p>Verify its status:</p>
+<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>ps
+</code></pre></div>
+<p>You should see the <code>dragonfly</code> service listed and running.</p>
+<h3 id="2-run-the-simulation-server">2. Run the Simulation Server<a class="headerlink" href="#2-run-the-simulation-server" title="Permanent link">&para;</a></h3>
+<p>Execute your simulation server script, ensuring it connects to DragonflyDB and publishes simulation updates correctly.</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>simulation_server.py<span class="w"> </span>-i<span class="w"> </span>input_mesh.vtk<span class="w"> </span>-o<span class="w"> </span>output_directory
+</code></pre></div>
+<p><em>Replace <code>simulation_server.py</code> with your actual simulation server script and provide appropriate arguments.</em></p>
+<h3 id="3-run-the-webrtc-server">3. Run the WebRTC Server<a class="headerlink" href="#3-run-the-webrtc-server" title="Permanent link">&para;</a></h3>
+<p>Start the WebRTC server to handle client connections and relay simulation data.</p>
+<div class="highlight"><pre><span></span><code>node<span class="w"> </span>webrtc.js
+</code></pre></div>
+<p><em>Ensure that the <code>webrtc.js</code> file is correctly configured and located in your project directory.</em></p>
+<h3 id="4-run-the-client-application">4. Run the Client Application<a class="headerlink" href="#4-run-the-client-application" title="Permanent link">&para;</a></h3>
+<p>Execute your client application script to start visualizing the simulation using Three.js.</p>
+<div class="highlight"><pre><span></span><code>node<span class="w"> </span>client_application.js
+</code></pre></div>
+<p><em>Alternatively, if your client is a web application, open the corresponding HTML file in a web browser.</em></p>
+<p><strong>Note</strong>: If running the client application in a browser, ensure that the server addresses and ports are correctly configured to allow browser-based WebRTC connections.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<p>Encounter issues while setting up or running the system? Here are common problems and their solutions:</p>
+<h3 id="1-connection-issues">1. Connection Issues<a class="headerlink" href="#1-connection-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>DragonflyDB Connection Problems</strong>:</li>
+<li><strong>Server Availability</strong>: Ensure that DragonflyDB is running and accessible at the specified host and port (<code>localhost:6379</code> by default).</li>
+<li>
+<p><strong>Firewall Settings</strong>: Verify that your firewall allows traffic on port <code>6379</code>.</p>
+</li>
+<li>
+<p><strong>WebRTC Connection Issues</strong>:</p>
+</li>
+<li><strong>STUN/TURN Servers</strong>: Ensure that the STUN servers are reachable. Consider adding TURN servers for better NAT traversal.</li>
+<li><strong>Firewall Settings</strong>: Verify that your firewall allows WebRTC traffic on the necessary ports.</li>
+</ul>
+<h3 id="2-serializationdeserialization-errors">2. Serialization/Deserialization Errors<a class="headerlink" href="#2-serializationdeserialization-errors" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Data Integrity</strong>: Confirm that the mesh data is correctly serialized on the server and properly deserialized on the client.</li>
+<li><strong>Consistent Data Formats</strong>: Ensure that both server and client agree on the data structures and types.</li>
+<li><strong>Logging</strong>: Check logs (<code>webrtc.log</code>, console outputs) for detailed error messages.</li>
+</ul>
+<h3 id="3-performance-bottlenecks">3. Performance Bottlenecks<a class="headerlink" href="#3-performance-bottlenecks" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Data Transmission Rate</strong>: Adjust the simulation step rate (<code>time.sleep(0.1)</code> in <code>simulation_server.py</code>) to prevent overwhelming the Data Channels.</li>
+<li><strong>Optimization</strong>: Optimize serialization and compression methods to reduce data size and transmission latency.</li>
+<li><strong>Resource Allocation</strong>: Ensure that DragonflyDB has sufficient memory and CPU resources allocated via Docker.</li>
+</ul>
+<h3 id="4-visualization-issues">4. Visualization Issues<a class="headerlink" href="#4-visualization-issues" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Three.js Errors</strong>: Check the browser console or Node.js logs for Three.js-related errors.</li>
+<li><strong>Mesh Data Accuracy</strong>: Ensure that the received mesh data correctly represents the simulation state.</li>
+<li><strong>Rendering Performance</strong>: Optimize Three.js rendering settings for smoother visualization.</li>
+</ul>
+<h3 id="5-logging-and-monitoring">5. Logging and Monitoring<a class="headerlink" href="#5-logging-and-monitoring" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Review Logs</strong>: Utilize the generated log files (<code>webrtc.log</code>, <code>simulation_server.log</code>, etc.) to identify and debug issues.</li>
+<li><strong>Increase Logging Level</strong>: Temporarily set the logging level to <code>debug</code> for more detailed information during troubleshooting.</li>
+</ul>
+<hr />
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>This guide outlines the setup and integration of a <strong>3D Elastic Simulation System</strong> using <strong>DragonflyDB</strong> as the message broker and <strong>Redis connectors</strong> for both <strong>Node.js</strong> and <strong>Python</strong> clients. By leveraging <strong>DragonflyDB</strong> for real-time data communication and incorporating <strong>IPC</strong> for collision handling, the system provides a robust framework for simulating and visualizing complex elastic behaviors in three dimensions.</p>
+<p><strong>Key Benefits</strong>:</p>
+<ul>
+<li><strong>High Performance</strong>: DragonflyDB offers superior performance compared to traditional Redis setups.</li>
+<li><strong>Scalability</strong>: Easily scalable to handle increasing simulation data and client connections.</li>
+<li><strong>Compatibility</strong>: Utilize existing Redis client libraries for seamless integration.</li>
+</ul>
+<p>For further customization and advanced features, refer to the documentation of the utilized libraries:</p>
+<ul>
+<li><a href="https://pbatoolkit.example.com">pbatoolkit Documentation</a></li>
+<li><a href="https://ipctk.example.com">ipctk Documentation</a></li>
+<li><a href="https://threejs.org/">Three.js Documentation</a></li>
+<li><a href="https://socket.io/">Socket.IO Documentation</a></li>
+<li><a href="https://docs.dragonflydb.io/">DragonflyDB Documentation</a></li>
+<li><a href="https://github.com/node-webrtc/node-webrtc">wrtc Documentation</a></li>
+<li><a href="https://redis-py.readthedocs.io/">Redis-Py Documentation</a></li>
+<li><a href="https://github.com/redis/node-redis">Node-Redis Documentation</a></li>
+</ul>
+<p>Feel free to explore and expand upon this foundational setup to suit your specific simulation and visualization needs.</p>
 
 
 
@@ -1573,7 +3044,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 11, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 12, 2024</span>
   </span>
 
     

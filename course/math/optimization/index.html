@@ -1,0 +1,3260 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Physics Based Animation Toolkit.">
+      
+      
+        <meta name="author" content="Quoc-Minh Ton-That">
+      
+      
+        <link rel="canonical" href="https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/math/optimization/">
+      
+      
+        <link rel="prev" href="../linear_algebra/">
+      
+      
+      
+      <link rel="icon" href="../../../_static/imgs/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Optimization - Physics Based Animation Toolkit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../_static/stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#optimization-techniques-for-physics-simulations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Physics Based Animation Toolkit" class="md-header__button md-logo" aria-label="Physics Based Animation Toolkit" data-md-component="logo">
+      
+  <img src="../../../_static/imgs/pbat.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Physics Based Animation Toolkit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Optimization
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Q-Minh/PhysicsBasedAnimationToolkit" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Q-Minh/PhysicsBasedAnimationToolkit
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../c%2B%2B/cpp/" class="md-tabs__link">
+          
+  
+  C++
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../python/python/" class="md-tabs__link">
+          
+  
+  Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../workshops/" class="md-tabs__link">
+          
+  
+  Examples
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fem/" class="md-tabs__link">
+          
+  
+  FEM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Physics Based Animation Toolkit" class="md-nav__button md-logo" aria-label="Physics Based Animation Toolkit" data-md-component="logo">
+      
+  <img src="../../../_static/imgs/pbat.svg" alt="logo">
+
+    </a>
+    Physics Based Animation Toolkit
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Q-Minh/PhysicsBasedAnimationToolkit" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Q-Minh/PhysicsBasedAnimationToolkit
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PBAT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gallery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gallery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c%2B%2B/cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c%2B%2B/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c%2B%2B/cuda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/FEM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FEM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/geometry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geometry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/profiling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Profiling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Workshops
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Workshops
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workshops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/broad_phase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Broad Phase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/contact_detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact Detection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/diffusion_smoothing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Diffusion Smoothing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Elasticity
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Elasticity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/elasticity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Elasticity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/elasticity_higher_order/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Higher Order
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/heat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    IPC
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            IPC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/ipc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/ipc-multi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi-Material
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/laplace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Laplace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/vbd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VBD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/xpdb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XPDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FEM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FEM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/method/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Method
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/shape_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shape Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/spatial_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/boundary_conditions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Boundary Conditions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/vector_valued_functions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vector-valued Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/limitations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Limitations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linear_algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-line-search-upper-and-lower-bound" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Line Search, Upper and Lower Bound
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Line Search, Upper and Lower Bound">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#line-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line Search
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Line Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#armijo-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Armijo Condition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wolfe-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wolfe Conditions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upper-and-lower-bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upper and Lower Bounds
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-convex-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Convex Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-unconstrained-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Unconstrained Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Unconstrained Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient-based-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradient-Based Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-newtons-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Newton's Method
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Newton's Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-steepest-descent-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Steepest Descent Method
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Steepest Descent Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-conjugate-gradient-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Conjugate Gradient Method
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Conjugate Gradient Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-in-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application in Simulations:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-simplex-method-and-augmented-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Simplex Method and Augmented Form
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Simplex Method and Augmented Form">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Idea:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical Formulation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#augmented-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Augmented Form:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-nonlinear-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Nonlinear Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Nonlinear Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penalty-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penalty Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#augmented-lagrangian-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Augmented Lagrangian Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-penalty-and-lagrange-multipliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Penalty and Lagrange Multipliers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Penalty and Lagrange Multipliers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penalty-methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penalty Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lagrange-multipliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lagrange Multipliers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-karush-kuhn-tucker-kkt-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Karush-Kuhn-Tucker (KKT) Conditions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Karush-Kuhn-Tucker (KKT) Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kkt-conditions-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      KKT Conditions Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-four-kkt-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Four KKT Conditions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importance-in-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-kkt-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applying KKT Conditions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-nonlinear-optimization-in-physics-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Nonlinear Optimization in Physics Simulations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Nonlinear Optimization in Physics Simulations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-nonlinear-optimization-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples of Nonlinear Optimization Problems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategies-for-effective-nonlinear-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategies for Effective Nonlinear Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suggested-reference-books" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggested Reference Books
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-line-search-upper-and-lower-bound" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Line Search, Upper and Lower Bound
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Line Search, Upper and Lower Bound">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#line-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Line Search
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Line Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#armijo-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Armijo Condition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wolfe-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wolfe Conditions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upper-and-lower-bounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upper and Lower Bounds
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-convex-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Convex Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-unconstrained-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Unconstrained Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Unconstrained Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient-based-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradient-Based Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-newtons-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Newton's Method
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Newton's Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-steepest-descent-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Steepest Descent Method
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Steepest Descent Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#steps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disadvantages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disadvantages:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-conjugate-gradient-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Conjugate Gradient Method
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Conjugate Gradient Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advantages:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-in-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application in Simulations:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-simplex-method-and-augmented-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Simplex Method and Augmented Form
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Simplex Method and Augmented Form">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Idea:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-formulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical Formulation:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#augmented-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Augmented Form:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-nonlinear-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Nonlinear Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Nonlinear Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Challenges:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penalty-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penalty Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#augmented-lagrangian-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Augmented Lagrangian Methods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-penalty-and-lagrange-multipliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Penalty and Lagrange Multipliers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Penalty and Lagrange Multipliers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#penalty-methods_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Penalty Methods
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lagrange-multipliers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lagrange Multipliers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-karush-kuhn-tucker-kkt-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Karush-Kuhn-Tucker (KKT) Conditions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Karush-Kuhn-Tucker (KKT) Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kkt-conditions-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      KKT Conditions Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-four-kkt-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Four KKT Conditions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importance-in-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-kkt-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applying KKT Conditions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-nonlinear-optimization-in-physics-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Nonlinear Optimization in Physics Simulations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Nonlinear Optimization in Physics Simulations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples-of-nonlinear-optimization-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples of Nonlinear Optimization Problems
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strategies-for-effective-nonlinear-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strategies for Effective Nonlinear Optimization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Practical Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suggested-reference-books" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suggested Reference Books
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="optimization-techniques-for-physics-simulations">Optimization Techniques for Physics Simulations<a class="headerlink" href="#optimization-techniques-for-physics-simulations" title="Permanent link">&para;</a></h1>
+<p>Optimization plays a crucial role in physics simulations, enabling the accurate modeling of physical systems by minimizing errors, energy states, or other relevant quantities. This guide delves into essential optimization methods tailored for physics simulations, providing clear explanations and mathematical formulations to help you implement these techniques effectively.</p>
+<hr />
+<h2 id="1-line-search-upper-and-lower-bound">1. Line Search, Upper and Lower Bound<a class="headerlink" href="#1-line-search-upper-and-lower-bound" title="Permanent link">&para;</a></h2>
+<h3 id="line-search">Line Search<a class="headerlink" href="#line-search" title="Permanent link">&para;</a></h3>
+<p><strong>Line search</strong> is an optimization technique used to determine the optimal step size (<span class="arithmatex">\(\alpha\)</span>) when moving along a specific direction (<span class="arithmatex">\(d\)</span>) to minimize or maximize an objective function <span class="arithmatex">\(f(x)\)</span>.</p>
+<ul>
+<li><strong>Objective</strong>: Find <span class="arithmatex">\(\alpha\)</span> that minimizes <span class="arithmatex">\(f(x + \alpha d)\)</span>.</li>
+<li><strong>Mathematical Formulation</strong>:
+  [
+  x_{\text{new}} = x_{\text{old}} + \alpha d
+  ]</li>
+<li><strong>Procedure</strong>:</li>
+<li>Choose a search direction <span class="arithmatex">\(d\)</span> (e.g., negative gradient for descent).</li>
+<li>Find <span class="arithmatex">\(\alpha\)</span> that minimizes <span class="arithmatex">\(f(x + \alpha d)\)</span>.</li>
+<li>Update the current position: <span class="arithmatex">\(x_{\text{new}} = x + \alpha d\)</span>.</li>
+</ul>
+<p><strong>Example in Physics Simulation</strong>:
+When simulating the motion of a particle under a force, line search can determine the optimal time step to update the particle's position and velocity, ensuring stability and accuracy.</p>
+<h4 id="armijo-condition">Armijo Condition<a class="headerlink" href="#armijo-condition" title="Permanent link">&para;</a></h4>
+<p>The <strong>Armijo condition</strong> is a criterion used in line search to ensure sufficient decrease in the objective function. It prevents the step size from being too large, which could overshoot the minimum.</p>
+<ul>
+<li>
+<p><strong>Mathematical Formulation</strong>:
+  [
+  f(x + \alpha d) \leq f(x) + c_1 \alpha \nabla f(x)^T d
+  ]
+  where <span class="arithmatex">\(0 &lt; c_1 &lt; 1\)</span> is a constant (commonly <span class="arithmatex">\(c_1 = 10^{-4}\)</span>).</p>
+</li>
+<li>
+<p><strong>Purpose</strong>: Ensures that the step size <span class="arithmatex">\(\alpha\)</span> decreases the function value sufficiently compared to the linear approximation.</p>
+</li>
+</ul>
+<p><strong>When to Use</strong>:
+Use the Armijo condition when you need a straightforward and efficient way to ensure progress towards the minimum without requiring exact minimization in the line search.</p>
+<h4 id="wolfe-conditions">Wolfe Conditions<a class="headerlink" href="#wolfe-conditions" title="Permanent link">&para;</a></h4>
+<p>The <strong>Wolfe conditions</strong> are a pair of criteria that ensure both sufficient decrease and curvature conditions during line search. They provide a balance between ensuring progress and maintaining search direction integrity.</p>
+<ul>
+<li><strong>Mathematical Formulation</strong>:</li>
+<li><strong>Sufficient Decrease (Armijo)</strong>:
+     [
+     f(x + \alpha d) \leq f(x) + c_1 \alpha \nabla f(x)^T d
+     ]</li>
+<li>
+<p><strong>Curvature Condition</strong>:
+     [
+     \nabla f(x + \alpha d)^T d \geq c_2 \nabla f(x)^T d
+     ]
+     where <span class="arithmatex">\(c_1 &lt; c_2\)</span>, typically <span class="arithmatex">\(c_1 = 10^{-4}\)</span> and <span class="arithmatex">\(c_2 = 0.9\)</span>.</p>
+</li>
+<li>
+<p><strong>Purpose</strong>: Ensures that the step size <span class="arithmatex">\(\alpha\)</span> not only decreases the function sufficiently but also that the slope has become less steep, indicating progress towards a minimum.</p>
+</li>
+</ul>
+<p><strong>When to Use</strong>:
+Use the Wolfe conditions in scenarios where maintaining search direction and ensuring both sufficient decrease and proper curvature are crucial for the convergence of optimization algorithms, especially in quasi-Newton methods.</p>
+<h3 id="upper-and-lower-bounds">Upper and Lower Bounds<a class="headerlink" href="#upper-and-lower-bounds" title="Permanent link">&para;</a></h3>
+<p>Constraints are often necessary to keep simulation variables within realistic or physically meaningful limits.</p>
+<ul>
+<li><strong>Lower Bound</strong> (<span class="arithmatex">\(a\)</span>): The minimum allowable value for a variable.</li>
+<li><strong>Upper Bound</strong> (<span class="arithmatex">\(b\)</span>): The maximum allowable value for a variable.</li>
+</ul>
+<p><strong>Mathematical Representation</strong>:
+[
+a \leq x \leq b
+]</p>
+<p><strong>Application</strong>:
+In a simulation of a pendulum, the angle <span class="arithmatex">\(\theta\)</span> might be bounded to prevent unrealistic rotations:
+[
+-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}
+]</p>
+<hr />
+<h2 id="2-convex-functions">2. Convex Functions<a class="headerlink" href="#2-convex-functions" title="Permanent link">&para;</a></h2>
+<p>A <strong>convex function</strong> ensures that any local minimum is also a global minimum, simplifying the optimization process.</p>
+<ul>
+<li>
+<p><strong>Definition</strong>: A function <span class="arithmatex">\(f(x)\)</span> is convex if for any two points <span class="arithmatex">\(x_1\)</span> and <span class="arithmatex">\(x_2\)</span> and any <span class="arithmatex">\(\alpha \in [0, 1]\)</span>:
+  [
+  f(\alpha x_1 + (1 - \alpha) x_2) \leq \alpha f(x_1) + (1 - \alpha) f(x_2)
+  ]</p>
+</li>
+<li>
+<p><strong>Graphical Interpretation</strong>: The line segment between any two points on the graph of <span class="arithmatex">\(f(x)\)</span> lies above or on the graph.</p>
+</li>
+</ul>
+<p><strong>Importance in Simulations</strong>:
+Convex functions guarantee that optimization algorithms converge to the global minimum, which is vital for ensuring that simulations reach physically accurate states without getting trapped in local minima.</p>
+<p><strong>Example</strong>:
+The potential energy function in a stable equilibrium is often convex, ensuring that the system naturally settles into the lowest energy state.</p>
+<hr />
+<h2 id="3-unconstrained-optimization">3. Unconstrained Optimization<a class="headerlink" href="#3-unconstrained-optimization" title="Permanent link">&para;</a></h2>
+<p><strong>Unconstrained optimization</strong> involves finding the minimum or maximum of a function without any restrictions on the variables.</p>
+<h3 id="example-problem">Example Problem<a class="headerlink" href="#example-problem" title="Permanent link">&para;</a></h3>
+<p>Minimize the function:
+[
+f(x) = x^2 - 4x + 4
+]</p>
+<h3 id="gradient-based-methods">Gradient-Based Methods<a class="headerlink" href="#gradient-based-methods" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Gradient Descent</strong>: Iteratively updates the variable in the direction of the negative gradient to find the minimum.</li>
+</ul>
+<p><strong>Update Rule</strong>:
+[
+x_{\text{new}} = x_{\text{old}} - \alpha \nabla f(x_{\text{old}})
+]
+where <span class="arithmatex">\(\alpha\)</span> is the learning rate or step size.</p>
+<p><strong>Application in Simulations</strong>:
+Used to minimize energy states in mechanical systems, ensuring that the simulated system settles into a stable configuration.</p>
+<hr />
+<h2 id="4-newtons-method">4. Newton's Method<a class="headerlink" href="#4-newtons-method" title="Permanent link">&para;</a></h2>
+<p><strong>Newton's method</strong> is an advanced optimization technique that uses second-order information (the Hessian matrix) to find the function's minimum more efficiently.</p>
+<h3 id="steps">Steps:<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Initial Guess</strong>: Start with an initial guess <span class="arithmatex">\(x_0\)</span>.</li>
+<li><strong>Update Rule</strong>:
+   [
+   x_{\text{new}} = x_{\text{old}} - H(x_{\text{old}})^{-1} \nabla f(x_{\text{old}})
+   ]
+   where <span class="arithmatex">\(H(x)\)</span> is the Hessian matrix (second derivative) of <span class="arithmatex">\(f(x)\)</span>.</li>
+</ol>
+<h3 id="advantages">Advantages:<a class="headerlink" href="#advantages" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Fast Convergence</strong>: Especially effective for functions that are twice continuously differentiable and convex.</li>
+<li><strong>Accuracy</strong>: Provides precise updates by considering the curvature of the function.</li>
+</ul>
+<h3 id="disadvantages">Disadvantages:<a class="headerlink" href="#disadvantages" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Computational Cost</strong>: Calculating and inverting the Hessian matrix can be expensive for large systems.</li>
+<li><strong>Requires Convexity</strong>: May not converge if the function is not convex.</li>
+</ul>
+<p><strong>Application in Simulations</strong>:
+Used in optimizing complex systems like fluid dynamics, where precise minimization of energy or error is critical.</p>
+<hr />
+<h2 id="5-steepest-descent-method">5. Steepest Descent Method<a class="headerlink" href="#5-steepest-descent-method" title="Permanent link">&para;</a></h2>
+<p>The <strong>Steepest Descent</strong> method is a straightforward optimization technique that moves in the direction of the steepest decrease of the function.</p>
+<h3 id="steps_1">Steps:<a class="headerlink" href="#steps_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Initial Guess</strong>: Start with an initial guess <span class="arithmatex">\(x_0\)</span>.</li>
+<li><strong>Compute Gradient</strong>: <span class="arithmatex">\(g_0 = \nabla f(x_0)\)</span>.</li>
+<li><strong>Update Rule</strong>:
+   [
+   x_{\text{new}} = x_{\text{old}} - \alpha g_0
+   ]
+   where <span class="arithmatex">\(\alpha\)</span> is the step size determined via line search.</li>
+</ol>
+<h3 id="advantages_1">Advantages:<a class="headerlink" href="#advantages_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Simplicity</strong>: Easy to implement and understand.</li>
+<li><strong>Applicability</strong>: Suitable for a wide range of problems where the gradient is easy to compute.</li>
+</ul>
+<h3 id="disadvantages_1">Disadvantages:<a class="headerlink" href="#disadvantages_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Slow Convergence</strong>: Can be inefficient for problems with ill-conditioned Hessians.</li>
+<li><strong>Oscillations</strong>: May oscillate in narrow valleys, slowing down progress.</li>
+</ul>
+<p><strong>Application in Simulations</strong>:
+Ideal for initial optimization steps in simulations, such as adjusting parameters in a model to fit observed data.</p>
+<hr />
+<h2 id="6-conjugate-gradient-method">6. Conjugate Gradient Method<a class="headerlink" href="#6-conjugate-gradient-method" title="Permanent link">&para;</a></h2>
+<p>The <strong>Conjugate Gradient Method</strong> is an efficient algorithm for solving large-scale, sparse optimization problems, particularly those involving quadratic functions.</p>
+<h3 id="advantages_2">Advantages:<a class="headerlink" href="#advantages_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Efficiency</strong>: Requires fewer iterations than steepest descent.</li>
+<li><strong>Memory Usage</strong>: Does not require storing the entire Hessian matrix.</li>
+</ul>
+<h3 id="steps_2">Steps:<a class="headerlink" href="#steps_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Initial Guess</strong>: Start with <span class="arithmatex">\(x_0\)</span>.</li>
+<li><strong>Compute Initial Gradient</strong>: <span class="arithmatex">\(g_0 = \nabla f(x_0)\)</span>.</li>
+<li><strong>Set Initial Direction</strong>: <span class="arithmatex">\(d_0 = -g_0\)</span>.</li>
+<li><strong>Iterative Updates</strong>:
+   [
+   x_{k+1} = x_k + \alpha_k d_k
+   ]
+   [
+   g_{k+1} = g_k + \alpha_k H d_k
+   ]
+   [
+   \beta_k = \frac{g_{k+1}^T g_{k+1}}}{g_k^T g_k}
+   ]
+   [
+   d_{k+1} = -g_{k+1} + \beta_k d_k
+   ]</li>
+</ol>
+<h3 id="application-in-simulations">Application in Simulations:<a class="headerlink" href="#application-in-simulations" title="Permanent link">&para;</a></h3>
+<p>Used in simulations involving large systems, such as structural analysis or large-scale fluid simulations, where traditional methods are computationally prohibitive.</p>
+<hr />
+<h2 id="7-simplex-method-and-augmented-form">7. Simplex Method and Augmented Form<a class="headerlink" href="#7-simplex-method-and-augmented-form" title="Permanent link">&para;</a></h2>
+<p>The <strong>Simplex Method</strong> is a widely-used algorithm for solving linear programming problems, where both the objective function and the constraints are linear.</p>
+<h3 id="basic-idea">Basic Idea:<a class="headerlink" href="#basic-idea" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Feasible Region</strong>: Defined by a set of linear inequalities forming a polytope.</li>
+<li><strong>Traversal</strong>: Moves along the edges of the polytope to find the optimal vertex.</li>
+</ul>
+<h3 id="mathematical-formulation">Mathematical Formulation:<a class="headerlink" href="#mathematical-formulation" title="Permanent link">&para;</a></h3>
+<p>[
+\text{Minimize } c^T x \quad \text{subject to } Ax \leq b, \quad x \geq 0
+]
+where <span class="arithmatex">\(c\)</span> is the cost vector, <span class="arithmatex">\(A\)</span> is the constraint matrix, and <span class="arithmatex">\(b\)</span> is the constraint vector.</p>
+<h3 id="augmented-form">Augmented Form:<a class="headerlink" href="#augmented-form" title="Permanent link">&para;</a></h3>
+<p>To handle inequalities, the Simplex Method introduces <strong>slack variables</strong> to convert them into equalities.</p>
+<p><strong>Example</strong>:
+[
+Ax \leq b \quad \Rightarrow \quad Ax + s = b, \quad s \geq 0
+]
+where <span class="arithmatex">\(s\)</span> are the slack variables.</p>
+<p><strong>Application in Simulations</strong>:
+Used in resource allocation, network flow problems, and optimizing layout configurations in physical systems.</p>
+<hr />
+<h2 id="8-nonlinear-optimization">8. Nonlinear Optimization<a class="headerlink" href="#8-nonlinear-optimization" title="Permanent link">&para;</a></h2>
+<p><strong>Nonlinear optimization</strong> deals with objective functions or constraints that are nonlinear, introducing additional complexity compared to linear problems.</p>
+<h3 id="challenges">Challenges:<a class="headerlink" href="#challenges" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Multiple Local Minima</strong>: The presence of several minima makes finding the global minimum difficult.</li>
+<li><strong>Complex Constraints</strong>: Nonlinear constraints can create intricate feasible regions.</li>
+</ul>
+<h3 id="methods">Methods:<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h3>
+<h4 id="penalty-methods">Penalty Methods<a class="headerlink" href="#penalty-methods" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Idea</strong>: Incorporate constraints into the objective function by adding a penalty for violating them.</li>
+<li>
+<p><strong>Penalty Function</strong>:
+  [
+  f_{\text{penalty}}(x) = f(x) + \lambda P(x)
+  ]
+  where <span class="arithmatex">\(P(x)\)</span> penalizes constraint violations and <span class="arithmatex">\(\lambda\)</span> is a large positive constant.</p>
+</li>
+<li>
+<p><strong>Application</strong>:
+  In simulating constrained physical systems, such as ensuring particles remain within a bounded region.</p>
+</li>
+</ul>
+<h4 id="augmented-lagrangian-methods">Augmented Lagrangian Methods<a class="headerlink" href="#augmented-lagrangian-methods" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Idea</strong>: Enhance the Lagrangian by adding penalty terms to improve convergence and handle constraints more effectively.</li>
+<li>
+<p><strong>Augmented Lagrangian</strong>:
+  [
+  L(x, \lambda) = f(x) + \lambda g(x) + \frac{\rho}{2} g(x)^2
+  ]
+  where <span class="arithmatex">\(g(x)\)</span> represents the constraints and <span class="arithmatex">\(\rho\)</span> is a penalty parameter.</p>
+</li>
+<li>
+<p><strong>Advantages</strong>:</p>
+</li>
+<li>Better convergence properties compared to simple penalty methods.</li>
+<li>
+<p>Balances constraint satisfaction with objective minimization.</p>
+</li>
+<li>
+<p><strong>Application</strong>:
+  Useful in simulations requiring precise constraint handling, such as molecular dynamics with bond length constraints.</p>
+</li>
+</ul>
+<hr />
+<h2 id="9-penalty-and-lagrange-multipliers">9. Penalty and Lagrange Multipliers<a class="headerlink" href="#9-penalty-and-lagrange-multipliers" title="Permanent link">&para;</a></h2>
+<p>Handling constraints is essential in many optimization problems within physics simulations. <strong>Penalty methods</strong> and <strong>Lagrange multipliers</strong> offer different approaches to incorporate these constraints.</p>
+<h3 id="penalty-methods_1">Penalty Methods<a class="headerlink" href="#penalty-methods_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Concept</strong>: Modify the objective function to include penalties for constraint violations.</li>
+<li>
+<p><strong>Formulation</strong>:
+  [
+  \text{Minimize } f(x) + \lambda \cdot g(x)
+  ]
+  where <span class="arithmatex">\(g(x)\)</span> is the constraint function and <span class="arithmatex">\(\lambda\)</span> is the penalty parameter.</p>
+</li>
+<li>
+<p><strong>Pros</strong>:</p>
+</li>
+<li>Simple to implement.</li>
+<li>
+<p>Transforms constrained problems into unconstrained ones.</p>
+</li>
+<li>
+<p><strong>Cons</strong>:</p>
+</li>
+<li>Choosing an appropriate <span class="arithmatex">\(\lambda\)</span> can be challenging.</li>
+<li>Large penalties can lead to numerical instability.</li>
+</ul>
+<p><strong>Example</strong>:
+Minimizing the potential energy of a system while ensuring that particles do not overlap:
+[
+f_{\text{penalty}}(x) = f(x) + \lambda \sum_{i,j} \max(0, r_{ij} - d_{ij})^2
+]
+where <span class="arithmatex">\(d_{ij}\)</span> is the distance between particles <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>, and <span class="arithmatex">\(r_{ij}\)</span> is the minimum allowed distance.</p>
+<h3 id="lagrange-multipliers">Lagrange Multipliers<a class="headerlink" href="#lagrange-multipliers" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Concept</strong>: Introduce auxiliary variables (multipliers) to handle constraints directly within the optimization framework.</li>
+<li>
+<p><strong>Lagrangian Function</strong>:
+  [
+  L(x, \lambda) = f(x) + \lambda g(x)
+  ]
+  where <span class="arithmatex">\(g(x) = 0\)</span> represents the constraints.</p>
+</li>
+<li>
+<p><strong>Procedure</strong>:</p>
+</li>
+<li>Form the Lagrangian.</li>
+<li>Take derivatives with respect to <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(\lambda\)</span>.</li>
+<li>
+<p>Solve the resulting system of equations.</p>
+</li>
+<li>
+<p><strong>Advantages</strong>:</p>
+</li>
+<li>Provides a systematic way to handle equality constraints.</li>
+<li>
+<p>Facilitates the use of duality in optimization.</p>
+</li>
+<li>
+<p><strong>Disadvantages</strong>:</p>
+</li>
+<li>Primarily suited for equality constraints.</li>
+<li>Extending to inequality constraints requires additional conditions (KKT).</li>
+</ul>
+<p><strong>Examples</strong>:</p>
+<ol>
+<li>
+<p><strong>Pendulum Optimization</strong>:
+   Optimizing the position of a pendulum bob while keeping the rod length fixed:
+   [
+   L(\theta, \lambda) = f(\theta) + \lambda (L - l(\theta))
+   ]
+   where <span class="arithmatex">\(f(\theta)\)</span> is the potential energy, <span class="arithmatex">\(L\)</span> is the fixed rod length, and <span class="arithmatex">\(l(\theta)\)</span> is the length as a function of angle <span class="arithmatex">\(\theta\)</span>.</p>
+</li>
+<li>
+<p><strong>Structural Optimization</strong>:
+   Minimizing the weight of a structure while maintaining strength:
+   [
+   L(x, \lambda) = f(x) + \lambda (g(x) - \text{Strength})
+   ]
+   where <span class="arithmatex">\(f(x)\)</span> represents the weight, and <span class="arithmatex">\(g(x)\)</span> ensures the structure meets strength requirements.</p>
+</li>
+<li>
+<p><strong>Fluid Simulation</strong>:
+   Minimizing energy in a fluid system while conserving mass:
+   [
+   L(\mathbf{v}, \lambda) = f(\mathbf{v}) + \lambda \left(\nabla \cdot \mathbf{v}\right)
+   ]
+   where <span class="arithmatex">\(f(\mathbf{v})\)</span> is the kinetic energy and <span class="arithmatex">\(\nabla \cdot \mathbf{v} = 0\)</span> enforces mass conservation.</p>
+</li>
+</ol>
+<hr />
+<h2 id="10-karush-kuhn-tucker-kkt-conditions">10. Karush-Kuhn-Tucker (KKT) Conditions<a class="headerlink" href="#10-karush-kuhn-tucker-kkt-conditions" title="Permanent link">&para;</a></h2>
+<p>The <strong>Karush-Kuhn-Tucker (KKT) conditions</strong> are essential for finding the optimal solutions in constrained nonlinear optimization problems. They generalize the method of Lagrange multipliers to handle inequality constraints.</p>
+<h3 id="kkt-conditions-overview">KKT Conditions Overview<a class="headerlink" href="#kkt-conditions-overview" title="Permanent link">&para;</a></h3>
+<p>For an optimization problem:
+[
+\begin{align<em>}
+\text{Minimize} \quad &amp; f(x) \
+\text{Subject to} \quad &amp; g_i(x) \leq 0, \quad i = 1, 2, \ldots, m \
+&amp; h_j(x) = 0, \quad j = 1, 2, \ldots, p
+\end{align</em>}
+]</p>
+<h3 id="the-four-kkt-conditions">The Four KKT Conditions<a class="headerlink" href="#the-four-kkt-conditions" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Primal Feasibility</strong>:
+   [
+   g_i(x^<em>) \leq 0 \quad \forall i, \quad h_j(x^</em>) = 0 \quad \forall j
+   ]
+   The solution <span class="arithmatex">\(x^*\)</span> must satisfy all the constraints.</p>
+</li>
+<li>
+<p><strong>Dual Feasibility</strong>:
+   [
+   \lambda_i \geq 0 \quad \forall i
+   ]
+   The Lagrange multipliers for inequality constraints must be non-negative.</p>
+</li>
+<li>
+<p><strong>Complementary Slackness</strong>:
+   [
+   \lambda_i g_i(x^*) = 0 \quad \forall i
+   ]
+   For each inequality constraint, either the constraint is active (<span class="arithmatex">\(g_i(x^*) = 0\)</span>) and the multiplier <span class="arithmatex">\(\lambda_i\)</span> can be positive, or the constraint is inactive (<span class="arithmatex">\(g_i(x^*) &lt; 0\)</span>) and the multiplier <span class="arithmatex">\(\lambda_i\)</span> is zero.</p>
+</li>
+<li>
+<p><strong>Stationarity</strong>:
+   [
+   \nabla f(x^<em>) + \sum_{i=1}^m \lambda_i \nabla g_i(x^</em>) + \sum_{j=1}^p \mu_j \nabla h_j(x^*) = 0
+   ]
+   The gradient of the Lagrangian with respect to <span class="arithmatex">\(x\)</span> must vanish at the optimal point.</p>
+</li>
+</ol>
+<h3 id="importance-in-simulations">Importance in Simulations<a class="headerlink" href="#importance-in-simulations" title="Permanent link">&para;</a></h3>
+<p>KKT conditions provide a comprehensive framework for identifying optimal points in simulations with constraints, ensuring that both the objective function and the constraints are appropriately balanced.</p>
+<p><strong>Example</strong>:
+In simulating a mechanical system with constraints (e.g., joints that must remain fixed), KKT conditions help determine the optimal forces and positions that satisfy both the physical laws and the constraints.</p>
+<h3 id="applying-kkt-conditions">Applying KKT Conditions<a class="headerlink" href="#applying-kkt-conditions" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Formulate the Lagrangian</strong>:
+   [
+   L(x, \lambda, \mu) = f(x) + \sum_{i=1}^m \lambda_i g_i(x) + \sum_{j=1}^p \mu_j h_j(x)
+   ]</p>
+</li>
+<li>
+<p><strong>Compute Gradients</strong>:</p>
+</li>
+<li><span class="arithmatex">\(\nabla_x L = 0\)</span></li>
+<li><span class="arithmatex">\(\nabla_{\lambda} L = g_i(x) = 0\)</span> for equality constraints.</li>
+<li>
+<p><span class="arithmatex">\(\nabla_{\mu} L = h_j(x) = 0\)</span></p>
+</li>
+<li>
+<p><strong>Solve the System</strong>:</p>
+</li>
+<li>Solve the simultaneous equations derived from the KKT conditions to find <span class="arithmatex">\(x^*\)</span>, <span class="arithmatex">\(\lambda^*\)</span>, and <span class="arithmatex">\(\mu^*\)</span>.</li>
+</ol>
+<p><strong>Additional Example: Optimizing a Spring-Mass System</strong></p>
+<p>Consider optimizing the position of a mass attached to multiple springs to minimize the total potential energy while keeping the mass at a fixed distance from a point.</p>
+<ul>
+<li>
+<p><strong>Objective Function</strong>:
+  [
+  f(x) = \frac{1}{2} k_1 (x - x_1)^2 + \frac{1}{2} k_2 (x - x_2)^2
+  ]
+  where <span class="arithmatex">\(k_1\)</span> and <span class="arithmatex">\(k_2\)</span> are spring constants, and <span class="arithmatex">\(x_1\)</span> and <span class="arithmatex">\(x_2\)</span> are equilibrium positions.</p>
+</li>
+<li>
+<p><strong>Constraint</strong>:
+  [
+  h(x) = ||x|| - R = 0
+  ]
+  where <span class="arithmatex">\(R\)</span> is the fixed distance from the origin.</p>
+</li>
+<li>
+<p><strong>Lagrangian</strong>:
+  [
+  L(x, \lambda) = f(x) + \lambda (||x|| - R)
+  ]</p>
+</li>
+<li>
+<p><strong>Applying KKT</strong>:</p>
+</li>
+<li>Compute gradients:
+     [
+     \nabla_x L = k_1 (x - x_1) + k_2 (x - x_2) + \lambda \frac{x}{||x||} = 0
+     ]
+     [
+     \nabla_{\lambda} L = ||x|| - R = 0
+     ]</li>
+<li>Solve the system for <span class="arithmatex">\(x^*\)</span> and <span class="arithmatex">\(\lambda^*\)</span>.</li>
+</ul>
+<hr />
+<h2 id="11-nonlinear-optimization-in-physics-simulations">11. Nonlinear Optimization in Physics Simulations<a class="headerlink" href="#11-nonlinear-optimization-in-physics-simulations" title="Permanent link">&para;</a></h2>
+<p>Nonlinear optimization is prevalent in physics simulations where relationships between variables are inherently nonlinear. This section explores how the aforementioned optimization techniques are specifically applied to nonlinear problems in simulations.</p>
+<h3 id="examples-of-nonlinear-optimization-problems">Examples of Nonlinear Optimization Problems<a class="headerlink" href="#examples-of-nonlinear-optimization-problems" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Molecular Dynamics</strong>: Minimizing the potential energy to find the equilibrium positions of atoms.</li>
+<li><strong>Fluid Simulation</strong>: Solving Navier-Stokes equations to model fluid flow.</li>
+<li><strong>Structural Analysis</strong>: Optimizing material distribution for strength and weight.</li>
+</ul>
+<h3 id="strategies-for-effective-nonlinear-optimization">Strategies for Effective Nonlinear Optimization<a class="headerlink" href="#strategies-for-effective-nonlinear-optimization" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Choosing the Right Method</strong>:</li>
+<li><strong>Gradient-Based Methods</strong>: Suitable for smooth, differentiable functions.</li>
+<li>
+<p><strong>Derivative-Free Methods</strong>: Necessary when derivatives are difficult to compute.</p>
+</li>
+<li>
+<p><strong>Handling Constraints</strong>:</p>
+</li>
+<li>Use <strong>Penalty Methods</strong> for soft constraints where some violation is tolerable.</li>
+<li>
+<p>Use <strong>Lagrange Multipliers</strong> or <strong>KKT Conditions</strong> for strict constraints requiring exact satisfaction.</p>
+</li>
+<li>
+<p><strong>Ensuring Convergence</strong>:</p>
+</li>
+<li><strong>Convexity</strong>: Where possible, reformulate problems to be convex.</li>
+<li>
+<p><strong>Regularization</strong>: Add terms to stabilize the optimization, especially in ill-conditioned problems.</p>
+</li>
+<li>
+<p><strong>Numerical Stability</strong>:</p>
+</li>
+<li><strong>Step Size Control</strong>: Adaptive step sizes can prevent overshooting minima.</li>
+<li><strong>Scaling Variables</strong>: Normalize variables to reduce numerical errors.</li>
+</ol>
+<h3 id="practical-tips">Practical Tips<a class="headerlink" href="#practical-tips" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Initialization</strong>: Good initial guesses can significantly speed up convergence.</li>
+<li><strong>Hybrid Methods</strong>: Combine different optimization techniques to leverage their strengths.</li>
+<li><strong>Parallel Computing</strong>: Utilize parallelism to handle large-scale optimization tasks efficiently.</li>
+</ul>
+<p><strong>Application in Simulations</strong>:
+In optimizing the shape of an aerodynamic body, nonlinear optimization techniques can adjust parameters to minimize drag while satisfying structural integrity constraints.</p>
+<hr />
+<h2 id="suggested-reference-books">Suggested Reference Books<a class="headerlink" href="#suggested-reference-books" title="Permanent link">&para;</a></h2>
+<p>To deepen your understanding of optimization techniques in physics simulations, consider the following reference books:</p>
+<ol>
+<li>
+<p><strong>"Engineering Optimization: Theory and Practice" by Xin-She Yang</strong><br />
+   This book provides a comprehensive introduction to engineering optimization methods, covering both theoretical foundations and practical applications. It includes discussions on evolutionary algorithms, gradient-based methods, and more, making it highly relevant for physics simulations.</p>
+</li>
+<li>
+<p><strong>"Numerical Optimization" by Jorge Nocedal and Stephen J. Wright</strong><br />
+   A detailed resource on numerical optimization techniques, this book covers a wide range of methods including unconstrained and constrained optimization, optimality conditions, and algorithmic strategies. It's particularly useful for implementing optimization algorithms in simulations.</p>
+</li>
+<li>
+<p><strong>"Practical Optimization: Algorithms and Engineering Applications" by Andreas Antoniou and Wu-Sheng Lu</strong><br />
+   This book bridges the gap between theory and practice, offering algorithms and real-world applications in engineering. It includes sections on linear and nonlinear programming, making it suitable for physics simulation contexts.</p>
+</li>
+<li>
+<p><strong>"Convex Optimization" by Stephen Boyd and Lieven Vandenberghe</strong><br />
+   Focused on convex optimization, this book is essential for understanding the properties of convex functions and their applications in optimization. It provides a strong theoretical background with practical examples relevant to simulations.</p>
+</li>
+<li>
+<p><strong>"Optimization by Vector Space Methods" by David G. Luenberger</strong><br />
+   This classic text explores optimization in the context of vector spaces, offering insights into linear and nonlinear optimization techniques. It's beneficial for those looking to understand the mathematical underpinnings of optimization methods used in simulations.</p>
+</li>
+<li>
+<p><strong>"Engineering Optimization: Theory and Practice" by Singiresu S. Rao</strong><br />
+   Another excellent resource on engineering optimization, this book covers a variety of optimization techniques including classical methods, evolutionary algorithms, and multi-objective optimization, all of which are applicable to physics simulations.</p>
+</li>
+<li>
+<p><strong>"Numerical Recipes: The Art of Scientific Computing" by William H. Press et al.</strong><br />
+   While not exclusively focused on optimization, this book provides practical algorithms for scientific computing, including sections on optimization methods. It's valuable for implementing optimization algorithms efficiently in simulation software.</p>
+</li>
+</ol>
+<hr />
+<p>By understanding and applying these optimization techniques, you can enhance the accuracy and efficiency of your physics simulations. Whether you're minimizing energy states, solving complex equations, or ensuring system stability, these methods provide the foundational tools necessary for advanced simulation tasks.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 12, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "toc.follow", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../_static/javascripts/config.js"></script>
+      
+        <script src="../../../_static/javascripts/custom.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js"></script>
+      
+    
+  </body>
+</html>

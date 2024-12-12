@@ -325,6 +325,24 @@
   
 
       
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../course/math/" class="md-tabs__link">
+          
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -1125,21 +1143,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-sample" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Sample
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Code Sample">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#running-the-script" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1670,6 +1673,116 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/linear_algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1784,21 +1897,6 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#code-sample" class="md-nav__link">
-    <span class="md-ellipsis">
-      Code Sample
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Code Sample">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#running-the-script" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1908,56 +2006,6 @@
         <span class="n">V</span> <span class="o">=</span> <span class="n">Ainv</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">M</span> <span class="o">@</span> <span class="n">V</span><span class="p">)</span>
         <span class="n">vms</span><span class="o">.</span><span class="n">update_vertex_positions</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="code-sample">Code Sample<a class="headerlink" href="#code-sample" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pbatoolkit</span> <span class="k">as</span> <span class="nn">pbat</span>
-<span class="kn">import</span> <span class="nn">igl</span>
-<span class="kn">import</span> <span class="nn">polyscope</span> <span class="k">as</span> <span class="nn">ps</span>
-<span class="kn">import</span> <span class="nn">polyscope.imgui</span> <span class="k">as</span> <span class="nn">imgui</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">meshio</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s2">&quot;Diffusion mesh smoothing demo&quot;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-i&quot;</span><span class="p">,</span> <span class="s2">&quot;--input&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to input triangle mesh&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-
-    <span class="n">imesh</span> <span class="o">=</span> <span class="n">meshio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
-    <span class="n">V</span><span class="p">,</span> <span class="n">F</span> <span class="o">=</span> <span class="n">imesh</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">imesh</span><span class="o">.</span><span class="n">cells_dict</span><span class="p">[</span><span class="s2">&quot;triangle&quot;</span><span class="p">]</span>
-    <span class="n">V</span><span class="p">,</span> <span class="n">F</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">),</span> <span class="n">F</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
-
-    <span class="n">mesh</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Element</span><span class="o">.</span><span class="n">Triangle</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">detJeL</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">jacobian_determinants</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">quadrature_order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">GNeL</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">shape_function_gradients</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">quadrature_order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">L</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Laplacian</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">detJeL</span><span class="p">,</span> <span class="n">GNeL</span><span class="p">,</span> <span class="n">quadrature_order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_matrix</span><span class="p">()</span>
-    <span class="n">detJeM</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">jacobian_determinants</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">quadrature_order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">M</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">MassMatrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">detJeM</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">quadrature_order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_matrix</span><span class="p">()</span>
-
-    <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.016</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">M</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">L</span>
-    <span class="n">Ainv</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">ldlt</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-    <span class="n">Ainv</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-
-    <span class="n">ps</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
-    <span class="n">vmm</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">register_surface_mesh</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
-    <span class="n">vms</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">register_surface_mesh</span><span class="p">(</span><span class="s2">&quot;smoothed&quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
-    <span class="n">smooth</span> <span class="o">=</span> <span class="kc">False</span>
-
-    <span class="k">def</span> <span class="nf">callback</span><span class="p">():</span>
-        <span class="k">global</span> <span class="n">dt</span><span class="p">,</span> <span class="n">Ainv</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">c</span>
-        <span class="n">dtchanged</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">InputFloat</span><span class="p">(</span><span class="s2">&quot;dt&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
-        <span class="n">cchanged</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">SliderFloat</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">v_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">v_max</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">dtchanged</span> <span class="ow">or</span> <span class="n">cchanged</span><span class="p">:</span>
-            <span class="n">A</span> <span class="o">=</span> <span class="n">M</span> <span class="o">-</span> <span class="n">c</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">L</span>
-            <span class="n">Ainv</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-        <span class="n">_</span><span class="p">,</span> <span class="n">smooth</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="s2">&quot;smooth&quot;</span><span class="p">,</span> <span class="n">smooth</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">smooth</span><span class="p">:</span>
-            <span class="n">V</span> <span class="o">=</span> <span class="n">Ainv</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">M</span> <span class="o">@</span> <span class="n">V</span><span class="p">)</span>
-            <span class="n">vms</span><span class="o">.</span><span class="n">update_vertex_positions</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
-
-    <span class="n">ps</span><span class="o">.</span><span class="n">set_user_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
-    <span class="n">ps</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
 <h3 id="running-the-script">Running the Script<a class="headerlink" href="#running-the-script" title="Permanent link">&para;</a></h3>
 <p>Run the script and pass the path to a triangle mesh file to apply diffusion-based smoothing:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>script.py<span class="w"> </span>--input<span class="w"> </span>/path/to/triangle/mesh.obj
@@ -1982,7 +2030,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 11, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 12, 2024</span>
   </span>
 
     

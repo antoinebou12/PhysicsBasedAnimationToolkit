@@ -81,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#heat-geodesics-demo" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -313,6 +318,24 @@
           
   
   FEM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../course/math/" class="md-tabs__link">
+          
+  
+  Math
 
         </a>
       </li>
@@ -1104,6 +1127,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Heat
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1114,6 +1150,145 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command-line Arguments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command-line Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-loading-the-input-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Loading the Input Mesh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-extracting-boundary-facets" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Extracting Boundary Facets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-constructing-fem-quantities" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Constructing FEM Quantities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-setting-up-heat-diffusion-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Setting Up Heat Diffusion Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-precomputing-linear-solvers" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Precomputing Linear Solvers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-setting-up-visualization-with-polyscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Setting Up Visualization with Polyscope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-running-the-simulation-loop-with-user-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Running the Simulation Loop with User Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Instructions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1516,6 +1691,116 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/linear_algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1533,6 +1818,136 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command-line Arguments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command-line Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-loading-the-input-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Loading the Input Mesh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-extracting-boundary-facets" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Extracting Boundary Facets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-constructing-fem-quantities" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Constructing FEM Quantities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-setting-up-heat-diffusion-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Setting Up Heat Diffusion Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-precomputing-linear-solvers" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Precomputing Linear Solvers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-setting-up-visualization-with-polyscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Setting Up Visualization with Polyscope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-running-the-simulation-loop-with-user-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Running the Simulation Loop with User Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Instructions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1550,9 +1965,172 @@
   
 
 
-  <h1>Heat</h1>
+<h1 id="heat-geodesics-demo">Heat Geodesics Demo<a class="headerlink" href="#heat-geodesics-demo" title="Permanent link">&para;</a></h1>
+<p>This script demonstrates the computation of <strong>heat geodesics</strong> on a 3D mesh using the <strong>Finite Element Method (FEM)</strong>. Heat geodesics are useful for various applications in geometry processing, including shape analysis, segmentation, and visualization. The simulation utilizes heat diffusion and the computation of geodesic distances to generate contour lines representing equal geodesic distances from a source point.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Ensure the following Python libraries are installed before running the script:</p>
+<ul>
+<li><code>pbatoolkit</code></li>
+<li><code>igl</code></li>
+<li><code>polyscope</code></li>
+<li><code>numpy</code></li>
+<li><code>scipy</code></li>
+<li><code>argparse</code></li>
+<li><code>meshio</code></li>
+</ul>
+<p>You can install the required packages using <code>pip</code>:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pbatoolkit<span class="w"> </span>igl<span class="w"> </span>polyscope<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>argparse<span class="w"> </span>meshio
+</code></pre></div>
+<p><em>Note</em>: If <code>pbatoolkit</code> is not available via <code>pip</code>, refer to its official documentation for installation instructions.</p>
+<h2 id="command-line-arguments">Command-line Arguments<a class="headerlink" href="#command-line-arguments" title="Permanent link">&para;</a></h2>
+<p>The script accepts several command-line arguments to customize the simulation:</p>
+<ul>
+<li><code>-i</code>, <code>--input</code>: <strong>Path to input mesh file</strong> (required). Supports both tetrahedral and triangle meshes.</li>
+<li><code>-o</code>, <code>--output</code>: <strong>Path to output directory</strong> for saving results (default: current directory).</li>
+</ul>
+<h3 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>heat_geodesics_demo.py<span class="w"> </span>-i<span class="w"> </span>input_mesh.vtk<span class="w"> </span>-o<span class="w"> </span>output_directory
+</code></pre></div>
+<ul>
+<li><strong>Explanation</strong>:</li>
+<li>Loads <code>input_mesh.vtk</code>.</li>
+<li>Outputs results to <code>output_directory</code>.</li>
+</ul>
+<h2 id="workflow-overview">Workflow Overview<a class="headerlink" href="#workflow-overview" title="Permanent link">&para;</a></h2>
+<h3 id="1-loading-the-input-mesh">1. Loading the Input Mesh<a class="headerlink" href="#1-loading-the-input-mesh" title="Permanent link">&para;</a></h3>
+<p>The script begins by loading the input mesh using <code>meshio</code>. It supports both tetrahedral (<code>"tetra"</code>) and triangle (<code>"triangle"</code>) meshes. Depending on the mesh type, it constructs the appropriate FEM mesh.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load input mesh</span>
+<span class="n">imesh</span> <span class="o">=</span> <span class="n">meshio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">if</span> <span class="s2">&quot;tetra&quot;</span> <span class="ow">in</span> <span class="n">imesh</span><span class="o">.</span><span class="n">cells_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">V</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">imesh</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">imesh</span><span class="o">.</span><span class="n">cells_dict</span><span class="p">[</span><span class="s2">&quot;tetra&quot;</span><span class="p">]</span>
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span>
+        <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Element</span><span class="o">.</span><span class="n">Tetrahedron</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span> <span class="s2">&quot;triangle&quot;</span> <span class="ow">in</span> <span class="n">imesh</span><span class="o">.</span><span class="n">cells_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">V</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">imesh</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">imesh</span><span class="o">.</span><span class="n">cells_dict</span><span class="p">[</span><span class="s2">&quot;triangle&quot;</span><span class="p">]</span>
+    <span class="n">mesh</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span>
+        <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Element</span><span class="o">.</span><span class="n">Triangle</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="2-extracting-boundary-facets">2. Extracting Boundary Facets<a class="headerlink" href="#2-extracting-boundary-facets" title="Permanent link">&para;</a></h3>
+<p>For tetrahedral meshes, boundary facets are extracted to identify the surface of the mesh. This is essential for visualizing the geodesic contours.</p>
+<div class="highlight"><pre><span></span><code><span class="n">F</span> <span class="o">=</span> <span class="n">C</span>
+<span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">element</span> <span class="o">==</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Element</span><span class="o">.</span><span class="n">Tetrahedron</span><span class="p">:</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">igl</span><span class="o">.</span><span class="n">boundary_facets</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+    <span class="n">F</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">F</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">shift</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="3-constructing-fem-quantities">3. Constructing FEM Quantities<a class="headerlink" href="#3-constructing-fem-quantities" title="Permanent link">&para;</a></h3>
+<p>The mass matrix and load vector are computed based on the mesh and material properties. These matrices are fundamental for simulating heat diffusion and solving the associated linear systems.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Construct Galerkin laplacian, mass and gradient operators</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">M</span><span class="p">,</span> <span class="n">detJeM</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">mass_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">G</span><span class="p">,</span> <span class="n">egG</span><span class="p">,</span> <span class="n">GNegG</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="n">wgD</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">inner_product_weights</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+<span class="n">D</span><span class="p">,</span> <span class="n">wgD</span><span class="p">,</span> <span class="n">egD</span><span class="p">,</span> <span class="n">GNegD</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">divergence</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">eg</span><span class="o">=</span><span class="n">GNegG</span><span class="p">,</span> <span class="n">wg</span><span class="o">=</span><span class="n">wgD</span><span class="p">,</span> <span class="n">GNeg</span><span class="o">=</span><span class="n">GNegG</span><span class="p">)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">D</span> <span class="o">@</span> <span class="n">G</span>
+</code></pre></div>
+<h3 id="4-setting-up-heat-diffusion-parameters">4. Setting Up Heat Diffusion Parameters<a class="headerlink" href="#4-setting-up-heat-diffusion-parameters" title="Permanent link">&para;</a></h3>
+<p>Heat diffusion is simulated by solving the heat equation. The script sets up the necessary parameters, including the time step (<code>dt</code>), diffusion coefficient (<code>k</code>), and the linear system to be solved at each step.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Setup 1-step heat diffusion</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">igl</span><span class="o">.</span><span class="n">avg_edge_length</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">M</span> <span class="o">-</span> <span class="n">k</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">L</span>
+</code></pre></div>
+<h3 id="5-precomputing-linear-solvers">5. Precomputing Linear Solvers<a class="headerlink" href="#5-precomputing-linear-solvers" title="Permanent link">&para;</a></h3>
+<p>To efficiently solve the linear systems arising from the heat diffusion simulation, the script precomputes linear solvers using LDLT decomposition. This optimization accelerates the simulation, especially for large meshes.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Precompute linear solvers</span>
+<span class="n">Ainv</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">ldlt</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">Ainv</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">Linv</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">ldlt</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="n">Linv</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="6-setting-up-visualization-with-polyscope">6. Setting Up Visualization with Polyscope<a class="headerlink" href="#6-setting-up-visualization-with-polyscope" title="Permanent link">&para;</a></h3>
+<p>Polyscope is initialized for real-time visualization of the mesh and the computed heat geodesics. The mesh is registered for visualization, and scalar and vector quantities are added to enhance the visual output.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Setup isoline visuals</span>
+<span class="n">niso</span> <span class="o">=</span> <span class="mi">10</span>
 
+<span class="n">ps</span><span class="o">.</span><span class="n">set_up_dir</span><span class="p">(</span><span class="s2">&quot;z_up&quot;</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">set_front_dir</span><span class="p">(</span><span class="s2">&quot;neg_y_front&quot;</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">set_ground_plane_mode</span><span class="p">(</span><span class="s2">&quot;shadow_only&quot;</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 
+<span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">element</span> <span class="o">==</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Element</span><span class="o">.</span><span class="n">Tetrahedron</span><span class="p">:</span>
+    <span class="n">ps</span><span class="o">.</span><span class="n">register_volume_mesh</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">element</span> <span class="o">==</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Element</span><span class="o">.</span><span class="n">Triangle</span><span class="p">:</span>
+    <span class="n">ps</span><span class="o">.</span><span class="n">register_surface_mesh</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="7-running-the-simulation-loop-with-user-interaction">7. Running the Simulation Loop with User Interaction<a class="headerlink" href="#7-running-the-simulation-loop-with-user-interaction" title="Permanent link">&para;</a></h3>
+<p>The simulation loop is managed through a callback function that handles user interactions via the Polyscope GUI. Users can adjust parameters such as the diffusion coefficient (<code>k</code>), the number of isocontours (<code>niso</code>), and the source point (<code>gamma</code>). Upon triggering the "Compute" button, the script performs heat diffusion, computes geodesic distances, and generates contour lines representing the geodesics.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">callback</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">k</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">Ainv</span><span class="p">,</span> <span class="n">Linv</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">niso</span>
+    <span class="n">kchanged</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">InputFloat</span><span class="p">(</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kchanged</span><span class="p">:</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">M</span> <span class="o">-</span> <span class="n">k</span><span class="o">*</span><span class="n">dt</span><span class="o">*</span><span class="n">L</span>
+        <span class="n">Ainv</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">niso</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">InputInt</span><span class="p">(</span><span class="s2">&quot;# iso&quot;</span><span class="p">,</span> <span class="n">niso</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">gamma</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">InputInt</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="n">gamma</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">imgui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Compute&quot;</span><span class="p">):</span>
+        <span class="c1"># Compute heat and its gradient</span>
+        <span class="n">u0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">u0</span><span class="p">[</span><span class="n">gamma</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">M</span> <span class="o">@</span> <span class="n">u0</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">Ainv</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">gradu</span> <span class="o">=</span> <span class="p">(</span><span class="n">G</span> <span class="o">@</span> <span class="n">u</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="c1"># Stable normalize gradient</span>
+        <span class="n">gradnorm</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">gradu</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">gnnz</span> <span class="o">=</span> <span class="n">gradnorm</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">gradu</span><span class="p">[</span><span class="n">gnnz</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">gradu</span><span class="p">[</span><span class="n">gnnz</span><span class="p">,</span> <span class="p">:]</span> <span class="o">/</span> <span class="n">gradnorm</span><span class="p">[</span><span class="n">gnnz</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="c1"># Solve Poisson problem to reconstruct geodesic distance field, knowing that phi[0] = 0</span>
+        <span class="n">divGu</span> <span class="o">=</span> <span class="n">D</span> <span class="o">@</span> <span class="n">gradu</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">phi</span> <span class="o">=</span> <span class="n">Linv</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">divGu</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="c1"># Handle reflection and shifting</span>
+        <span class="k">if</span> <span class="n">phi</span><span class="p">[</span><span class="n">gamma</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">phi</span><span class="o">.</span><span class="n">mean</span><span class="p">():</span>
+            <span class="n">phi</span> <span class="o">=</span> <span class="o">-</span><span class="n">phi</span>
+        <span class="n">phi</span> <span class="o">-=</span> <span class="n">phi</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+        <span class="c1"># Compute isocontours</span>
+        <span class="n">diso</span> <span class="o">=</span> <span class="p">(</span><span class="n">phi</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">phi</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="n">niso</span>
+        <span class="n">isovalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">diso</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niso</span><span class="p">)])</span>
+        <span class="n">Viso</span><span class="p">,</span> <span class="n">Eiso</span><span class="p">,</span> <span class="n">Iiso</span> <span class="o">=</span> <span class="n">igl</span><span class="o">.</span><span class="n">isolines</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">isovalues</span><span class="p">)</span>
+        <span class="c1"># Register contour lines</span>
+        <span class="n">cn</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">register_curve_network</span><span class="p">(</span><span class="s2">&quot;distance contours&quot;</span><span class="p">,</span> <span class="n">Viso</span><span class="p">,</span> <span class="n">Eiso</span><span class="p">)</span>
+        <span class="n">cn</span><span class="o">.</span><span class="n">set_color</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">cn</span><span class="o">.</span><span class="n">set_radius</span><span class="p">(</span><span class="mf">0.002</span><span class="p">)</span>
+        <span class="c1"># Update mesh visualization with scalar and vector quantities</span>
+        <span class="n">vm</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">get_volume_mesh</span><span class="p">(</span>
+            <span class="s2">&quot;model&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">element</span> <span class="o">==</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Element</span><span class="o">.</span><span class="n">Tetrahedron</span> <span class="k">else</span> <span class="n">ps</span><span class="o">.</span><span class="n">get_surface_mesh</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">)</span>
+        <span class="n">vm</span><span class="o">.</span><span class="n">add_scalar_quantity</span><span class="p">(</span><span class="s2">&quot;heat&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;reds&quot;</span><span class="p">)</span>
+        <span class="n">vm</span><span class="o">.</span><span class="n">add_scalar_quantity</span><span class="p">(</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span> <span class="n">phi</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;reds&quot;</span><span class="p">,</span> <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">grad_defined_on</span> <span class="o">=</span> <span class="s2">&quot;cells&quot;</span> <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">element</span> <span class="o">==</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Element</span><span class="o">.</span><span class="n">Tetrahedron</span> <span class="k">else</span> <span class="s2">&quot;faces&quot;</span>
+        <span class="n">vm</span><span class="o">.</span><span class="n">add_vector_quantity</span><span class="p">(</span><span class="s2">&quot;normalized heat grad&quot;</span><span class="p">,</span>
+                               <span class="n">gradu</span><span class="p">,</span> <span class="n">defined_on</span><span class="o">=</span><span class="n">grad_defined_on</span><span class="p">)</span>
+        <span class="n">vm</span><span class="o">.</span><span class="n">add_scalar_quantity</span><span class="p">(</span><span class="s2">&quot;div unit gradient&quot;</span><span class="p">,</span> <span class="n">divGu</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="usage-instructions">Usage Instructions<a class="headerlink" href="#usage-instructions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Prepare the Input Mesh</strong>: Ensure your input mesh file contains either tetrahedral (<code>"tetra"</code>) or triangle (<code>"triangle"</code>) elements and is formatted correctly (e.g., <code>.vtk</code> format).</p>
+</li>
+<li>
+<p><strong>Run the Simulation</strong>: Execute the script with the desired command-line arguments. For example:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>heat_geodesics_demo.py<span class="w"> </span>-i<span class="w"> </span>input_mesh.vtk<span class="w"> </span>-o<span class="w"> </span>output_directory
+</code></pre></div>
+</li>
+<li>
+<p><strong>Interact with the Simulation</strong>:</p>
+<ul>
+<li><strong>Adjust Parameters</strong>: Use the GUI controls to modify simulation parameters such as the diffusion coefficient (<code>k</code>), the number of isocontours (<code>niso</code>), and the source point (<code>gamma</code>).</li>
+<li><strong>Compute Geodesics</strong>: Click the "Compute" button to perform heat diffusion and compute the geodesic distances. Contour lines representing geodesics will be visualized on the mesh.</li>
+<li><strong>Export Results</strong>: Enable the export option to save screenshots of the simulation results.</li>
+</ul>
+</li>
+<li>
+<p><strong>Visualize the Results</strong>: The Polyscope window will display the simulation mesh, heat distribution, geodesic distances, and contour lines. Observe the progression of heat diffusion and the resulting geodesic contours in real-time.</p>
+</li>
+</ol>
+<hr />
+<p><em>For further customization and advanced features, refer to the <code>pbatoolkit</code> and <code>polyscope</code> documentation.</em></p>
 
 
 
@@ -1573,7 +2151,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 11, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 12, 2024</span>
   </span>
 
     

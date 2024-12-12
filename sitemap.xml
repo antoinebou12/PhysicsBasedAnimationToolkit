@@ -2,202 +2,218 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/changelog/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/code_of_conduct/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/contributing/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/gallery/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/license/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/c%2B%2B/configuration/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/c%2B%2B/cpp/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/c%2B%2B/cuda/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/fem/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/fem/boundary_conditions/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/fem/introduction/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/fem/limitations/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/fem/method/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/fem/operators/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/fem/shape_functions/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/fem/spatial_integration/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/math/</loc>
+         <lastmod>2024-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/math/linear_algebra/</loc>
+         <lastmod>2024-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/math/optimization/</loc>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/solvers/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/dependencies/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/broad_phase/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/contact_detection/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/diffusion_smoothing/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/elasticity/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/elasticity_higher_order/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/heat/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/ipc-multi/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/ipc/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/laplace/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/linear_restriction_prolongation/</loc>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/server/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/vbd/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/xpdb/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/examples/notebooks/vbd/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/python/FEM/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/python/geometry/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/python/gpu/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/python/math/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/python/profiling/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/python/python/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/tools/boundary/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/tools/cages/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/tools/coloring/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/tools/convert/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/tools/refine/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/workshops/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/workshops/W1/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/workshops/W2/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/workshops/W3/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/workshops/W4/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
          <loc>https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/workshops/W5/</loc>
-         <lastmod>2024-11-11</lastmod>
+         <lastmod>2024-12-12</lastmod>
     </url>
 </urlset>

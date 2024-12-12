@@ -81,6 +81,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#simple-3d-elastic-simulation-using-linear-fem-tetrahedra" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -313,6 +318,24 @@
           
   
   FEM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../course/math/" class="md-tabs__link">
+          
+  
+  Math
 
         </a>
       </li>
@@ -1054,6 +1077,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Elasticity
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1064,6 +1100,154 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command-line Arguments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command-line Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-loading-and-combining-meshes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Loading and Combining Meshes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-constructing-the-fem-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Constructing the FEM Mesh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-setting-up-mass-matrix-and-load-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Setting Up Mass Matrix and Load Vector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-defining-material-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Defining Material Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-applying-boundary-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Applying Boundary Conditions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-setting-up-linear-solver" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Setting Up Linear Solver
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-setting-up-visualization-with-polyscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Setting Up Visualization with Polyscope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-running-the-simulation-loop-with-user-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Running the Simulation Loop with User Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Instructions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1516,6 +1700,116 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/linear_algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linear Algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../course/math/optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1533,6 +1827,145 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Command-line Arguments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command-line Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-loading-and-combining-meshes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Loading and Combining Meshes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-constructing-the-fem-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Constructing the FEM Mesh
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-setting-up-mass-matrix-and-load-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Setting Up Mass Matrix and Load Vector
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-defining-material-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Defining Material Properties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-applying-boundary-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Applying Boundary Conditions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-setting-up-linear-solver" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Setting Up Linear Solver
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-setting-up-visualization-with-polyscope" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Setting Up Visualization with Polyscope
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-running-the-simulation-loop-with-user-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Running the Simulation Loop with User Interaction
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage Instructions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1550,9 +1983,233 @@
   
 
 
-  <h1>Elasticity</h1>
+<h1 id="simple-3d-elastic-simulation-using-linear-fem-tetrahedra">Simple 3D Elastic Simulation Using Linear FEM Tetrahedra<a class="headerlink" href="#simple-3d-elastic-simulation-using-linear-fem-tetrahedra" title="Permanent link">&para;</a></h1>
+<p>This script performs a <strong>3D elastic simulation</strong> based on the <strong>linear Finite Element Method (FEM) tetrahedra</strong>. It simulates the elastic behavior of a 3D mesh under gravity, solving for the deformation of the mesh over time using a Newton-Raphson method. The simulation provides real-time visualization and interactive controls for adjusting simulation parameters.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Ensure the following Python libraries are installed before running the script:</p>
+<ul>
+<li><code>pbatoolkit</code></li>
+<li><code>ilupp</code></li>
+<li><code>meshio</code></li>
+<li><code>polyscope</code></li>
+<li><code>numpy</code></li>
+<li><code>scipy</code></li>
+<li><code>argparse</code></li>
+<li><code>math</code></li>
+</ul>
+<p>You can install the required packages using <code>pip</code>:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pbatoolkit<span class="w"> </span>ilupp<span class="w"> </span>meshio<span class="w"> </span>polyscope<span class="w"> </span>numpy<span class="w"> </span>scipy<span class="w"> </span>argparse<span class="w"> </span>math
+</code></pre></div>
+<p><em>Note</em>: If <code>pbatoolkit</code> is not available via <code>pip</code>, refer to its official documentation for installation instructions.</p>
+<h2 id="command-line-arguments">Command-line Arguments<a class="headerlink" href="#command-line-arguments" title="Permanent link">&para;</a></h2>
+<p>The script accepts several command-line arguments to customize the simulation:</p>
+<ul>
+<li><code>-i</code>, <code>--input</code>: <strong>Path to input mesh file</strong> (required). The mesh should contain tetrahedral elements.</li>
+<li><code>-o</code>, <code>--output</code>: <strong>Path to output directory</strong> for saving results (default: current directory).</li>
+<li><code>-m</code>, <code>--mass-density</code>: <strong>Mass density</strong> of the material (default: <code>1000.0</code>).</li>
+<li><code>-Y</code>, <code>--young-modulus</code>: <strong>Young's modulus</strong> of the material (default: <code>1e6</code>).</li>
+<li><code>-n</code>, <code>--poisson-ratio</code>: <strong>Poisson's ratio</strong> of the material (default: <code>0.45</code>).</li>
+</ul>
+<h3 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>simple_elastic_simulation.py<span class="w"> </span>-i<span class="w"> </span>input_mesh.vtk<span class="w"> </span>-o<span class="w"> </span>output_directory<span class="w"> </span>-m<span class="w"> </span><span class="m">1200</span><span class="w"> </span>-Y<span class="w"> </span>2e6<span class="w"> </span>-n<span class="w"> </span><span class="m">0</span>.4
+</code></pre></div>
+<ul>
+<li><strong>Explanation</strong>:</li>
+<li>Loads <code>input_mesh.vtk</code>.</li>
+<li>Outputs results to <code>output_directory</code>.</li>
+<li>Sets mass density to <code>1200</code>.</li>
+<li>Sets Young's modulus to <code>2e6</code>.</li>
+<li>Sets Poisson's ratio to <code>0.4</code>.</li>
+</ul>
+<h2 id="workflow-overview">Workflow Overview<a class="headerlink" href="#workflow-overview" title="Permanent link">&para;</a></h2>
+<h3 id="1-loading-and-combining-meshes">1. Loading and Combining Meshes<a class="headerlink" href="#1-loading-and-combining-meshes" title="Permanent link">&para;</a></h3>
+<p>The script begins by loading the input mesh using <code>meshio</code>. It normalizes the vertex positions and ensures that the mesh is properly scaled for simulation.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load input mesh</span>
+<span class="n">imesh</span> <span class="o">=</span> <span class="n">meshio</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+<span class="n">V</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="n">imesh</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">imesh</span><span class="o">.</span><span class="n">cells_dict</span><span class="p">[</span><span class="s2">&quot;tetra&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="2-constructing-the-fem-mesh">2. Constructing the FEM Mesh<a class="headerlink" href="#2-constructing-the-fem-mesh" title="Permanent link">&para;</a></h3>
+<p>A FEM mesh is created using the loaded vertices and tetrahedral cells. This mesh serves as the foundation for the simulation.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create FEM mesh</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Mesh</span><span class="p">(</span>
+    <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">element</span><span class="o">=</span><span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">Element</span><span class="o">.</span><span class="n">Tetrahedron</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="3-setting-up-mass-matrix-and-load-vector">3. Setting Up Mass Matrix and Load Vector<a class="headerlink" href="#3-setting-up-mass-matrix-and-load-vector" title="Permanent link">&para;</a></h3>
+<p>The mass matrix is computed based on the material's mass density. The load vector is constructed to account for external forces, such as gravity.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Mass matrix</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">rho</span>
+<span class="n">M</span><span class="p">,</span> <span class="n">detJeM</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">mass_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="n">rho</span><span class="p">)</span>
+<span class="n">Minv</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">ldlt</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">Minv</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 
+<span class="c1"># Construct load vector from gravity field</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">dims</span><span class="p">)</span>
+<span class="n">g</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">9.81</span>
+<span class="n">fe</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">g</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">detJeF</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">load_vector</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">fe</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">Minv</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="4-defining-material-properties">4. Defining Material Properties<a class="headerlink" href="#4-defining-material-properties" title="Permanent link">&para;</a></h3>
+<p>Material properties, including Young's modulus and Poisson's ratio, are used to define the hyperelastic potential of the material.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create hyper elastic potential</span>
+<span class="n">Y</span><span class="p">,</span> <span class="n">nu</span><span class="p">,</span> <span class="n">energy</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">Y</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">nu</span><span class="p">,</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">HyperElasticEnergy</span><span class="o">.</span><span class="n">StableNeoHookean</span>
+<span class="n">hep</span><span class="p">,</span> <span class="n">egU</span><span class="p">,</span> <span class="n">wgU</span><span class="p">,</span> <span class="n">GNeU</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">fem</span><span class="o">.</span><span class="n">hyper_elastic_potential</span><span class="p">(</span>
+    <span class="n">mesh</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">nu</span><span class="o">=</span><span class="n">nu</span><span class="p">,</span> <span class="n">energy</span><span class="o">=</span><span class="n">energy</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="5-applying-boundary-conditions">5. Applying Boundary Conditions<a class="headerlink" href="#5-applying-boundary-conditions" title="Permanent link">&para;</a></h3>
+<p>Dirichlet boundary conditions are applied to a specified portion of the mesh to fix certain vertices, preventing them from moving during the simulation.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set Dirichlet boundary conditions</span>
+<span class="n">Xmin</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Xmax</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Xmax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xmin</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1e-4</span>
+<span class="n">Xmin</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xmin</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1e-4</span>
+<span class="n">aabb</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">aabb</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">Xmin</span><span class="p">,</span> <span class="n">Xmax</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">vdbc</span> <span class="o">=</span> <span class="n">aabb</span><span class="o">.</span><span class="n">contained</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">X</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="6-setting-up-linear-solver">6. Setting Up Linear Solver<a class="headerlink" href="#6-setting-up-linear-solver" title="Permanent link">&para;</a></h3>
+<p>A linear solver is configured to solve the system of equations arising from the FEM formulation. The solver can utilize either a direct method or the Conjugate Gradient (CG) method with preconditioning.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Setup linear solver</span>
+<span class="n">Hdd</span> <span class="o">=</span> <span class="n">hep</span><span class="o">.</span><span class="n">to_matrix</span><span class="p">()[:,</span> <span class="n">dofs</span><span class="p">]</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()[</span><span class="n">dofs</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">Mdd</span> <span class="o">=</span> <span class="n">M</span><span class="p">[:,</span> <span class="n">dofs</span><span class="p">]</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()[</span><span class="n">dofs</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">Addinv</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">ldlt</span><span class="p">(</span>
+    <span class="n">Hdd</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="n">pbat</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">SolverBackend</span><span class="o">.</span><span class="n">Eigen</span><span class="p">)</span>
+<span class="n">Addinv</span><span class="o">.</span><span class="n">analyze</span><span class="p">(</span><span class="n">Hdd</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="7-setting-up-visualization-with-polyscope">7. Setting Up Visualization with Polyscope<a class="headerlink" href="#7-setting-up-visualization-with-polyscope" title="Permanent link">&para;</a></h3>
+<p>Polyscope is initialized for real-time visualization of the simulation mesh and the fixed vertices. It provides an interactive interface to observe the deformation of the mesh over time.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Initialize Polyscope</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">set_verbosity</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">set_up_dir</span><span class="p">(</span><span class="s2">&quot;z_up&quot;</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">set_front_dir</span><span class="p">(</span><span class="s2">&quot;neg_y_front&quot;</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">set_ground_plane_mode</span><span class="p">(</span><span class="s2">&quot;shadow_only&quot;</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">set_ground_plane_height_factor</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">set_program_name</span><span class="p">(</span><span class="s2">&quot;Elasticity&quot;</span><span class="p">)</span>
+<span class="n">ps</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<span class="n">vm</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">register_volume_mesh</span><span class="p">(</span><span class="s2">&quot;world model&quot;</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">E</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">pc</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">register_point_cloud</span><span class="p">(</span><span class="s2">&quot;Dirichlet&quot;</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">X</span><span class="p">[</span><span class="n">vdbc</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="8-running-the-simulation-loop-with-user-interaction">8. Running the Simulation Loop with User Interaction<a class="headerlink" href="#8-running-the-simulation-loop-with-user-interaction" title="Permanent link">&para;</a></h3>
+<p>The simulation loop is managed through a callback function that handles user interactions via the Polyscope GUI. Users can adjust simulation parameters, step through the simulation, reset the simulation, and export snapshots.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Simulation parameters</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">animate</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">use_direct_solver</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">export</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">newton_maxiter</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">cg_fill_in</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">cg_drop_tolerance</span> <span class="o">=</span> <span class="mf">1e-4</span>
+<span class="n">cg_residual</span> <span class="o">=</span> <span class="mf">1e-5</span>
+<span class="n">cg_maxiter</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
+<span class="n">profiler</span> <span class="o">=</span> <span class="n">pbat</span><span class="o">.</span><span class="n">profiling</span><span class="o">.</span><span class="n">Profiler</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">callback</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">hep</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">Minv</span><span class="p">,</span> <span class="n">f</span>
+    <span class="k">global</span> <span class="n">cg_fill_in</span><span class="p">,</span> <span class="n">cg_drop_tolerance</span><span class="p">,</span> <span class="n">cg_residual</span><span class="p">,</span> <span class="n">cg_maxiter</span>
+    <span class="k">global</span> <span class="n">animate</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">use_direct_solver</span><span class="p">,</span> <span class="n">export</span><span class="p">,</span> <span class="n">t</span>
+    <span class="k">global</span> <span class="n">newton_maxiter</span>
+    <span class="k">global</span> <span class="n">profiler</span>
+
+    <span class="c1"># GUI controls</span>
+    <span class="n">changed</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">InputFloat</span><span class="p">(</span><span class="s2">&quot;dt&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">changed</span><span class="p">,</span> <span class="n">newton_maxiter</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">InputInt</span><span class="p">(</span>
+        <span class="s2">&quot;Newton max iterations&quot;</span><span class="p">,</span> <span class="n">newton_maxiter</span><span class="p">)</span>
+    <span class="n">changed</span><span class="p">,</span> <span class="n">cg_fill_in</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">InputFloat</span><span class="p">(</span>
+        <span class="s2">&quot;IC column fill in&quot;</span><span class="p">,</span> <span class="n">cg_fill_in</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.4f</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">changed</span><span class="p">,</span> <span class="n">cg_drop_tolerance</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">InputFloat</span><span class="p">(</span>
+        <span class="s2">&quot;IC drop tolerance&quot;</span><span class="p">,</span> <span class="n">cg_drop_tolerance</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">changed</span><span class="p">,</span> <span class="n">cg_residual</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">InputFloat</span><span class="p">(</span>
+        <span class="s2">&quot;PCG residual&quot;</span><span class="p">,</span> <span class="n">cg_residual</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.8f</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">changed</span><span class="p">,</span> <span class="n">cg_maxiter</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">InputInt</span><span class="p">(</span>
+        <span class="s2">&quot;PCG max iterations&quot;</span><span class="p">,</span> <span class="n">cg_maxiter</span><span class="p">)</span>
+    <span class="n">changed</span><span class="p">,</span> <span class="n">animate</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="s2">&quot;animate&quot;</span><span class="p">,</span> <span class="n">animate</span><span class="p">)</span>
+    <span class="n">changed</span><span class="p">,</span> <span class="n">use_direct_solver</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span>
+        <span class="s2">&quot;Use direct solver&quot;</span><span class="p">,</span> <span class="n">use_direct_solver</span><span class="p">)</span>
+    <span class="n">changed</span><span class="p">,</span> <span class="n">export</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">Checkbox</span><span class="p">(</span><span class="s2">&quot;Export&quot;</span><span class="p">,</span> <span class="n">export</span><span class="p">)</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="n">imgui</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;step&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">animate</span> <span class="ow">or</span> <span class="n">step</span><span class="p">:</span>
+        <span class="n">profiler</span><span class="o">.</span><span class="n">begin_frame</span><span class="p">(</span><span class="s2">&quot;Physics&quot;</span><span class="p">)</span>
+        <span class="c1"># Newton solve</span>
+        <span class="n">dt2</span> <span class="o">=</span> <span class="n">dt</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">xtilde</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">v</span> <span class="o">+</span> <span class="n">dt2</span> <span class="o">*</span> <span class="n">a</span>
+        <span class="n">xk</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">newton_maxiter</span><span class="p">):</span>
+            <span class="n">hep</span><span class="o">.</span><span class="n">compute_element_elasticity</span><span class="p">(</span><span class="n">xk</span><span class="p">,</span> <span class="n">grad</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hessian</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">gradU</span><span class="p">,</span> <span class="n">HU</span> <span class="o">=</span> <span class="n">hep</span><span class="o">.</span><span class="n">gradient</span><span class="p">(),</span> <span class="n">hep</span><span class="o">.</span><span class="n">hessian</span><span class="p">()</span>
+
+            <span class="k">global</span> <span class="n">bd</span><span class="p">,</span> <span class="n">Add</span>
+
+            <span class="k">def</span> <span class="nf">setup</span><span class="p">():</span>
+                <span class="k">global</span> <span class="n">bd</span><span class="p">,</span> <span class="n">Add</span>
+                <span class="n">A</span> <span class="o">=</span> <span class="n">M</span> <span class="o">+</span> <span class="n">dt2</span> <span class="o">*</span> <span class="n">HU</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">M</span> <span class="o">@</span> <span class="p">(</span><span class="n">xk</span> <span class="o">-</span> <span class="n">xtilde</span><span class="p">)</span> <span class="o">+</span> <span class="n">dt2</span> <span class="o">*</span> <span class="n">gradU</span><span class="p">)</span>
+                <span class="n">Add</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">tocsc</span><span class="p">()[:,</span> <span class="n">dofs</span><span class="p">]</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()[</span><span class="n">dofs</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">bd</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">dofs</span><span class="p">]</span>
+
+            <span class="n">profiler</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span><span class="s2">&quot;Setup Linear System&quot;</span><span class="p">,</span> <span class="n">setup</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">gradnorm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">bd</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">gradnorm</span> <span class="o">&lt;</span> <span class="mf">1e-3</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+            <span class="k">def</span> <span class="nf">solve</span><span class="p">():</span>
+                <span class="k">global</span> <span class="n">dx</span><span class="p">,</span> <span class="n">Add</span><span class="p">,</span> <span class="n">bd</span>
+                <span class="k">global</span> <span class="n">cg_fill_in</span><span class="p">,</span> <span class="n">cg_drop_tolerance</span><span class="p">,</span> <span class="n">cg_maxiter</span><span class="p">,</span> <span class="n">cg_residual</span>
+                <span class="k">global</span> <span class="n">use_direct_solver</span>
+                <span class="k">if</span> <span class="n">use_direct_solver</span><span class="p">:</span>
+                    <span class="n">Addinv</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">Add</span><span class="p">)</span>
+                    <span class="n">dx</span><span class="p">[</span><span class="n">dofs</span><span class="p">]</span> <span class="o">=</span> <span class="n">Addinv</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">bd</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">P</span> <span class="o">=</span> <span class="n">ilupp</span><span class="o">.</span><span class="n">ICholTPreconditioner</span><span class="p">(</span>
+                        <span class="n">Add</span><span class="p">,</span> <span class="n">add_fill_in</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">Add</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">cg_fill_in</span><span class="p">),</span> <span class="n">threshold</span><span class="o">=</span><span class="n">cg_drop_tolerance</span><span class="p">)</span>
+                    <span class="n">dx</span><span class="p">[</span><span class="n">dofs</span><span class="p">],</span> <span class="n">cginfo</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cg</span><span class="p">(</span>
+                        <span class="n">Add</span><span class="p">,</span> <span class="n">bd</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">cg_residual</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="n">cg_maxiter</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">P</span><span class="p">)</span>
+
+            <span class="n">profiler</span><span class="o">.</span><span class="n">profile</span><span class="p">(</span><span class="s2">&quot;Solve Linear System&quot;</span><span class="p">,</span> <span class="n">solve</span><span class="p">)</span>
+            <span class="n">xk</span> <span class="o">=</span> <span class="n">xk</span> <span class="o">+</span> <span class="n">dx</span>
+
+        <span class="n">v</span> <span class="o">=</span> <span class="p">(</span><span class="n">xk</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">dt</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">xk</span>
+        <span class="n">profiler</span><span class="o">.</span><span class="n">end_frame</span><span class="p">(</span><span class="s2">&quot;Physics&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">export</span><span class="p">:</span>
+            <span class="n">ps</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Update visuals</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mesh</span><span class="o">.</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+        <span class="n">vm</span><span class="o">.</span><span class="n">update_vertex_positions</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+        <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="c1"># Display frame information</span>
+    <span class="n">imgui</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frame=</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="usage-instructions">Usage Instructions<a class="headerlink" href="#usage-instructions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Prepare the Input Mesh</strong>: Ensure your input mesh file contains tetrahedral elements and is formatted correctly (e.g., <code>.vtk</code> format).</p>
+</li>
+<li>
+<p><strong>Run the Simulation</strong>: Execute the script with the desired command-line arguments. For example:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>simple_elastic_simulation.py<span class="w"> </span>-i<span class="w"> </span>input_mesh.vtk<span class="w"> </span>-o<span class="w"> </span>output_directory<span class="w"> </span>-m<span class="w"> </span><span class="m">1200</span><span class="w"> </span>-Y<span class="w"> </span>2e6<span class="w"> </span>-n<span class="w"> </span><span class="m">0</span>.4
+</code></pre></div>
+</li>
+<li>
+<p><strong>Interact with the Simulation</strong>:</p>
+<ul>
+<li><strong>Adjust Parameters</strong>: Use the GUI controls to modify simulation parameters such as time step (<code>dt</code>), Newton iterations, CG solver settings, and solver type (direct or iterative).</li>
+<li><strong>Control Animation</strong>: Toggle the animation or step through the simulation frame by frame.</li>
+<li><strong>Export Results</strong>: Enable the export option to save screenshots of the simulation at each timestep.</li>
+</ul>
+</li>
+<li>
+<p><strong>Visualize the Results</strong>: The Polyscope window will display the simulation mesh and the fixed vertices. Observe the deformation of the mesh in real-time as the simulation progresses.</p>
+</li>
+</ol>
 
 
 
@@ -1573,7 +2230,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 11, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 12, 2024</span>
   </span>
 
     

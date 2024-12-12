@@ -1,0 +1,3342 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Physics Based Animation Toolkit.">
+      
+      
+        <meta name="author" content="Quoc-Minh Ton-That">
+      
+      
+        <link rel="canonical" href="https://github.com/Q-Minh/PhysicsBasedAnimationToolkit/course/math/linear_algebra/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../optimization/">
+      
+      
+      <link rel="icon" href="../../../_static/imgs/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>Linear Algebra - Physics Based Animation Toolkit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../_static/stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#beginner-course-linear-algebra-for-physics-simulations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Physics Based Animation Toolkit" class="md-header__button md-logo" aria-label="Physics Based Animation Toolkit" data-md-component="logo">
+      
+  <img src="../../../_static/imgs/pbat.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Physics Based Animation Toolkit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linear Algebra
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Q-Minh/PhysicsBasedAnimationToolkit" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Q-Minh/PhysicsBasedAnimationToolkit
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../.." class="md-tabs__link">
+          
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../c%2B%2B/cpp/" class="md-tabs__link">
+          
+  
+  C++
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../python/python/" class="md-tabs__link">
+          
+  
+  Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../workshops/" class="md-tabs__link">
+          
+  
+  Examples
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../fem/" class="md-tabs__link">
+          
+  
+  FEM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Physics Based Animation Toolkit" class="md-nav__button md-logo" aria-label="Physics Based Animation Toolkit" data-md-component="logo">
+      
+  <img src="../../../_static/imgs/pbat.svg" alt="logo">
+
+    </a>
+    Physics Based Animation Toolkit
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Q-Minh/PhysicsBasedAnimationToolkit" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Q-Minh/PhysicsBasedAnimationToolkit
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PBAT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gallery/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gallery
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c%2B%2B/cpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c%2B%2B/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../c%2B%2B/cuda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CUDA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/FEM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FEM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/geometry/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geometry
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/profiling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Profiling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../python/gpu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Examples
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Workshops
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Workshops
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../workshops/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/broad_phase/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Broad Phase
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/contact_detection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contact Detection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/diffusion_smoothing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Diffusion Smoothing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Elasticity
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Elasticity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/elasticity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Elasticity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/elasticity_higher_order/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Higher Order
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/heat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    IPC
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            IPC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/ipc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/ipc-multi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi-Material
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/laplace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Laplace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/vbd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VBD
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/xpdb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    XPDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/server/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Server
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FEM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FEM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/method/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Method
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/shape_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shape Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/spatial_integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spatial Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/boundary_conditions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Boundary Conditions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/vector_valued_functions.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vector-valued Functions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fem/limitations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Limitations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Math
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Linear Algebra
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Linear Algebra
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Vectors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Vector?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-vector-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Vector Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-vector-norms-and-dot-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Vector Norms and Dot Products
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Vector Norms and Dot Products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-norm-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vector Norm (Length)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dot-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dot Product
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Matrices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Matrices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Matrix?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrix Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Transformations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-in-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-eigenvalues-and-eigenvectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Eigenvalues and Eigenvectors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Eigenvalues and Eigenvectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-eigenvalues-and-eigenvectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are Eigenvalues and Eigenvectors?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-eigenvalues-and-eigenvectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding Eigenvalues and Eigenvectors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importance-in-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-derivatives-and-gradients" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Derivatives and Gradients
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Derivatives and Gradients">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#derivative" class="md-nav__link">
+    <span class="md-ellipsis">
+      Derivative
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradient
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient-in-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradient in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-the-hessian-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. The Hessian Matrix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. The Hessian Matrix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importance-of-the-hessian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance of the Hessian
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-linear-algebra-concepts-for-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Linear Algebra Concepts for Simulations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Linear Algebra Concepts for Simulations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7-determinants-and-inverses" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Determinants and Inverses
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Determinants and Inverses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determinant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Determinant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverse-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inverse Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-in-simulations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-solving-linear-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Solving Linear Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Solving Linear Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Techniques
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-linear-independence-and-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Linear Independence and Basis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Linear Independence and Basis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-independence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Independence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-in-simulations_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-singular-value-decomposition-svd" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Singular Value Decomposition (SVD)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Singular Value Decomposition (SVD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importance-in-simulations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Vectors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Vectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Vector?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-vector-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Vector Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-vector-norms-and-dot-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Vector Norms and Dot Products
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Vector Norms and Dot Products">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-norm-length" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vector Norm (Length)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dot-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dot Product
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Matrices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Matrices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-a-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is a Matrix?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matrix Operations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linear-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Transformations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-in-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-eigenvalues-and-eigenvectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Eigenvalues and Eigenvectors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Eigenvalues and Eigenvectors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-eigenvalues-and-eigenvectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      What are Eigenvalues and Eigenvectors?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mathematical Definition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-eigenvalues-and-eigenvectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding Eigenvalues and Eigenvectors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importance-in-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-derivatives-and-gradients" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Derivatives and Gradients
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Derivatives and Gradients">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#derivative" class="md-nav__link">
+    <span class="md-ellipsis">
+      Derivative
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradient
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient-in-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gradient in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-the-hessian-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. The Hessian Matrix
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. The Hessian Matrix">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importance-of-the-hessian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance of the Hessian
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-linear-algebra-concepts-for-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Linear Algebra Concepts for Simulations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Linear Algebra Concepts for Simulations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#7-determinants-and-inverses" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Determinants and Inverses
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Determinants and Inverses">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determinant" class="md-nav__link">
+    <span class="md-ellipsis">
+      Determinant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inverse-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inverse Matrix
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-in-simulations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-solving-linear-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Solving Linear Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Solving Linear Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      Techniques
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-linear-independence-and-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Linear Independence and Basis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Linear Independence and Basis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-independence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linear Independence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-in-simulations_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Application in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10-singular-value-decomposition-svd" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Singular Value Decomposition (SVD)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Singular Value Decomposition (SVD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#importance-in-simulations_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importance in Simulations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="beginner-course-linear-algebra-for-physics-simulations">Beginner Course: Linear Algebra for Physics Simulations<a class="headerlink" href="#beginner-course-linear-algebra-for-physics-simulations" title="Permanent link">&para;</a></h1>
+<p>Welcome to a straightforward guide on the basics of <strong>Linear Algebra for Physics Simulations</strong>. This guide will introduce key concepts in linear algebra that are essential for understanding and creating physics simulations, such as vectors, matrices, norms, dot products, eigenvalues, eigenvectors, gradients, and the Hessian. I’ll keep it simple, with clear explanations and easy-to-follow math.</p>
+<h2 id="1-vectors">1. Vectors<a class="headerlink" href="#1-vectors" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-a-vector">What is a Vector?<a class="headerlink" href="#what-is-a-vector" title="Permanent link">&para;</a></h3>
+<p>A <strong>vector</strong> is a quantity with both a <strong>magnitude</strong> (size) and <strong>direction</strong>. In physics, vectors represent things like position, velocity, and force.</p>
+<ul>
+<li><strong>Notation</strong>: Vectors are usually written in bold (e.g., <strong>v</strong>) or with an arrow (e.g., <span class="arithmatex">\(\vec{v}\)</span>).</li>
+<li><strong>Example</strong>: A vector <span class="arithmatex">\(\vec{v} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}\)</span> points 3 units in the x-direction and 4 units in the y-direction.</li>
+</ul>
+<h3 id="basic-vector-operations">Basic Vector Operations<a class="headerlink" href="#basic-vector-operations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Addition</strong>:
+  [
+  \vec{a} + \vec{b} = \begin{bmatrix} a_x + b_x \ a_y + b_y \end{bmatrix}
+  ]</li>
+<li><strong>Scalar Multiplication</strong>:
+  [
+  k \cdot \vec{a} = \begin{bmatrix} k \cdot a_x \ k \cdot a_y \end{bmatrix}
+  ]</li>
+</ul>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p>If <span class="arithmatex">\(\vec{a} = \begin{bmatrix} 2 \\ 3 \end{bmatrix}\)</span> and <span class="arithmatex">\(\vec{b} = \begin{bmatrix} 1 \\ 4 \end{bmatrix}\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(\vec{a} + \vec{b} = \begin{bmatrix} 2 + 1 \\ 3 + 4 \end{bmatrix} = \begin{bmatrix} 3 \\ 7 \end{bmatrix}\)</span></li>
+</ul>
+<hr />
+<h2 id="2-vector-norms-and-dot-products">2. Vector Norms and Dot Products<a class="headerlink" href="#2-vector-norms-and-dot-products" title="Permanent link">&para;</a></h2>
+<h3 id="vector-norm-length">Vector Norm (Length)<a class="headerlink" href="#vector-norm-length" title="Permanent link">&para;</a></h3>
+<p>The <strong>norm</strong> of a vector (also called its length or magnitude) tells us how long the vector is.</p>
+<ul>
+<li><strong>Formula</strong>: For a vector <span class="arithmatex">\(\vec{v} = \begin{bmatrix} v_x \\ v_y \end{bmatrix}\)</span>, the norm is
+  [
+  ||\vec{v}|| = \sqrt{v_x^2 + v_y^2}
+  ]</li>
+</ul>
+<h3 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h3>
+<p>For <span class="arithmatex">\(\vec{v} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(||\vec{v}|| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5\)</span></li>
+</ul>
+<h3 id="dot-product">Dot Product<a class="headerlink" href="#dot-product" title="Permanent link">&para;</a></h3>
+<p>The <strong>dot product</strong> is a way to multiply two vectors to find the angle between them or to see how much they "align."</p>
+<ul>
+<li><strong>Formula</strong>: If <span class="arithmatex">\(\vec{a} = \begin{bmatrix} a_x \\ a_y \end{bmatrix}\)</span> and <span class="arithmatex">\(\vec{b} = \begin{bmatrix} b_x \\ b_y \end{bmatrix}\)</span>, then
+  [
+  \vec{a} \cdot \vec{b} = a_x \cdot b_x + a_y \cdot b_y
+  ]</li>
+<li><strong>Angle</strong>:
+  [
+  \vec{a} \cdot \vec{b} = ||\vec{a}|| \cdot ||\vec{b}|| \cdot \cos(\theta)
+  ]
+  If <span class="arithmatex">\(\vec{a} \cdot \vec{b} = 0\)</span>, the vectors are perpendicular.</li>
+</ul>
+<h3 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h3>
+<p>For <span class="arithmatex">\(\vec{a} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}\)</span> and <span class="arithmatex">\(\vec{b} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(\vec{a} \cdot \vec{b} = 1 \cdot 3 + 2 \cdot 4 = 3 + 8 = 11\)</span></li>
+</ul>
+<hr />
+<h2 id="3-matrices">3. Matrices<a class="headerlink" href="#3-matrices" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-a-matrix">What is a Matrix?<a class="headerlink" href="#what-is-a-matrix" title="Permanent link">&para;</a></h3>
+<p>A <strong>matrix</strong> is a rectangular array of numbers that can represent transformations (like rotation, scaling) or systems of equations. They’re used to manipulate vectors in simulations.</p>
+<h3 id="matrix-operations">Matrix Operations<a class="headerlink" href="#matrix-operations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Matrix Multiplication</strong>: Used to apply transformations to vectors.</li>
+<li><strong>Identity Matrix</strong>: An identity matrix leaves vectors unchanged, like multiplying by 1.</li>
+<li><strong>Transpose</strong>: Flipping a matrix over its diagonal.</li>
+<li><strong>Inverse</strong>: A matrix <span class="arithmatex">\(A^{-1}\)</span> such that <span class="arithmatex">\(A \cdot A^{-1} = I\)</span>, where <span class="arithmatex">\(I\)</span> is the identity matrix.</li>
+</ul>
+<h3 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h3>
+<p>For a 2D matrix:
+[
+A = \begin{bmatrix} 2 &amp; 0 \ 0 &amp; 3 \end{bmatrix}
+]
+Applying this matrix to <span class="arithmatex">\(\vec{v} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span> scales it:
+[
+A \cdot \vec{v} = \begin{bmatrix} 2 &amp; 0 \ 0 &amp; 3 \end{bmatrix} \cdot \begin{bmatrix} 1 \ 1 \end{bmatrix} = \begin{bmatrix} 2 \ 3 \end{bmatrix}
+]</p>
+<h3 id="linear-transformations">Linear Transformations<a class="headerlink" href="#linear-transformations" title="Permanent link">&para;</a></h3>
+<p>Matrices can represent linear transformations such as rotation, scaling, and shearing.</p>
+<ul>
+<li><strong>Rotation Matrix</strong> (by angle <span class="arithmatex">\(\theta\)</span>):
+  [
+  R(\theta) = \begin{bmatrix} \cos(\theta) &amp; -\sin(\theta) \ \sin(\theta) &amp; \cos(\theta) \end{bmatrix}
+  ]</li>
+<li><strong>Scaling Matrix</strong>:
+  [
+  S(k_x, k_y) = \begin{bmatrix} k_x &amp; 0 \ 0 &amp; k_y \end{bmatrix}
+  ]</li>
+</ul>
+<h3 id="application-in-simulations">Application in Simulations<a class="headerlink" href="#application-in-simulations" title="Permanent link">&para;</a></h3>
+<p>Matrices are fundamental in simulations for:</p>
+<ul>
+<li><strong>Transforming Object Positions</strong>: Applying rotations, translations, and scaling to objects.</li>
+<li><strong>Solving Systems of Equations</strong>: Representing and solving multiple linear equations simultaneously.</li>
+<li><strong>Animating Physics</strong>: Calculating movements and transformations over time.</li>
+</ul>
+<hr />
+<h2 id="4-eigenvalues-and-eigenvectors">4. Eigenvalues and Eigenvectors<a class="headerlink" href="#4-eigenvalues-and-eigenvectors" title="Permanent link">&para;</a></h2>
+<h3 id="what-are-eigenvalues-and-eigenvectors">What are Eigenvalues and Eigenvectors?<a class="headerlink" href="#what-are-eigenvalues-and-eigenvectors" title="Permanent link">&para;</a></h3>
+<p><strong>Eigenvalues</strong> and <strong>eigenvectors</strong> are fundamental in understanding linear transformations represented by matrices. They reveal important properties of the matrix, such as stability and oscillatory behavior, which are crucial in physics simulations.</p>
+<ul>
+<li><strong>Eigenvector</strong>: A non-zero vector <span class="arithmatex">\(\vec{v}\)</span> that only changes by a scalar factor when a linear transformation is applied.</li>
+<li><strong>Eigenvalue</strong>: The scalar factor <span class="arithmatex">\(\lambda\)</span> by which the eigenvector is scaled.</li>
+</ul>
+<h3 id="mathematical-definition">Mathematical Definition<a class="headerlink" href="#mathematical-definition" title="Permanent link">&para;</a></h3>
+<p>For a matrix <span class="arithmatex">\(A\)</span>, if:
+[
+A \vec{v} = \lambda \vec{v}
+]
+then <span class="arithmatex">\(\vec{v}\)</span> is an eigenvector of <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(\lambda\)</span> is the corresponding eigenvalue.</p>
+<h3 id="finding-eigenvalues-and-eigenvectors">Finding Eigenvalues and Eigenvectors<a class="headerlink" href="#finding-eigenvalues-and-eigenvectors" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Characteristic Equation</strong>:
+   [
+   \det(A - \lambda I) = 0
+   ]
+   Solve for <span class="arithmatex">\(\lambda\)</span>.</p>
+</li>
+<li>
+<p><strong>Find Eigenvectors</strong>:
+   For each <span class="arithmatex">\(\lambda\)</span>, solve:
+   [
+   (A - \lambda I) \vec{v} = 0
+   ]</p>
+</li>
+</ol>
+<h3 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h3>
+<p>Consider matrix:
+[
+A = \begin{bmatrix} 4 &amp; 1 \ 2 &amp; 3 \end{bmatrix}
+]</p>
+<ol>
+<li>
+<p><strong>Find Eigenvalues</strong>:
+   [
+   \det(A - \lambda I) = \det\begin{bmatrix} 4 - \lambda &amp; 1 \ 2 &amp; 3 - \lambda \end{bmatrix} = (4 - \lambda)(3 - \lambda) - 2 \cdot 1 = \lambda^2 - 7\lambda + 10 = 0
+   ]
+   Solving:
+   [
+   \lambda = 5, \quad \lambda = 2
+   ]</p>
+</li>
+<li>
+<p><strong>Find Eigenvectors</strong>:</p>
+</li>
+<li>
+<p>For <span class="arithmatex">\(\lambda = 5\)</span>:
+     [
+     (A - 5I) \vec{v} = \begin{bmatrix} -1 &amp; 1 \ 2 &amp; -2 \end{bmatrix} \begin{bmatrix} v_1 \ v_2 \end{bmatrix} = 0
+     ]
+     Simplifies to <span class="arithmatex">\(v_1 = v_2\)</span>. Eigenvector: <span class="arithmatex">\(\vec{v} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span></p>
+</li>
+<li>
+<p>For <span class="arithmatex">\(\lambda = 2\)</span>:
+     [
+     (A - 2I) \vec{v} = \begin{bmatrix} 2 &amp; 1 \ 2 &amp; 1 \end{bmatrix} \begin{bmatrix} v_1 \ v_2 \end{bmatrix} = 0
+     ]
+     Simplifies to <span class="arithmatex">\(2v_1 + v_2 = 0 \Rightarrow v_2 = -2v_1\)</span>. Eigenvector: <span class="arithmatex">\(\vec{v} = \begin{bmatrix} 1 \\ -2 \end{bmatrix}\)</span></p>
+</li>
+</ol>
+<h3 id="importance-in-simulations">Importance in Simulations<a class="headerlink" href="#importance-in-simulations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Stability Analysis</strong>: Eigenvalues indicate whether a system will converge or diverge.</li>
+<li><strong>Vibration Modes</strong>: Eigenvectors represent natural modes of vibration in mechanical systems.</li>
+<li><strong>Principal Component Analysis (PCA)</strong>: Reduces dimensionality in data for simulations involving large datasets.</li>
+</ul>
+<h3 id="application-example">Application Example<a class="headerlink" href="#application-example" title="Permanent link">&para;</a></h3>
+<p><strong>Vibration of a Mass-Spring System</strong>:</p>
+<p>Consider a system with two masses connected by springs. The equations of motion can be represented using a matrix. Solving for eigenvalues and eigenvectors reveals the natural frequencies and mode shapes of the system, essential for predicting vibrations and designing stable structures.</p>
+<hr />
+<h2 id="5-derivatives-and-gradients">5. Derivatives and Gradients<a class="headerlink" href="#5-derivatives-and-gradients" title="Permanent link">&para;</a></h2>
+<h3 id="derivative">Derivative<a class="headerlink" href="#derivative" title="Permanent link">&para;</a></h3>
+<p>A <strong>derivative</strong> measures how fast something changes. In simulations, derivatives show how quickly position, velocity, or other values change over time.</p>
+<ul>
+<li><strong>Example</strong>: If <span class="arithmatex">\(f(x) = x^2\)</span>, then the derivative <span class="arithmatex">\(f'(x) = 2x\)</span> shows how fast <span class="arithmatex">\(f(x)\)</span> changes as <span class="arithmatex">\(x\)</span> changes.</li>
+</ul>
+<h3 id="gradient">Gradient<a class="headerlink" href="#gradient" title="Permanent link">&para;</a></h3>
+<p>A <strong>gradient</strong> is like a derivative for functions with multiple inputs. It points in the direction of the steepest increase.</p>
+<ul>
+<li><strong>Notation</strong>: <span class="arithmatex">\(\nabla f\)</span> (nabla <span class="arithmatex">\(f\)</span>).</li>
+<li><strong>Example</strong>: If <span class="arithmatex">\(f(x, y) = x^2 + y^2\)</span>, then
+  [
+  \nabla f = \begin{bmatrix} 2x \ 2y \end{bmatrix}
+  ]</li>
+</ul>
+<h3 id="gradient-in-simulations">Gradient in Simulations<a class="headerlink" href="#gradient-in-simulations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Optimization</strong>: Finding minima or maxima of potential energy functions.</li>
+<li><strong>Force Calculations</strong>: The gradient of a potential energy function gives the force acting on an object.</li>
+</ul>
+<hr />
+<h2 id="6-the-hessian-matrix">6. The Hessian Matrix<a class="headerlink" href="#6-the-hessian-matrix" title="Permanent link">&para;</a></h2>
+<p>The <strong>Hessian</strong> matrix contains second derivatives and describes the curvature of a function, useful for analyzing stability and optimizing systems in physics.</p>
+<ul>
+<li><strong>Example</strong>: For <span class="arithmatex">\(f(x, y) = x^2 + y^2\)</span>, the Hessian is:
+  [
+  H(f) = \begin{bmatrix} 2 &amp; 0 \ 0 &amp; 2 \end{bmatrix}
+  ]
+  The entries show how curved (steep or flat) the function is in each direction.</li>
+</ul>
+<h3 id="importance-of-the-hessian">Importance of the Hessian<a class="headerlink" href="#importance-of-the-hessian" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Stability Analysis</strong>: Determines if a system is in a stable equilibrium.</li>
+<li><strong>Optimization</strong>: Helps in refining parameters to achieve desired simulation outcomes by understanding the curvature of the objective function.</li>
+</ul>
+<h3 id="application-example_1">Application Example<a class="headerlink" href="#application-example_1" title="Permanent link">&para;</a></h3>
+<p><strong>Energy Minimization in Molecular Dynamics</strong>:</p>
+<p>In molecular dynamics simulations, the Hessian matrix helps determine the stability of molecular configurations by analyzing the curvature of the potential energy surface. A positive-definite Hessian indicates a stable equilibrium.</p>
+<hr />
+<h2 id="additional-linear-algebra-concepts-for-simulations">Additional Linear Algebra Concepts for Simulations<a class="headerlink" href="#additional-linear-algebra-concepts-for-simulations" title="Permanent link">&para;</a></h2>
+<h3 id="7-determinants-and-inverses">7. Determinants and Inverses<a class="headerlink" href="#7-determinants-and-inverses" title="Permanent link">&para;</a></h3>
+<h4 id="determinant">Determinant<a class="headerlink" href="#determinant" title="Permanent link">&para;</a></h4>
+<p>The <strong>determinant</strong> of a matrix provides information about the matrix's properties, such as invertibility and scaling factor of linear transformations.</p>
+<ul>
+<li>
+<p><strong>Formula</strong>: For a 2x2 matrix <span class="arithmatex">\(A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}\)</span>, the determinant is:
+  [
+  \det(A) = ad - bc
+  ]</p>
+</li>
+<li>
+<p><strong>Interpretation</strong>:</p>
+</li>
+<li>If <span class="arithmatex">\(\det(A) \neq 0\)</span>, the matrix is invertible.</li>
+<li>The absolute value of the determinant represents the scaling factor of the area (in 2D) or volume (in 3D) under the transformation.</li>
+</ul>
+<h4 id="inverse-matrix">Inverse Matrix<a class="headerlink" href="#inverse-matrix" title="Permanent link">&para;</a></h4>
+<p>The <strong>inverse</strong> of a matrix <span class="arithmatex">\(A^{-1}\)</span> satisfies:
+[
+A \cdot A^{-1} = I
+]
+where <span class="arithmatex">\(I\)</span> is the identity matrix.</p>
+<ul>
+<li><strong>Formula</strong>: For a 2x2 matrix <span class="arithmatex">\(A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}\)</span>,
+  [
+  A^{-1} = \frac{1}{\det(A)} \begin{bmatrix} d &amp; -b \ -c &amp; a \end{bmatrix}
+  ]
+  provided that <span class="arithmatex">\(\det(A) \neq 0\)</span>.</li>
+</ul>
+<h4 id="application-in-simulations_1">Application in Simulations<a class="headerlink" href="#application-in-simulations_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Solving Linear Systems</strong>: Finding unknowns in physics equations.</li>
+<li><strong>Reversing Transformations</strong>: Applying inverse transformations to return to original coordinates.</li>
+</ul>
+<h3 id="8-solving-linear-systems">8. Solving Linear Systems<a class="headerlink" href="#8-solving-linear-systems" title="Permanent link">&para;</a></h3>
+<p>In physics simulations, you often encounter systems of linear equations that need to be solved efficiently.</p>
+<h4 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h4>
+<p>Solve the system:
+[
+\begin{cases}
+2x + 3y = 5 \
+4x + 6y = 10
+\end{cases}
+]</p>
+<ul>
+<li><strong>Matrix Form</strong>:
+  [
+  A \vec{x} = \vec{b}, \quad \text{where } A = \begin{bmatrix} 2 &amp; 3 \ 4 &amp; 6 \end{bmatrix}, \quad \vec{b} = \begin{bmatrix} 5 \ 10 \end{bmatrix}
+  ]</li>
+<li><strong>Solution</strong>:
+  This system has infinitely many solutions since the second equation is a multiple of the first.</li>
+</ul>
+<h4 id="techniques">Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Gaussian Elimination</strong>: Systematically reducing the system to row-echelon form.</li>
+<li><strong>Matrix Inversion</strong>: If <span class="arithmatex">\(A\)</span> is invertible, <span class="arithmatex">\(\vec{x} = A^{-1} \vec{b}\)</span>.</li>
+<li><strong>LU Decomposition</strong>: Breaking down <span class="arithmatex">\(A\)</span> into lower and upper triangular matrices for efficient solving.</li>
+</ul>
+<h3 id="9-linear-independence-and-basis">9. Linear Independence and Basis<a class="headerlink" href="#9-linear-independence-and-basis" title="Permanent link">&para;</a></h3>
+<h4 id="linear-independence">Linear Independence<a class="headerlink" href="#linear-independence" title="Permanent link">&para;</a></h4>
+<p>A set of vectors is <strong>linearly independent</strong> if no vector can be expressed as a linear combination of the others.</p>
+<ul>
+<li><strong>Example</strong>: Vectors <span class="arithmatex">\(\begin{bmatrix}1 \\ 0\end{bmatrix}\)</span> and <span class="arithmatex">\(\begin{bmatrix}0 \\ 1\end{bmatrix}\)</span> are linearly independent.</li>
+</ul>
+<h4 id="basis">Basis<a class="headerlink" href="#basis" title="Permanent link">&para;</a></h4>
+<p>A <strong>basis</strong> is a set of linearly independent vectors that span the vector space.</p>
+<ul>
+<li><strong>Example</strong>: In 2D space, the standard basis is <span class="arithmatex">\(\{\begin{bmatrix}1 \\ 0\end{bmatrix}, \begin{bmatrix}0 \\ 1\end{bmatrix}\}\)</span>.</li>
+</ul>
+<h4 id="application-in-simulations_2">Application in Simulations<a class="headerlink" href="#application-in-simulations_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Coordinate Systems</strong>: Defining axes for object transformations.</li>
+<li><strong>Dimensionality Reduction</strong>: Simplifying models by choosing an optimal basis.</li>
+</ul>
+<h3 id="10-singular-value-decomposition-svd">10. Singular Value Decomposition (SVD)<a class="headerlink" href="#10-singular-value-decomposition-svd" title="Permanent link">&para;</a></h3>
+<p><strong>Singular Value Decomposition (SVD)</strong> decomposes a matrix into three other matrices, revealing important properties like rank and range.</p>
+<ul>
+<li><strong>Formula</strong>:
+  [
+  A = U \Sigma V^T
+  ]
+  where:</li>
+<li><span class="arithmatex">\(U\)</span> and <span class="arithmatex">\(V\)</span> are orthogonal matrices.</li>
+<li><span class="arithmatex">\(\Sigma\)</span> is a diagonal matrix containing singular values.</li>
+</ul>
+<h4 id="importance-in-simulations_1">Importance in Simulations<a class="headerlink" href="#importance-in-simulations_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Data Compression</strong>: Reducing the size of simulation data without significant loss.</li>
+<li><strong>Noise Reduction</strong>: Filtering out unwanted noise from simulation results.</li>
+<li><strong>Image Processing</strong>: Enhancing and analyzing images in simulations.</li>
+</ul>
+<hr />
+<p>By understanding and applying these linear algebra concepts, you can enhance the accuracy and efficiency of your physics simulations. Whether you're manipulating vectors and matrices, analyzing system stability with eigenvalues, or solving complex linear systems, these foundational tools are essential for advanced simulation tasks.</p>
+<h1 id="beginner-course-linear-algebra-for-physics-simulations_1">Beginner Course: Linear Algebra for Physics Simulations<a class="headerlink" href="#beginner-course-linear-algebra-for-physics-simulations_1" title="Permanent link">&para;</a></h1>
+<p>Welcome to a straightforward guide on the basics of <strong>Linear Algebra for Physics Simulations</strong>. This guide will introduce key concepts in linear algebra that are essential for understanding and creating physics simulations, such as vectors, matrices, norms, dot products, eigenvalues, eigenvectors, gradients, and the Hessian. I’ll keep it simple, with clear explanations and easy-to-follow math.</p>
+<h2 id="1-vectors_1">1. Vectors<a class="headerlink" href="#1-vectors_1" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-a-vector_1">What is a Vector?<a class="headerlink" href="#what-is-a-vector_1" title="Permanent link">&para;</a></h3>
+<p>A <strong>vector</strong> is a quantity with both a <strong>magnitude</strong> (size) and <strong>direction</strong>. In physics, vectors represent things like position, velocity, and force.</p>
+<ul>
+<li><strong>Notation</strong>: Vectors are usually written in bold (e.g., <strong>v</strong>) or with an arrow (e.g., <span class="arithmatex">\(\vec{v}\)</span>).</li>
+<li><strong>Example</strong>: A vector <span class="arithmatex">\(\vec{v} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}\)</span> points 3 units in the x-direction and 4 units in the y-direction.</li>
+</ul>
+<h3 id="basic-vector-operations_1">Basic Vector Operations<a class="headerlink" href="#basic-vector-operations_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Addition</strong>:
+  [
+  \vec{a} + \vec{b} = \begin{bmatrix} a_x + b_x \ a_y + b_y \end{bmatrix}
+  ]</li>
+<li><strong>Scalar Multiplication</strong>:
+  [
+  k \cdot \vec{a} = \begin{bmatrix} k \cdot a_x \ k \cdot a_y \end{bmatrix}
+  ]</li>
+</ul>
+<h3 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h3>
+<p>If <span class="arithmatex">\(\vec{a} = \begin{bmatrix} 2 \\ 3 \end{bmatrix}\)</span> and <span class="arithmatex">\(\vec{b} = \begin{bmatrix} 1 \\ 4 \end{bmatrix}\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(\vec{a} + \vec{b} = \begin{bmatrix} 2 + 1 \\ 3 + 4 \end{bmatrix} = \begin{bmatrix} 3 \\ 7 \end{bmatrix}\)</span></li>
+</ul>
+<hr />
+<h2 id="2-vector-norms-and-dot-products_1">2. Vector Norms and Dot Products<a class="headerlink" href="#2-vector-norms-and-dot-products_1" title="Permanent link">&para;</a></h2>
+<h3 id="vector-norm-length_1">Vector Norm (Length)<a class="headerlink" href="#vector-norm-length_1" title="Permanent link">&para;</a></h3>
+<p>The <strong>norm</strong> of a vector (also called its length or magnitude) tells us how long the vector is.</p>
+<ul>
+<li><strong>Formula</strong>: For a vector <span class="arithmatex">\(\vec{v} = \begin{bmatrix} v_x \\ v_y \end{bmatrix}\)</span>, the norm is
+  [
+  ||\vec{v}|| = \sqrt{v_x^2 + v_y^2}
+  ]</li>
+</ul>
+<h3 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h3>
+<p>For <span class="arithmatex">\(\vec{v} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(||\vec{v}|| = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5\)</span></li>
+</ul>
+<h3 id="dot-product_1">Dot Product<a class="headerlink" href="#dot-product_1" title="Permanent link">&para;</a></h3>
+<p>The <strong>dot product</strong> is a way to multiply two vectors to find the angle between them or to see how much they "align."</p>
+<ul>
+<li><strong>Formula</strong>: If <span class="arithmatex">\(\vec{a} = \begin{bmatrix} a_x \\ a_y \end{bmatrix}\)</span> and <span class="arithmatex">\(\vec{b} = \begin{bmatrix} b_x \\ b_y \end{bmatrix}\)</span>, then
+  [
+  \vec{a} \cdot \vec{b} = a_x \cdot b_x + a_y \cdot b_y
+  ]</li>
+<li><strong>Angle</strong>:
+  [
+  \vec{a} \cdot \vec{b} = ||\vec{a}|| \cdot ||\vec{b}|| \cdot \cos(\theta)
+  ]
+  If <span class="arithmatex">\(\vec{a} \cdot \vec{b} = 0\)</span>, the vectors are perpendicular.</li>
+</ul>
+<h3 id="example_8">Example<a class="headerlink" href="#example_8" title="Permanent link">&para;</a></h3>
+<p>For <span class="arithmatex">\(\vec{a} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}\)</span> and <span class="arithmatex">\(\vec{b} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(\vec{a} \cdot \vec{b} = 1 \cdot 3 + 2 \cdot 4 = 3 + 8 = 11\)</span></li>
+</ul>
+<hr />
+<h2 id="3-matrices_1">3. Matrices<a class="headerlink" href="#3-matrices_1" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-a-matrix_1">What is a Matrix?<a class="headerlink" href="#what-is-a-matrix_1" title="Permanent link">&para;</a></h3>
+<p>A <strong>matrix</strong> is a rectangular array of numbers that can represent transformations (like rotation, scaling) or systems of equations. They’re used to manipulate vectors in simulations.</p>
+<h3 id="matrix-operations_1">Matrix Operations<a class="headerlink" href="#matrix-operations_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Matrix Multiplication</strong>: Used to apply transformations to vectors.</li>
+<li><strong>Identity Matrix</strong>: An identity matrix leaves vectors unchanged, like multiplying by 1.</li>
+<li><strong>Transpose</strong>: Flipping a matrix over its diagonal.</li>
+<li><strong>Inverse</strong>: A matrix <span class="arithmatex">\(A^{-1}\)</span> such that <span class="arithmatex">\(A \cdot A^{-1} = I\)</span>, where <span class="arithmatex">\(I\)</span> is the identity matrix.</li>
+</ul>
+<h3 id="example_9">Example<a class="headerlink" href="#example_9" title="Permanent link">&para;</a></h3>
+<p>For a 2D matrix:
+[
+A = \begin{bmatrix} 2 &amp; 0 \ 0 &amp; 3 \end{bmatrix}
+]
+Applying this matrix to <span class="arithmatex">\(\vec{v} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span> scales it:
+[
+A \cdot \vec{v} = \begin{bmatrix} 2 &amp; 0 \ 0 &amp; 3 \end{bmatrix} \cdot \begin{bmatrix} 1 \ 1 \end{bmatrix} = \begin{bmatrix} 2 \ 3 \end{bmatrix}
+]</p>
+<h3 id="linear-transformations_1">Linear Transformations<a class="headerlink" href="#linear-transformations_1" title="Permanent link">&para;</a></h3>
+<p>Matrices can represent linear transformations such as rotation, scaling, and shearing.</p>
+<ul>
+<li><strong>Rotation Matrix</strong> (by angle <span class="arithmatex">\(\theta\)</span>):
+  [
+  R(\theta) = \begin{bmatrix} \cos(\theta) &amp; -\sin(\theta) \ \sin(\theta) &amp; \cos(\theta) \end{bmatrix}
+  ]</li>
+<li><strong>Scaling Matrix</strong>:
+  [
+  S(k_x, k_y) = \begin{bmatrix} k_x &amp; 0 \ 0 &amp; k_y \end{bmatrix}
+  ]</li>
+</ul>
+<h3 id="application-in-simulations_3">Application in Simulations<a class="headerlink" href="#application-in-simulations_3" title="Permanent link">&para;</a></h3>
+<p>Matrices are fundamental in simulations for:</p>
+<ul>
+<li><strong>Transforming Object Positions</strong>: Applying rotations, translations, and scaling to objects.</li>
+<li><strong>Solving Systems of Equations</strong>: Representing and solving multiple linear equations simultaneously.</li>
+<li><strong>Animating Physics</strong>: Calculating movements and transformations over time.</li>
+</ul>
+<hr />
+<h2 id="4-eigenvalues-and-eigenvectors_1">4. Eigenvalues and Eigenvectors<a class="headerlink" href="#4-eigenvalues-and-eigenvectors_1" title="Permanent link">&para;</a></h2>
+<h3 id="what-are-eigenvalues-and-eigenvectors_1">What are Eigenvalues and Eigenvectors?<a class="headerlink" href="#what-are-eigenvalues-and-eigenvectors_1" title="Permanent link">&para;</a></h3>
+<p><strong>Eigenvalues</strong> and <strong>eigenvectors</strong> are fundamental in understanding linear transformations represented by matrices. They reveal important properties of the matrix, such as stability and oscillatory behavior, which are crucial in physics simulations.</p>
+<ul>
+<li><strong>Eigenvector</strong>: A non-zero vector <span class="arithmatex">\(\vec{v}\)</span> that only changes by a scalar factor when a linear transformation is applied.</li>
+<li><strong>Eigenvalue</strong>: The scalar factor <span class="arithmatex">\(\lambda\)</span> by which the eigenvector is scaled.</li>
+</ul>
+<h3 id="mathematical-definition_1">Mathematical Definition<a class="headerlink" href="#mathematical-definition_1" title="Permanent link">&para;</a></h3>
+<p>For a matrix <span class="arithmatex">\(A\)</span>, if:
+[
+A \vec{v} = \lambda \vec{v}
+]
+then <span class="arithmatex">\(\vec{v}\)</span> is an eigenvector of <span class="arithmatex">\(A\)</span> and <span class="arithmatex">\(\lambda\)</span> is the corresponding eigenvalue.</p>
+<h3 id="finding-eigenvalues-and-eigenvectors_1">Finding Eigenvalues and Eigenvectors<a class="headerlink" href="#finding-eigenvalues-and-eigenvectors_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Characteristic Equation</strong>:
+   [
+   \det(A - \lambda I) = 0
+   ]
+   Solve for <span class="arithmatex">\(\lambda\)</span>.</p>
+</li>
+<li>
+<p><strong>Find Eigenvectors</strong>:
+   For each <span class="arithmatex">\(\lambda\)</span>, solve:
+   [
+   (A - \lambda I) \vec{v} = 0
+   ]</p>
+</li>
+</ol>
+<h3 id="example_10">Example<a class="headerlink" href="#example_10" title="Permanent link">&para;</a></h3>
+<p>Consider matrix:
+[
+A = \begin{bmatrix} 4 &amp; 1 \ 2 &amp; 3 \end{bmatrix}
+]</p>
+<ol>
+<li>
+<p><strong>Find Eigenvalues</strong>:
+   [
+   \det(A - \lambda I) = \det\begin{bmatrix} 4 - \lambda &amp; 1 \ 2 &amp; 3 - \lambda \end{bmatrix} = (4 - \lambda)(3 - \lambda) - 2 \cdot 1 = \lambda^2 - 7\lambda + 10 = 0
+   ]
+   Solving:
+   [
+   \lambda = 5, \quad \lambda = 2
+   ]</p>
+</li>
+<li>
+<p><strong>Find Eigenvectors</strong>:</p>
+</li>
+<li>
+<p>For <span class="arithmatex">\(\lambda = 5\)</span>:
+     [
+     (A - 5I) \vec{v} = \begin{bmatrix} -1 &amp; 1 \ 2 &amp; -2 \end{bmatrix} \begin{bmatrix} v_1 \ v_2 \end{bmatrix} = 0
+     ]
+     Simplifies to <span class="arithmatex">\(v_1 = v_2\)</span>. Eigenvector: <span class="arithmatex">\(\vec{v} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span></p>
+</li>
+<li>
+<p>For <span class="arithmatex">\(\lambda = 2\)</span>:
+     [
+     (A - 2I) \vec{v} = \begin{bmatrix} 2 &amp; 1 \ 2 &amp; 1 \end{bmatrix} \begin{bmatrix} v_1 \ v_2 \end{bmatrix} = 0
+     ]
+     Simplifies to <span class="arithmatex">\(2v_1 + v_2 = 0 \Rightarrow v_2 = -2v_1\)</span>. Eigenvector: <span class="arithmatex">\(\vec{v} = \begin{bmatrix} 1 \\ -2 \end{bmatrix}\)</span></p>
+</li>
+</ol>
+<h3 id="importance-in-simulations_2">Importance in Simulations<a class="headerlink" href="#importance-in-simulations_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Stability Analysis</strong>: Eigenvalues indicate whether a system will converge or diverge.</li>
+<li><strong>Vibration Modes</strong>: Eigenvectors represent natural modes of vibration in mechanical systems.</li>
+<li><strong>Principal Component Analysis (PCA)</strong>: Reduces dimensionality in data for simulations involving large datasets.</li>
+</ul>
+<h3 id="application-example_2">Application Example<a class="headerlink" href="#application-example_2" title="Permanent link">&para;</a></h3>
+<p><strong>Vibration of a Mass-Spring System</strong>:</p>
+<p>Consider a system with two masses connected by springs. The equations of motion can be represented using a matrix. Solving for eigenvalues and eigenvectors reveals the natural frequencies and mode shapes of the system, essential for predicting vibrations and designing stable structures.</p>
+<hr />
+<h2 id="5-derivatives-and-gradients_1">5. Derivatives and Gradients<a class="headerlink" href="#5-derivatives-and-gradients_1" title="Permanent link">&para;</a></h2>
+<h3 id="derivative_1">Derivative<a class="headerlink" href="#derivative_1" title="Permanent link">&para;</a></h3>
+<p>A <strong>derivative</strong> measures how fast something changes. In simulations, derivatives show how quickly position, velocity, or other values change over time.</p>
+<ul>
+<li><strong>Example</strong>: If <span class="arithmatex">\(f(x) = x^2\)</span>, then the derivative <span class="arithmatex">\(f'(x) = 2x\)</span> shows how fast <span class="arithmatex">\(f(x)\)</span> changes as <span class="arithmatex">\(x\)</span> changes.</li>
+</ul>
+<h3 id="gradient_1">Gradient<a class="headerlink" href="#gradient_1" title="Permanent link">&para;</a></h3>
+<p>A <strong>gradient</strong> is like a derivative for functions with multiple inputs. It points in the direction of the steepest increase.</p>
+<ul>
+<li><strong>Notation</strong>: <span class="arithmatex">\(\nabla f\)</span> (nabla <span class="arithmatex">\(f\)</span>).</li>
+<li><strong>Example</strong>: If <span class="arithmatex">\(f(x, y) = x^2 + y^2\)</span>, then
+  [
+  \nabla f = \begin{bmatrix} 2x \ 2y \end{bmatrix}
+  ]</li>
+</ul>
+<h3 id="gradient-in-simulations_1">Gradient in Simulations<a class="headerlink" href="#gradient-in-simulations_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Optimization</strong>: Finding minima or maxima of potential energy functions.</li>
+<li><strong>Force Calculations</strong>: The gradient of a potential energy function gives the force acting on an object.</li>
+</ul>
+<hr />
+<h2 id="6-the-hessian-matrix_1">6. The Hessian Matrix<a class="headerlink" href="#6-the-hessian-matrix_1" title="Permanent link">&para;</a></h2>
+<p>The <strong>Hessian</strong> matrix contains second derivatives and describes the curvature of a function, useful for analyzing stability and optimizing systems in physics.</p>
+<ul>
+<li><strong>Example</strong>: For <span class="arithmatex">\(f(x, y) = x^2 + y^2\)</span>, the Hessian is:
+  [
+  H(f) = \begin{bmatrix} 2 &amp; 0 \ 0 &amp; 2 \end{bmatrix}
+  ]
+  The entries show how curved (steep or flat) the function is in each direction.</li>
+</ul>
+<h3 id="importance-of-the-hessian_1">Importance of the Hessian<a class="headerlink" href="#importance-of-the-hessian_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Stability Analysis</strong>: Determines if a system is in a stable equilibrium.</li>
+<li><strong>Optimization</strong>: Helps in refining parameters to achieve desired simulation outcomes by understanding the curvature of the objective function.</li>
+</ul>
+<h3 id="application-example_3">Application Example<a class="headerlink" href="#application-example_3" title="Permanent link">&para;</a></h3>
+<p><strong>Energy Minimization in Molecular Dynamics</strong>:</p>
+<p>In molecular dynamics simulations, the Hessian matrix helps determine the stability of molecular configurations by analyzing the curvature of the potential energy surface. A positive-definite Hessian indicates a stable equilibrium.</p>
+<hr />
+<h2 id="suggested-reference-books">Suggested Reference Books<a class="headerlink" href="#suggested-reference-books" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>"Introduction to Linear Algebra" by Gilbert Strang</strong>: A great starter for all things linear algebra.</li>
+<li><strong>"Numerical Linear Algebra for Applications in Physics" by Michael Li</strong>: Focuses on applying linear algebra in physics contexts.</li>
+<li><strong>"Mathematics for 3D Game Programming and Computer Graphics" by Eric Lengyel</strong>: Explains how linear algebra powers 3D graphics and simulations.</li>
+</ul>
+<hr />
+<h2 id="additional-linear-algebra-concepts-for-simulations_1">Additional Linear Algebra Concepts for Simulations<a class="headerlink" href="#additional-linear-algebra-concepts-for-simulations_1" title="Permanent link">&para;</a></h2>
+<h3 id="7-determinants-and-inverses_1">7. Determinants and Inverses<a class="headerlink" href="#7-determinants-and-inverses_1" title="Permanent link">&para;</a></h3>
+<h4 id="determinant_1">Determinant<a class="headerlink" href="#determinant_1" title="Permanent link">&para;</a></h4>
+<p>The <strong>determinant</strong> of a matrix provides information about the matrix's properties, such as invertibility and scaling factor of linear transformations.</p>
+<ul>
+<li>
+<p><strong>Formula</strong>: For a 2x2 matrix <span class="arithmatex">\(A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}\)</span>, the determinant is:
+  [
+  \det(A) = ad - bc
+  ]</p>
+</li>
+<li>
+<p><strong>Interpretation</strong>:</p>
+</li>
+<li>If <span class="arithmatex">\(\det(A) \neq 0\)</span>, the matrix is invertible.</li>
+<li>The absolute value of the determinant represents the scaling factor of the area (in 2D) or volume (in 3D) under the transformation.</li>
+</ul>
+<h4 id="inverse-matrix_1">Inverse Matrix<a class="headerlink" href="#inverse-matrix_1" title="Permanent link">&para;</a></h4>
+<p>The <strong>inverse</strong> of a matrix <span class="arithmatex">\(A^{-1}\)</span> satisfies:
+[
+A \cdot A^{-1} = I
+]
+where <span class="arithmatex">\(I\)</span> is the identity matrix.</p>
+<ul>
+<li><strong>Formula</strong>: For a 2x2 matrix <span class="arithmatex">\(A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}\)</span>,
+  [
+  A^{-1} = \frac{1}{\det(A)} \begin{bmatrix} d &amp; -b \ -c &amp; a \end{bmatrix}
+  ]
+  provided that <span class="arithmatex">\(\det(A) \neq 0\)</span>.</li>
+</ul>
+<h4 id="application-in-simulations_4">Application in Simulations<a class="headerlink" href="#application-in-simulations_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Solving Linear Systems</strong>: Finding unknowns in physics equations.</li>
+<li><strong>Reversing Transformations</strong>: Applying inverse transformations to return to original coordinates.</li>
+</ul>
+<h3 id="8-solving-linear-systems_1">8. Solving Linear Systems<a class="headerlink" href="#8-solving-linear-systems_1" title="Permanent link">&para;</a></h3>
+<p>In physics simulations, you often encounter systems of linear equations that need to be solved efficiently.</p>
+<h4 id="example_11">Example<a class="headerlink" href="#example_11" title="Permanent link">&para;</a></h4>
+<p>Solve the system:
+[
+\begin{cases}
+2x + 3y = 5 \
+4x + 6y = 10
+\end{cases}
+]</p>
+<ul>
+<li><strong>Matrix Form</strong>:
+  [
+  A \vec{x} = \vec{b}, \quad \text{where } A = \begin{bmatrix} 2 &amp; 3 \ 4 &amp; 6 \end{bmatrix}, \quad \vec{b} = \begin{bmatrix} 5 \ 10 \end{bmatrix}
+  ]</li>
+<li><strong>Solution</strong>:
+  This system has infinitely many solutions since the second equation is a multiple of the first.</li>
+</ul>
+<h4 id="techniques_1">Techniques<a class="headerlink" href="#techniques_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Gaussian Elimination</strong>: Systematically reducing the system to row-echelon form.</li>
+<li><strong>Matrix Inversion</strong>: If <span class="arithmatex">\(A\)</span> is invertible, <span class="arithmatex">\(\vec{x} = A^{-1} \vec{b}\)</span>.</li>
+<li><strong>LU Decomposition</strong>: Breaking down <span class="arithmatex">\(A\)</span> into lower and upper triangular matrices for efficient solving.</li>
+</ul>
+<h3 id="9-linear-independence-and-basis_1">9. Linear Independence and Basis<a class="headerlink" href="#9-linear-independence-and-basis_1" title="Permanent link">&para;</a></h3>
+<h4 id="linear-independence_1">Linear Independence<a class="headerlink" href="#linear-independence_1" title="Permanent link">&para;</a></h4>
+<p>A set of vectors is <strong>linearly independent</strong> if no vector can be expressed as a linear combination of the others.</p>
+<ul>
+<li><strong>Example</strong>: Vectors <span class="arithmatex">\(\begin{bmatrix}1 \\ 0\end{bmatrix}\)</span> and <span class="arithmatex">\(\begin{bmatrix}0 \\ 1\end{bmatrix}\)</span> are linearly independent.</li>
+</ul>
+<h4 id="basis_1">Basis<a class="headerlink" href="#basis_1" title="Permanent link">&para;</a></h4>
+<p>A <strong>basis</strong> is a set of linearly independent vectors that span the vector space.</p>
+<ul>
+<li><strong>Example</strong>: In 2D space, the standard basis is <span class="arithmatex">\(\{\begin{bmatrix}1 \\ 0\end{bmatrix}, \begin{bmatrix}0 \\ 1\end{bmatrix}\}\)</span>.</li>
+</ul>
+<h4 id="application-in-simulations_5">Application in Simulations<a class="headerlink" href="#application-in-simulations_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Coordinate Systems</strong>: Defining axes for object transformations.</li>
+<li><strong>Dimensionality Reduction</strong>: Simplifying models by choosing an optimal basis.</li>
+</ul>
+<h3 id="10-singular-value-decomposition-svd_1">10. Singular Value Decomposition (SVD)<a class="headerlink" href="#10-singular-value-decomposition-svd_1" title="Permanent link">&para;</a></h3>
+<p><strong>Singular Value Decomposition (SVD)</strong> decomposes a matrix into three other matrices, revealing important properties like rank and range.</p>
+<ul>
+<li><strong>Formula</strong>:
+  [
+  A = U \Sigma V^T
+  ]
+  where:</li>
+<li><span class="arithmatex">\(U\)</span> and <span class="arithmatex">\(V\)</span> are orthogonal matrices.</li>
+<li><span class="arithmatex">\(\Sigma\)</span> is a diagonal matrix containing singular values.</li>
+</ul>
+<h4 id="importance-in-simulations_3">Importance in Simulations<a class="headerlink" href="#importance-in-simulations_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Data Compression</strong>: Reducing the size of simulation data without significant loss.</li>
+<li><strong>Noise Reduction</strong>: Filtering out unwanted noise from simulation results.</li>
+<li><strong>Image Processing</strong>: Enhancing and analyzing images in simulations.</li>
+</ul>
+<hr />
+<p>By understanding and applying these linear algebra concepts, you can enhance the accuracy and efficiency of your physics simulations. Whether you're manipulating vectors and matrices, analyzing system stability with eigenvalues, or solving complex linear systems, these foundational tools are essential for advanced simulation tasks.</p>
+<hr />
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 12, 2024</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "toc.follow", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../../_static/javascripts/config.js"></script>
+      
+        <script src="../../../_static/javascripts/custom.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/rod2ik/cdn@main/mkdocs/javascripts/mkdocs-graphviz.js"></script>
+      
+    
+  </body>
+</html>
