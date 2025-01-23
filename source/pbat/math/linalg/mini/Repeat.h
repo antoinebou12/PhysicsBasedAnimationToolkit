@@ -32,8 +32,14 @@ class TiledView
     }
 
     // Vector(ized) access
-    PBAT_HOST_DEVICE ScalarType operator()(auto i) const { return (*this)(i % kRows, i / kRows); }
-    PBAT_HOST_DEVICE ScalarType operator[](auto i) const { return (*this)(i); }
+    PBAT_HOST_DEVICE ScalarType operator()(auto i) const
+    {
+        return (*this)(i % kRows, i / kRows);
+    }
+    PBAT_HOST_DEVICE ScalarType operator[](auto i) const
+    {
+        return (*this)(i);
+    }
 
     PBAT_MINI_READ_API(SelfType)
 
